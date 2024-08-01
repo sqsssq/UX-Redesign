@@ -1,0 +1,317 @@
+[
+    {
+        "l_id": 1,
+        "level": 1,
+        "disabled": true,
+        "label": "Functionality issues",
+        "description": "Problems related to the functioning and features of the software.",
+        "children": [
+            {
+                "l_id": 1,
+                "level": 2,
+                "disabled": true,
+                "label": "Text editing issues",
+                "description": "Difficulties specifically related to text input, formatting, and typography within designs.",
+                "cnt": 1,
+                "id": 1
+            },
+            {
+                "l_id": 2,
+                "level": 2,
+                "disabled": true,
+                "label": "Image editing issues",
+                "description": "Challenges with adding, altering, or manipulating images, including background removal and image resizing.",
+                "cnt": 2,
+                "id": 2
+            },
+            {
+                "l_id": 3,
+                "level": 2,
+                "disabled": true,
+                "label": "Feature completeness",
+                "description": "Absence or inadequacy of features that users expect for their tasks, like grammar check or style consistency.",
+                "cnt": 3,
+                "id": 3
+            },
+            {
+                "l_id": 4,
+                "level": 2,
+                "disabled": true,
+                "label": "Asset availability",
+                "description": "The absence or difficulty in finding specific content, such as images or fonts.",
+                "cnt": 4,
+                "id": 4
+            }
+        ],
+        "cnt": 1,
+        "id": 5
+    },
+    {
+        "l_id": 2,
+        "level": 1,
+        "disabled": true,
+        "label": "System feedback and error handling",
+        "description": "Problems with how the system communicates with the user, especially regarding errors or system status.",
+        "children": [
+            {
+                "l_id": 5,
+                "level": 2,
+                "disabled": true,
+                "label": "Error message clarity",
+                "description": "Lack of clear, actionable information in error messages.",
+                "cnt": 1,
+                "id": 6
+            },
+            {
+                "l_id": 6,
+                "level": 2,
+                "disabled": true,
+                "label": "Feedback on actions",
+                "description": "Insufficient or missing feedback after user actions, leaving users uncertain about the result of their input.",
+                "cnt": 2,
+                "id": 7
+            }
+        ],
+        "cnt": 2,
+        "id": 8
+    },
+    {
+        "l_id": 3,
+        "level": 1,
+        "disabled": true,
+        "label": "Navigation and workflow issues",
+        "description": "Problems related to the structure and sequence of tasks within the application.",
+        "children": [
+            {
+                "l_id": 7,
+                "level": 2,
+                "disabled": true,
+                "label": "Process clarity",
+                "description": "Uncertainty about the steps needed to complete a task or the status of ongoing actions.",
+                "cnt": 1,
+                "id": 9
+            },
+            {
+                "l_id": 8,
+                "level": 2,
+                "disabled": true,
+                "label": "Step recovery",
+                "description": "Difficulty in reverting to a previous step or undoing an action.",
+                "cnt": 2,
+                "id": 10
+            }
+        ],
+        "cnt": 3,
+        "id": 11
+    },
+    {
+        "l_id": 4,
+        "level": 1,
+        "disabled": true,
+        "label": "User interface and experience issues",
+        "description": "General issues affecting how users interact with and feel about the software.",
+        "children": [
+            {
+                "l_id": 9,
+                "level": 2,
+                "disabled": true,
+                "label": "Element selection",
+                "description": "Difficulties selecting and editing specific elements without affecting others.",
+                "cnt": 1,
+                "id": 12
+            },
+            {
+                "l_id": 10,
+                "level": 2,
+                "disabled": true,
+                "label": "Visibility of options and tools",
+                "description": "Issues with finding options, such as color palettes or AI features, suggesting a lack of visibility or intuitive placement.",
+                "cnt": 2,
+                "id": 13
+            },
+            {
+                "l_id": 11,
+                "level": 2,
+                "disabled": true,
+                "label": "Satisfaction",
+                "description": "Overall dissatisfaction with the tool's capabilities or output.",
+                "cnt": 3,
+                "id": 14
+            }
+        ],
+        "cnt": 4,
+        "id": 15
+    },
+    {
+        "l_id": 5,
+        "level": 1,
+        "disabled": true,
+        "label": "Performance and responsiveness",
+        "description": "Challenges related to the speed and responsiveness of the software.",
+        "children": [
+            {
+                "l_id": 12,
+                "level": 2,
+                "disabled": true,
+                "label": "System speed",
+                "description": "Delays and slow response times that hinder the user experience.",
+                "cnt": 1,
+                "id": 16
+            },
+            {
+                "l_id": 13,
+                "level": 2,
+                "disabled": true,
+                "label": "System reliability",
+                "description": "Inconsistent performance and failures that disrupt the user workflow.",
+                "cnt": 2,
+                "id": 17
+            }
+        ],
+        "cnt": 5,
+        "id": 18
+    },
+    {
+        "l_id": 6,
+        "level": 1,
+        "disabled": true,
+        "label": "Accessibility and inclusivity issues",
+        "description": "Problems related to the software being accessible to all users, including those with disabilities.",
+        "children": [
+            {
+                "l_id": 14,
+                "level": 2,
+                "disabled": true,
+                "label": "Language and localization",
+                "description": "Issues with language input affecting output, indicating a possible need for better language support.",
+                "cnt": 1,
+                "id": 19
+            },
+            {
+                "l_id": 15,
+                "level": 2,
+                "disabled": true,
+                "label": "Accessibility features",
+                "description": "Lack of features that make the software usable by people with various abilities.",
+                "cnt": 2,
+                "id": 20
+            }
+        ],
+        "cnt": 6,
+        "id": 21
+    },
+    {
+        "l_id": 7,
+        "level": 1,
+        "disabled": true,
+        "label": "Help and documentation",
+        "description": "Issues related to the assistance provided by the software for users to understand and utilize features.",
+        "children": [
+            {
+                "l_id": 16,
+                "level": 2,
+                "disabled": true,
+                "label": "Instructional support",
+                "description": "A lack of guidance or tutorials on how to effectively use the system.",
+                "cnt": 1,
+                "id": 22
+            },
+            {
+                "l_id": 17,
+                "level": 2,
+                "disabled": true,
+                "label": "Assistive features for detailed tasks",
+                "description": "Need for features that assist in adding detailed information, like event details, to a design.",
+                "cnt": 2,
+                "id": 23
+            },
+            {
+                "l_id": 18,
+                "level": 2,
+                "disabled": true,
+                "label": "Help content accessibility",
+                "description": "Difficulty in accessing or finding help content when faced with an issue.",
+                "cnt": 3,
+                "id": 24
+            }
+        ],
+        "cnt": 7,
+        "id": 25
+    },
+    {
+        "l_id": 8,
+        "level": 1,
+        "disabled": true,
+        "label": "Customization and flexibility",
+        "description": "Challenges with personalizing and adjusting the software to fit the user’s specific needs.",
+        "children": [
+            {
+                "l_id": 19,
+                "level": 2,
+                "disabled": true,
+                "label": "Layout and design adaptability",
+                "description": "Difficulty in adapting generated layouts or templates to accommodate specific content or style needs.",
+                "cnt": 1,
+                "id": 26
+            },
+            {
+                "l_id": 20,
+                "level": 2,
+                "disabled": true,
+                "label": "Aesthetic customization",
+                "description": "Challenges in customizing the design to meet a desired visual style or aesthetic.",
+                "cnt": 2,
+                "id": 27
+            },
+            {
+                "l_id": 21,
+                "level": 2,
+                "disabled": true,
+                "label": "Template customization",
+                "description": "Issues with modifying and using templates to create custom designs.",
+                "cnt": 3,
+                "id": 28
+            }
+        ],
+        "cnt": 8,
+        "id": 29
+    },
+    {
+        "l_id": 9,
+        "level": 1,
+        "disabled": true,
+        "label": "AI understanding and generation",
+        "description": "Issues related to the AI's ability to understand natural language prompts, interpret design intents, and produce results that align with user expectations.",
+        "children": [
+            {
+                "l_id": 22,
+                "level": 2,
+                "disabled": true,
+                "label": "AI interpretation of prompts",
+                "description": "Problems with the AI not recognizing specific elements or producing unrelated results.",
+                "cnt": 1,
+                "id": 30
+            },
+            {
+                "l_id": 23,
+                "level": 2,
+                "disabled": true,
+                "label": "Element integration and consistency",
+                "description": "Generated elements not integrating well into a cohesive design or inconsistent styles among elements.",
+                "cnt": 2,
+                "id": 31
+            },
+            {
+                "l_id": 24,
+                "level": 2,
+                "disabled": true,
+                "label": "Realism and style match",
+                "description": "Difficulty in generating elements that match the desired style or level of realism.",
+                "cnt": 3,
+                "id": 32
+            }
+        ],
+        "cnt": 9,
+        "id": 33
+    }
+]

@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'KoHo';
+    src: url('KoHo-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'giulia';
+    src: url('giulia-plain-light.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'jejuHallasan';
+    src: url('JejuHallasan/jejuhallasan/JejuHallasan-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}

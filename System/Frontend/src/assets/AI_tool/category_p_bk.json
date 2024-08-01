@@ -1,0 +1,251 @@
+[
+    {
+        "id": 1,
+        "level": 1,
+        "isShow": 1,
+        "label": "功能性问题",
+        "description": "与软件的功能和特征相关的问题。",
+        "children": [
+            {
+                "id": 1,
+                "level": 2,
+                "isShow": 1,
+                "label": "文本编辑问题",
+                "description": "特别是与设计中的文本输入、格式设置和排版有关的问题。"
+            },
+            {
+                "id": 2,
+                "level": 2,
+                "isShow": 1,
+                "label": "图像编辑问题",
+                "description": "添加、更改或操作图像时遇到的问题，包括移除背景和调整图像大小。"
+            },
+            {
+                "id": 3,
+                "level": 2,
+                "isShow": 1,
+                "label": "功能完整性",
+                "description": "用户完成任务所需功能的缺失或不足，如语法检查功能或风格一致性。"
+            },
+            {
+                "id": 4,
+                "level": 2,
+                "isShow": 1,
+                "label": "资产可用性",
+                "description": "缺失或难以找到特定内容（如图像或字体）。"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "level": 1,
+        "isShow": 1,
+        "label": "系统反馈和错误处理",
+        "description": "系统与用户沟通的问题，尤其是关于错误或系统状态的问题。",
+        "children": [
+            {
+                "id": 5,
+                "level": 2,
+                "isShow": 1,
+                "label": "错误信息的清晰度",
+                "description": "错误信息中缺乏清晰、可操作的信息。"
+            },
+            {
+                "id": 6,
+                "level": 2,
+                "isShow": 1,
+                "label": "操作反馈",
+                "description": "用户操作后缺乏或缺失反馈，使用户对其输入的结果感到不确定。"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "level": 1,
+        "isShow": 1,
+        "label": "导航和工作流程问题",
+        "description": "与应用程序内任务的结构和顺序相关的问题。",
+        "children": [
+            {
+                "id": 7,
+                "level": 2,
+                "isShow": 1,
+                "label": "过程清晰度",
+                "description": "对完成任务所需步骤或正在进行的操作的状态不确定。"
+            },
+            {
+                "id": 8,
+                "level": 2,
+                "isShow": 1,
+                "label": "步骤恢复",
+                "description": "与回到前一步或撤销操作相关的问题。"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "level": 1,
+        "isShow": 1,
+        "label": "用户界面和体验问题",
+        "description": "影响用户与软件交互和用户体验的问题。",
+        "children": [
+            {
+                "id": 9,
+                "level": 2,
+                "isShow": 1,
+                "label": "元素选择",
+                "description": "在选择和编辑特定元素时不影响其他元素。"
+            },
+            {
+                "id": 10,
+                "level": 2,
+                "isShow": 1,
+                "label": "选项和工具的可见性",
+                "description": "找不到选项的问题，如色盘或AI功能，暗示可见性不足或直观放置不当。"
+            },
+            {
+                "id": 11,
+                "level": 2,
+                "isShow": 1,
+                "label": "满意度",
+                "description": "对工具功能或输出的整体不满。"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "level": 1,
+        "isShow": 1,
+        "label": "性能和响应性",
+        "description": "与软件的速度和响应性相关的问题。",
+        "children": [
+            {
+                "id": 12,
+                "level": 2,
+                "isShow": 1,
+                "label": "系统速度",
+                "description": "延迟和响应速度慢阻碍用户体验。"
+            },
+            {
+                "id": 13,
+                "level": 2,
+                "isShow": 1,
+                "label": "系统可靠性",
+                "description": "不一致的表现和故障打断用户工作流程。"
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "level": 1,
+        "isShow": 1,
+        "label": "无障碍和包容性问题",
+        "description": "与软件对所有用户（包括残疾人）的可访问性相关的问题。",
+        "children": [
+            {
+                "id": 14,
+                "level": 2,
+                "isShow": 1,
+                "label": "语言和本地化",
+                "description": "语言输入影响输出的问题，表明可能需要更好的语言支持。"
+            },
+            {
+                "id": 15,
+                "level": 2,
+                "isShow": 1,
+                "label": "无障碍功能",
+                "description": "软件缺少支持各种能力人士使用的功能。"
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "level": 1,
+        "isShow": 1,
+        "label": "帮助和文档",
+        "description": "与软件提供的帮助有关的问题，以帮助用户理解和使用功能。",
+        "children": [
+            {
+                "id": 16,
+                "level": 2,
+                "isShow": 1,
+                "label": "教学支持",
+                "description": "对如何有效使用系统缺乏指导或教程。"
+            },
+            {
+                "id": 17,
+                "level": 2,
+                "isShow": 1,
+                "label": "用于详细任务的辅助功能",
+                "description": "需要功能来帮助用户在设计中添加详细信息，比如事件的具体详情。"
+            },
+            {
+                "id": 18,
+                "level": 2,
+                "isShow": 1,
+                "label": "帮助内容的可访问性",
+                "description": "在面临问题时难以访问或找到需要的帮助内容。"
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "level": 1,
+        "isShow": 1,
+        "label": "自定义和灵活性",
+        "description": "与个性化和根据用户需求调整软件相关的问题。",
+        "children": [
+            {
+                "id": 19,
+                "level": 2,
+                "isShow": 1,
+                "label": "布局和设计的适应性",
+                "description": "难以调整生成内容的布局或模板以适应特定内容或风格需求。"
+            },
+            {
+                "id": 20,
+                "level": 2,
+                "isShow": 1,
+                "label": "美学定制",
+                "description": "与自定义设计以满足期望的视觉风格或美学相关的问题。"
+            },
+            {
+                "id": 21,
+                "level": 2,
+                "isShow": 1,
+                "label": "模板定制",
+                "description": "与修改和使用模板以创建定制化设计相关的问题。"
+            }
+        ]
+    },
+    {
+        "id": 9,
+        "level": 1,
+        "isShow": 1,
+        "label": "AI理解和生成",
+        "description": "与AI理解自然语言提示、解释设计意图并产生符合用户期望的结果的能力相关的问题。",
+        "children": [
+            {
+                "id": 22,
+                "level": 2,
+                "isShow": 1,
+                "label": "AI解释提示",
+                "description": "AI未识别特定元素或产生无关结果的问题。"
+            },
+            {
+                "id": 23,
+                "level": 2,
+                "isShow": 1,
+                "label": "元素整合和一致性",
+                "description": "生成的元素未能很好地整合到一致的设计中，或元素之间风格不一致。"
+            },
+            {
+                "id": 24,
+                "level": 2,
+                "isShow": 1,
+                "label": "真实程度和风格匹配",
+                "description": "生成与期望风格或真实程度一致的元素的问题。"
+            }
+        ]
+    }
+]

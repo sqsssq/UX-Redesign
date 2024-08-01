@@ -1,0 +1,156 @@
+[
+    {
+        "l_id": 1,
+        "level": 1,
+        "disabled": true,
+        "label": "导航问题",
+        "description": "用户在尝试通过网站寻找他们的操作路径时遇到的问题。",
+        "children": [
+            {
+                "l_id": 1,
+                "level": 2,
+                "disabled": true,
+                "label": "误导性菜单标题",
+                "description": "用户基于菜单标题期望这个菜单内包括某些类型的内容，但却发现了不相关的内容。",
+                "cnt": 1,
+                "id": 1
+            },
+            {
+                "l_id": 2,
+                "level": 2,
+                "disabled": true,
+                "label": "难以识别活动类型",
+                "description": "用户难以区分网络活动和现场活动。",
+                "cnt": 2,
+                "id": 2
+            },
+            {
+                "l_id": 3,
+                "level": 2,
+                "disabled": true,
+                "label": "搜索功能无效",
+                "description": "搜索工具未能引导用户找到他们寻找的信息。",
+                "cnt": 3,
+                "id": 3
+            }
+        ],
+        "cnt": 1,
+        "id": 4
+    },
+    {
+        "l_id": 2,
+        "level": 1,
+        "disabled": true,
+        "label": "内容清晰度问题",
+        "description": "缺乏清晰和易于理解的内容，与用户期望不符。",
+        "children": [
+            {
+                "l_id": 4,
+                "level": 2,
+                "disabled": true,
+                "label": "描述模糊",
+                "description": "不清晰的描述导致对活动信息的不确定性。",
+                "cnt": 1,
+                "id": 5
+            },
+            {
+                "l_id": 5,
+                "level": 2,
+                "disabled": true,
+                "label": "导览部分缺乏相关信息",
+                "description": "重要信息没有出现在用户期望能找到的地方。",
+                "cnt": 2,
+                "id": 6
+            },
+            {
+                "l_id": 6,
+                "level": 2,
+                "disabled": true,
+                "label": "信息重复",
+                "description": "信息未能有效传达，导致用户重新访问网站的部分而未获得期望内容。",
+                "cnt": 3,
+                "id": 7
+            }
+        ],
+        "cnt": 2,
+        "id": 8
+    },
+    {
+        "l_id": 3,
+        "level": 1,
+        "disabled": true,
+        "label": "信息架构问题",
+        "description": "网站的信息结构不支持有效地定位相关内容。",
+        "children": [
+            {
+                "l_id": 7,
+                "level": 2,
+                "disabled": true,
+                "label": "活动分类不当",
+                "description": "网站未以对用户有帮助的方式对活动进行分类。",
+                "cnt": 1,
+                "id": 9
+            },
+            {
+                "l_id": 8,
+                "level": 2,
+                "disabled": true,
+                "label": "地图和定位辅助不佳",
+                "description": "缺乏有效的地图或导览来引导用户前往特定位置。",
+                "cnt": 2,
+                "id": 10
+            }
+        ],
+        "cnt": 3,
+        "id": 11
+    },
+    {
+        "l_id": 4,
+        "level": 1,
+        "disabled": true,
+        "label": "交互元素问题",
+        "description": "与可以互动的元素（如表单、按钮或地图）相关的问题。",
+        "children": [
+            {
+                "l_id": 9,
+                "level": 2,
+                "disabled": true,
+                "label": "搜索反应迟钝",
+                "description": "搜索功能对用户查询的响应不够有效。",
+                "cnt": 1,
+                "id": 12
+            },
+            {
+                "l_id": 10,
+                "level": 2,
+                "disabled": true,
+                "label": "地图可用性问题",
+                "description": "地图可用性的问题，如意外缩放。",
+                "cnt": 2,
+                "id": 13
+            }
+        ],
+        "cnt": 4,
+        "id": 14
+    },
+    {
+        "l_id": 5,
+        "level": 1,
+        "disabled": true,
+        "label": "负面的用户体验",
+        "description": "由于可用性问题而导致的总体负面情绪和反应。",
+        "children": [
+            {
+                "l_id": 11,
+                "level": 2,
+                "disabled": true,
+                "label": "放弃任务的想法",
+                "description": "用户因挫折而表示希望停止使用网站。",
+                "cnt": 1,
+                "id": 15
+            }
+        ],
+        "cnt": 5,
+        "id": 16
+    }
+]

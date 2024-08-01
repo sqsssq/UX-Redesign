@@ -1,0 +1,26 @@
+{
+    "change_list": {
+    "union_0": {
+        "parent": "", 
+        "status": 0, 
+        "level": 1,
+        "combined_name": "导航与信息架构问题",
+        "combined_label": "用户在尝试通过网站寻找他们想 要的路径或内容时遇到的问题，这包括页面布局、菜单标题的误导性、分类的不当和定位辅助的不足。",
+        "tag_info": [
+            { "id": 5 },
+            { "id": 11 }
+        ]
+    },
+    "union_1": {
+        "parent": "union_0",
+        "status": -1,
+        "level": 2,
+        "combined_name": "误导性导航与活动分类",
+        "combined_label": "用户期望根据菜单标题或其他导航元素定位某些类型的内容或活动分类，但发现内容与期望不符，或活动未被恰当分类，导致定位困难。",
+        "tag_info": [
+            { "id": 1 },
+            { "id": 9 }
+        ]
+    }
+}
+}
