@@ -48,7 +48,8 @@ export const useDataStore = defineStore("dataStore", {
             changeTag_list: [],
             dataSelect: -1,
             previewSelect: 0,
-            select_all: 1
+            select_all: 1,
+            showChatbot: false,
         }
     },
     actions: {

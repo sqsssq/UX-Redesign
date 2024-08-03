@@ -8,36 +8,7 @@
 <template>
     <!-- <PreviewVideoPlayer :dialogVisible="dialogVisible" :config="config" @showDialog="showDialog" /> -->
     <div style="width: 100%; height: 100%; overflow-y: auto;">
-        <!-- <div v-for="d in 4" :key="'figure_' + d" style="width: 100%; padding: 10px; border: 1px solid #ccc; margin-bottom: 10px; border-radius: 5px;">
-            <div style="text-align: left; color: #777; text-decoration: underline;">
-                更新设计 {{ d }}
-            </div>
-            <div style="width: 100%;">
-                <img src="../assets/figure/redesign1.png" alt="" style="width: 100%;">
-            </div>
-            <div style="width: 100%; text-align: left;">
-                <h3>Change</h3>
-                <ol>
-                    <li>Add a color-coded overlay in the image</li>
-                    <li>Add a tooltip next to the “Remove background”</li>
-                </ol>
-                <h3>Reflection</h3>
-                <div>
-                    The updates seem well-targeted to address the initial usability problem where users found the "Remove Background" tool's effectiveness lacking. Here’s how the updates contribute:
-                    <ol>
-                        <li>
-                            Tooltip with Detailed Guidance: Offering specific advice on refining edges, manual adjustments, and using advanced tools directly addresses common user frustrations with automatic background removal, especially when dealing with complex images. It empowers users to achieve better results.
-                        </li>
-                        <li>
-                            Visual Feedback: Highlighting problematic or focus areas during the background removal process allows users to see exactly where the tool may be struggling and where they might need to intervene manually. This visual cue enhances understanding and control over the tool's performance.
-                        </li>
-                    </ol>
-                    These updates should significantly improve user satisfaction by providing clearer guidance and more effective tools to manage and correct the background removal process, directly addressing the core usability concerns.
-
-                </div>
-            </div>   
-        </div>  -->
-        <div class="chatContent">
+        <div v-if="showChatbot" class="chatContent">
             <div class="userBox">
                 <div class="userContent">
                     I want to conduct the "visual feedback and guidance" redesign, what exactly processes should I do? Respond concisely, preferably no more than 100 words.
@@ -176,6 +147,7 @@ export default {
     data() {
         return {
             askArea: '',
+            showChatbot: false,
             AIContent: ["To implement the \"Visual Feedback and Guidance\" redesign, follow these steps:\n\n1.User Research: Gather specific feedback on where users feel confused or need more guidance.\n2.Design Phase: Create mockups for real-time visual feedback mechanisms (e.g., progress indicators, before/after previews) and tutorials.\n3.Development: Integrate these visual aids into the existing platform, ensuring they are context-sensitive and enhance usability without cluttering the interface.\n4.Testing: Conduct usability testing to assess the effectiveness of the feedback and guidance. Make adjustments based on user interactions and feedback.\n5.Deployment: Roll out the updated feature incrementally to monitor user response and system performance.\n6.Feedback Loop: Use analytics and user feedback to refine and improve the features continuously.\n", "For the design phase of the \"Visual Feedback and Guidance\" feature:\n\n1.Interface Updates: Design overlays or tooltips that dynamically show users the impact of their actions in real time, such as highlighting edge detection in progress.\n2.Guidance Elements: Create pop-up tips or embedded tutorial videos that activate contextually, helping users understand how to make the most of the background removal tool.\n3.Feedback Mechanisms: Implement visual cues, like color changes or animations, that clearly indicate the system's status and user interventions.\n4.Interactive Help: Design an accessible help icon or section that users can easily reach for additional on-the-spot guidance without leaving the workflow.\n", " For the \"Guidance Elements\" in your design:\nPlacement: Position the entrance for tips prominently next to tool icons or settings that users frequently interact with. This makes it intuitive for users seeking help with specific features.\nDesign of Entrance: Use a question mark icon or a lightbulb symbol, universally recognized for indicating help or ideas. Ensure the icon is visually distinct yet harmonious with the overall interface aesthetics.\nInteraction: Make the help icons clickable, revealing a dropdown or a pop-up with concise, useful tips and links to more detailed tutorials or video guides when activated. This direct approach minimizes disruption in user workflow while providing immediate assistance.\n", "Tooltip Title: Quick Tips: Remove Background\nContent:\nEdge Precision: Hover over the edges after removal to see suggestions for refining the selection.\nRefinement Tools: Use the 'Adjust Edge' slider to smooth out or sharpen the edges for a cleaner look.\nManual Adjust: Click 'Edit Mask' to manually add or subtract areas.\nUndo Changes: Made a mistake? Click 'Undo' to revert to the previous state instantly.\nMore Help?: Need detailed guidance? Check out our step-by-step tutorial here.\nEnsure the tooltip is concise, informative, and enhances the user experience by providing actionable insights directly related to the user's current task.\n", '## Redesign Steps for Interface Updates and Guidance Elements\n### Interface Updates\n1. **Dynamic Feedback Implementation**\n- Design overlays that show real-time changes and effects during the background removal process.\n- Use animations to highlight changes in the image as the user applies different settings.\n2. **Visual Enhancements**\n- Implement color-coded feedback to help users understand success (green) or errors (red) quickly.\n### Guidance Elements\n1. **Placement of Help Icons**\n- Position help icons (e.g., question marks or lightbulbs) next to frequently used tools.\n- Ensure the icons are placed consistently across the interface to maintain user familiarity.\n2. **Design of Help Icons**\n- Choose a design that is easily recognizable and fits within the overall aesthetic of the application.\n- Consider using tooltips that appear on hover to provide immediate help without a click, ensuring a non-intrusive experience.\n3. **Content of Tooltips**\n- Develop tooltips content that provides quick and practical advice tailored to the tool it\'s associated with.\n- Include short descriptions, quick tips, and links to more in-depth tutorials.\n4. **Interactive Elements**\n- Make tooltips interactive, allowing users to access additional resources directly from the tooltip (e.g., video tutorials, step-by-step guides).\nThis revised design plan focuses on enhancing visual feedback and providing context-sensitive guidance without overwhelming the user during the rapid background removal process.']
         };
     },
@@ -189,7 +161,7 @@ export default {
         const dataStore = useDataStore();
         
         dataStore.$subscribe((mutations, states) => {
-            
+            this.showChatbot = dataStore.showChatbot;
         });
     },
     watch: {

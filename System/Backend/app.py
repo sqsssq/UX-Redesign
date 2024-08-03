@@ -21,6 +21,33 @@ app.config['SECRET_KEY'] = 'timetuner'
 
 FILE_ABS_PATH = os.path.dirname(__file__)
 
+# 设置文件上传目录
+UPLOAD_FOLDER = 'uploads'
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+# 设置允许的文件扩展名
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
+
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+@app.route('/upload', methods=['POST'])
+def upload_file():
+    if 'file' not in request.files:
+        return jsonify({'error': 'No file part'}), 400
+    file = request.files['file']
+    if file.filename == '':
+        return jsonify({'error': 'No selected file'}), 400
+    if file and allowed_file(file.filename):
+        filename = secure_filename(file.filename)
+        file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        file.save(file_path)
+        return jsonify({'message': 'File uploaded successfully', 'url': file_path}), 200
+    else:
+        return jsonify({'error': 'File type not allowed'}), 400
+
+
 def read_json(add):
     with open(add, 'rt', encoding="utf-8") as f:
         cr = json.load(f)

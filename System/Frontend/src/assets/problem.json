@@ -3,9 +3,119 @@
         {
             "pid": 0,
             "Video": "V3",
-            "Timestamp": "00:06:21",
+            "Timestamp": 381,
             "problemType": "功能性问题",
             "Problem": "用户认为“去除背景”的效果不好。",
+            "status": 0,
+            "selectStatus": 0,
+            "finishStatus": 0,
+            "finishTag": 0
+        },
+        {
+            "pid": 1,
+            "Video": "V3",
+            "Timestamp": 496,
+            "problemType": "导航和工作流程问题",
+            "Problem": "用户寻找如何添加文本的方式，似乎需要帮助。",
+            "status": 0,
+            "selectStatus": 0,
+            "finishStatus": 0,
+            "finishTag": 0
+        },
+        {
+            "pid": 2,
+            "Video": "V3",
+            "Timestamp": 587,
+            "problemType": "功能性问题",
+            "Problem": "建议字体中没有用户想要的。",
+            "status": 0,
+            "selectStatus": 0,
+            "finishStatus": 0,
+            "finishTag": 0
+        },
+        {
+            "pid": 3,
+            "Video": "V4",
+            "Timestamp": 104,
+            "problemType": "AI理解和生成",
+            "Problem": "用户对生成的元素不满意，需要重新生成，显示可能缺乏对如何修改或重做操作的控制或反馈。",
+            "status": 0,
+            "selectStatus": 0,
+            "finishStatus": 0,
+            "finishTag": 0
+        },
+        {
+            "pid": 4,
+            "Video": "V4",
+            "Timestamp": 257,
+            "problemType": "导航和工作流程问题",
+            "Problem": "用户在使用撤销功能时遇到困难，无法轻松退出当前交互。",
+            "status": 0,
+            "selectStatus": 0,
+            "finishStatus": 0,
+            "finishTag": 0
+        },
+        {
+            "pid": 5,
+            "Video": "V4",
+            "Timestamp": 743,
+            "problemType": "功能性问题",
+            "Problem": "文本对齐工具不直观，对齐按钮的行为不可预测。",
+            "status": 0,
+            "selectStatus": 0,
+            "finishStatus": 0,
+            "finishTag": 0
+        },
+        {
+            "pid": 6,
+            "Video": "V4",
+            "Timestamp": 790,
+            "problemType": "导航和工作流程问题",
+            "Problem": "用户对撤销功能的工作方式感到惊讶，意味着它交互方式不标准，不符合用户的使用习惯。",
+            "status": 0,
+            "selectStatus": 0,
+            "finishStatus": 0,
+            "finishTag": 0
+        },
+        {
+            "pid": 7,
+            "Video": "V4",
+            "Timestamp": 817,
+            "problemType": "功能性问题",
+            "Problem": "用户对调整文本大小的方法感到惊讶，并发现其违反直觉。",
+            "status": 0,
+            "selectStatus": 0,
+            "finishStatus": 0,
+            "finishTag": 0
+        },
+        {
+            "pid": 8,
+            "Video": "V5",
+            "Timestamp": 0,
+            "problemType": "帮助和文档",
+            "Problem": "用户寻找如何使用系统的指导，但只找到了一个一般性的介绍。缺乏有效使用系统的教学支持。",
+            "status": 0,
+            "selectStatus": 0,
+            "finishStatus": 0,
+            "finishTag": 0
+        },
+        {
+            "pid": 9,
+            "Video": "V5",
+            "Timestamp": 615,
+            "problemType": "导航和工作流程问题",
+            "Problem": "用户在尝试添加雪人图形时想进行生成，但实际上使用的是搜索功能，这可能表明界面没有清晰区分不同的操作。",
+            "status": 0,
+            "selectStatus": 0,
+            "finishStatus": 0,
+            "finishTag": 0
+        },
+        {
+            "pid": 10,
+            "Video": "V6",
+            "Timestamp": 350,
+            "problemType": "导航和工作流程问题",
+            "Problem": "用户难以找到退出不需要功能的方法。",
             "status": 0,
             "selectStatus": 0,
             "finishStatus": 0,
@@ -15,8 +125,10 @@
     "startingPoint": [
         {
             "sid": 0,
-            "pid": 1,
+            "pid": 0,
             "editStatus": 0,
+            "authorStatus": 0,
+            "authorTag": 0,
             "history": ["Enhance Algorithm Accuracy: Improve the background removal algorithm to better detect edges and handle complex images, reducing artifacts and misinterpretations."],
             "content": "Enhance Algorithm Accuracy: Improve the background removal algorithm to better detect edges and handle complex images, reducing artifacts and misinterpretations.",
             "selectStatus": 0,
@@ -44,8 +156,10 @@
         },
         {
             "sid": 1,
-            "pid": 1,
+            "pid": 0,
             "editStatus": 0,
+            "authorStatus": 0,
+            "authorTag": 0,
             "history": ["User Control Enhancement: Introduce manual adjustment tools allowing users to refine the automatic background removal, such as adding or subtracting areas from the selection."],
             "content": "User Control Enhancement: Introduce manual adjustment tools allowing users to refine the automatic background removal, such as adding or subtracting areas from the selection.",
             "radarStatus": true,
@@ -72,8 +186,10 @@
         },
         {
             "sid": 2,
-            "pid": 1,
+            "pid": 0,
             "editStatus": 0,
+            "authorStatus": 0,
+            "authorTag": 0,
             "history": ["Visual Feedback and Guidance: Provide real-time visual feedback during the background removal process and offer tutorials or tips on achieving the best results, enhancing user understanding and satisfaction with the tool."],
             "content": "Visual Feedback and Guidance: Provide real-time visual feedback during the background removal process and offer tutorials or tips on achieving the best results, enhancing user understanding and satisfaction with the tool.",
             "radarStatus": true,
@@ -106,7 +222,8 @@
             "chatHistory": [],
             "content": "新开发一个界面",
             "selectStatus": 0,
-            "editStatus": 0
+            "editStatus": 0,
+            "designPath": []
         }
     ]
 }
