@@ -3,7 +3,7 @@
  * @Author: Qing Shi
  * @Date: 2024-07-01 00:15:05
  * @LastEditors: Qing Shi
- * @LastEditTime: 2024-08-03 16:23:09
+ * @LastEditTime: 2024-08-04 22:58:09
 -->
 <!--
  *                        _oo0oo_
@@ -98,7 +98,20 @@
  * @LastEditTime: 2024-03-03 22:17:13
 -->
 <template>
+    <PreviewVideoPlayer :dialogVisible="dialogVisible" :config="config" :info="previewInfo" @showDialog="showDialog" />
     <div style="width: 100%; height: 100%;">
+        <div ref="tooltip" :style="{
+            position: 'fixed',
+            left: (tooltip.x - 150) + 'px',
+            top: (tooltip.y - 100) + 'px',
+            display: tooltip.showTag,
+            'z-index': '999999',
+            width: '300px',
+            backgroundColor: 'white',
+            padding: '5px',
+            border: '1px solid #ccc',
+            borderRadius: '5px'
+        }">{{ tooltip.definition }}</div>
         <el-dialog v-model="previewDialogTag" width="70%">
             <img w-full :src="previewUrl" alt="Preview Image" style="width: 100%;"/>
         </el-dialog>
@@ -125,74 +138,34 @@
                     5级
                 </div>
             </div>
-            <div class="align-class" v-for="(d, i) in criterionList" :key="'edit_metric_' + i" style="margin-top: 10px;">
-                <el-input v-model="criterionList[i].label" style="width: 80px;"></el-input>
-                <div style="width: 15%;">
-                    <el-input v-model="criterionList[i].info.Definition" style="width: 90%;" type="textarea" ></el-input>
-                </div>
-                <div style="width: 15%;">
-                    <el-input v-model="criterionList[i].info.Rating_1" style="width: 90%;" type="textarea" ></el-input>
-                </div>
-                <div style="width: 15%;">
-                    <el-input v-model="criterionList[i].info.Rating_2" style="width: 90%;" type="textarea" ></el-input>
-                </div>
-                <div style="width: 15%;">
-                    <el-input v-model="criterionList[i].info.Rating_3" style="width: 90%;" type="textarea" ></el-input>
-                </div>
-                <div style="width: 15%;">
-                    <el-input v-model="criterionList[i].info.Rating_4" style="width: 90%;" type="textarea" ></el-input>
-                </div>
-                <div style="width: 15%;">
-                    <el-input v-model="criterionList[i].info.Rating_5" style="width: 90%;" type="textarea" ></el-input>
+            <div style="height: 600px; width: 100%; overflow-y: auto" ref="metricScroll"> 
+                <div class="align-class" v-for="(d, i) in criterionList" :key="'edit_metric_' + i" style="margin-top: 10px;">
+                    <el-input v-model="criterionList[i].label" style="width: 80px;"></el-input>
+                    <div style="width: 15%;">
+                        <el-input v-model="criterionList[i].Definition" style="width: 90%;" type="textarea" ></el-input>
+                    </div>
+                    <div style="width: 15%;">
+                        <el-input v-model="criterionList[i].Rating_1" style="width: 90%;" type="textarea" ></el-input>
+                    </div>
+                    <div style="width: 15%;">
+                        <el-input v-model="criterionList[i].Rating_2" style="width: 90%;" type="textarea" ></el-input>
+                    </div>
+                    <div style="width: 15%;">
+                        <el-input v-model="criterionList[i].Rating_3" style="width: 90%;" type="textarea" ></el-input>
+                    </div>
+                    <div style="width: 15%;">
+                        <el-input v-model="criterionList[i].Rating_4" style="width: 90%;" type="textarea" ></el-input>
+                    </div>
+                    <div style="width: 15%;">
+                        <el-input v-model="criterionList[i].Rating_5" style="width: 90%;" type="textarea" ></el-input>
+                    </div>
                 </div>
             </div>
             <div style="margin-top: 20px;">
-                <el-button type="primary" @click="addMetric()">新建</el-button>
-                <el-button type="info">生成</el-button>
-                <el-button type="success" @click="previewDialogTag = !previewDialogTag">确认</el-button>
-                <el-button type="danger" @click="previewDialogTag = !previewDialogTag">取消</el-button>
-            </div>
-        </el-dialog>
-        <el-dialog v-model="uploadDialogTag" title="Design Upload" width="600">
-            <el-upload action="#" list-type="picture-card" :auto-upload="false" :on-change="handleSuccess">
-                <svg t="1722558768874" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="21906" width="20" height="20"><path d="M474 152m8 0l60 0q8 0 8 8l0 704q0 8-8 8l-60 0q-8 0-8-8l0-704q0-8 8-8Z" fill="#000000" p-id="21907"></path><path d="M168 474m8 0l672 0q8 0 8 8l0 60q0 8-8 8l-672 0q-8 0-8-8l0-60q0-8 8-8Z" fill="#000000" p-id="21908"></path></svg>
-
-                <template #file="{ file }">
-                <div>
-                    <img class="el-upload-list__item-thumbnail" :src="file.url" alt="" />
-                    <span class="el-upload-list__item-actions">
-                    <span
-                        class="el-upload-list__item-preview"
-                        @click="showPreview(file.url)"
-                    >
-                        <svg t="1722558737907" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="20827" width="20" height="20"><path d="M637 443H519V309c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v134H325c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h118v134c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V519h118c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z" p-id="20828" fill="#fff"></path><path d="M921 867L775 721c122.1-148.9 113.6-369.5-26-509-148-148.1-388.4-148.1-537 0-148.1 148.6-148.1 389 0 537 139.5 139.6 360.1 148.1 509 26l146 146c3.2 2.8 8.3 2.8 11 0l43-43c2.8-2.7 2.8-7.8 0-11zM696 696c-118.8 118.7-311.2 118.7-430 0-118.7-118.8-118.7-311.2 0-430 118.8-118.7 311.2-118.7 430 0 118.7 118.8 118.7 311.2 0 430z" p-id="20829" fill="#fff"></path></svg>
-                    </span>
-                    <span
-                        class="el-upload-list__item-delete"
-                        @click="handleDownload(file)"
-                    >
-                        <svg t="1722558713598" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="19829" width="20" height="20"><path d="M1022.955204 522.570753c0 100.19191-81.516572 181.698249-181.718715 181.698249l-185.637977 0c-11.2973 0-20.466124-9.168824-20.466124-20.466124 0-11.307533 9.168824-20.466124 20.466124-20.466124l185.637977 0c77.628008 0 140.786467-63.148226 140.786467-140.766001 0-77.423347-62.841234-140.448776-140.203182-140.766001-0.419556 0.030699-0.818645 0.051165-1.217734 0.061398-5.945409 0.143263-11.686157-2.292206-15.687284-6.702656-4.001127-4.400217-5.894244-10.335393-5.167696-16.250102 1.330298-10.806113 1.944282-19.760043 1.944282-28.192086 0-60.763922-23.658839-117.884874-66.617234-160.833035-42.968627-42.968627-100.089579-66.617234-160.843268-66.617234-47.368844 0-92.742241 14.449084-131.208321 41.781592-37.616736 26.738991-65.952084 63.700811-81.925894 106.884332-2.425236 6.538927-8.012488 11.399631-14.827707 12.893658-6.815219 1.483794-13.927197-0.603751-18.859533-5.54632-19.289322-19.330254-44.943608-29.972639-72.245418-29.972639-56.322773 0-102.146425 45.813419-102.146425 102.125959 0 0.317225 0.040932 0.982374 0.092098 1.627057 0.061398 0.920976 0.122797 1.831718 0.153496 2.762927 0.337691 9.465582-5.863545 17.928325-15.001669 20.455891-32.356942 8.933463-61.541635 28.550243-82.181721 55.217602-21.305235 27.516704-32.571836 60.508096-32.571836 95.41307 0 86.244246 70.188572 156.422585 156.443052 156.422585l169.981393 0c11.2973 0 20.466124 9.15859 20.466124 20.466124 0 11.2973-9.168824 20.466124-20.466124 20.466124l-169.981393 0c-108.828614 0-197.3753-88.536452-197.3753-197.354833 0-44.053332 14.223956-85.712127 41.126676-120.473839 22.809495-29.460985 53.897537-52.086285 88.710414-64.816215 5.065366-74.322729 67.149353-133.2447 142.751215-133.2447 28.386514 0 55.504128 8.217149 78.651314 23.52581 19.657712-39.868009 48.842405-74.169233 85.497233-100.212376 45.434795-32.295544 99.004875-49.354058 154.918325-49.354058 71.692832 0 139.087778 27.915793 189.782368 78.600149 50.694589 50.694589 78.610382 118.089535 78.610382 189.782368 0 3.704368-0.102331 7.470135-0.296759 11.368932C952.633602 352.568894 1022.955204 429.511287 1022.955204 522.570753z" p-id="19830" fill="#fff"></path><path d="M629.258611 820.711014l-102.023628 102.013395c-3.990894 4.001127-9.230222 5.996574-14.46955 5.996574s-10.478655-1.995447-14.46955-5.996574l-102.023628-102.013395c-7.992021-7.992021-7.992021-20.947078 0-28.939099s20.947078-8.002254 28.939099 0l67.087954 67.077721 0-358.699522c0-11.2973 9.15859-20.466124 20.466124-20.466124 11.307533 0 20.466124 9.168824 20.466124 20.466124l0 358.699522 67.087954-67.077721c7.992021-8.002254 20.947078-7.992021 28.939099 0S637.250632 812.718993 629.258611 820.711014z" p-id="19831" fill="#fff"></path></svg>
-                    </span>
-                    <span
-                        class="el-upload-list__item-delete"
-                        @click="handleRemove(file)"
-                    >
-                        <svg t="1722558680407" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="18742" width="20" height="20"><path d="M972.657609 209.348408C987.158609 209.36839 998.930114 197.571202 998.949999 182.99865 998.969882 168.426097 987.230618 156.59651 972.729617 156.576528L32.457975 155.280806C17.956974 155.260823 6.18547 167.058012 6.165585 181.630564 6.1457 196.203116 17.884965 208.032703 32.385966 208.052686L972.657609 209.348408Z" fill="#fff" p-id="18743"></path><path d="M180.466902 992.356169 180.466902 1019.014859 206.993296 1018.74074 833.361858 1012.267947 859.348284 1011.999407 859.348284 985.883377 859.348284 289.397297C859.348284 274.824732 847.59289 263.011332 833.091874 263.011332 818.590859 263.011332 806.835465 274.824732 806.835465 289.397297L806.835465 985.883377 832.82189 959.498805 206.453329 965.971599 232.979723 992.356169 232.979723 282.67005C232.979723 268.097483 221.224329 256.284085 206.723313 256.284085 192.222298 256.284085 180.466902 268.097483 180.466902 282.67005L180.466902 992.356169Z" fill="#fff" p-id="18744"></path><path d="M656.410257 847.079027C656.410257 861.651593 668.165651 873.464992 682.666667 873.464992 697.167682 873.464992 708.923076 861.651593 708.923076 847.079027L708.923076 372.131659C708.923076 357.559091 697.167682 345.745694 682.666667 345.745694 668.165651 345.745694 656.410257 357.559091 656.410257 372.131659L656.410257 847.079027Z" fill="#fff" p-id="18745"></path><path d="M341.333333 847.079027C341.333333 861.651593 353.08873 873.464992 367.589743 873.464992 382.090758 873.464992 393.846155 861.651593 393.846155 847.079027L393.846155 372.131659C393.846155 357.559091 382.090758 345.745694 367.589743 345.745694 353.08873 345.745694 341.333333 357.559091 341.333333 372.131659L341.333333 847.079027Z" fill="#fff" p-id="18746"></path><path d="M498.871795 847.079027C498.871795 861.651593 510.627189 873.464992 525.128205 873.464992 539.62922 873.464992 551.384614 861.651593 551.384614 847.079027L551.384614 372.131659C551.384614 357.559091 539.62922 345.745694 525.128205 345.745694 510.627189 345.745694 498.871795 357.559091 498.871795 372.131659L498.871795 847.079027Z" fill="#fff" p-id="18747"></path><path d="M392.147755 116.721777C392.147755 102.063669 403.758665 90.363507 418.40134 90.363507L622.925796 90.363507C637.408947 90.363507 649.179381 102.1619 649.179381 116.549585L649.179381 171.644875 701.692203 171.644875 701.692203 116.549585C701.692203 72.986607 666.38105 37.591577 622.925796 37.591577L418.40134 37.591577C374.724427 37.591577 339.634933 72.950804 339.634933 116.721777L339.634933 165.310801 392.147755 165.310801 392.147755 116.721777Z" fill="#fff" p-id="18748"></path></svg>
-                    </span>
-                    </span>
-                </div>
-                </template>
-            </el-upload>
-            <h3>笔记</h3>
-            <el-input
-                v-model="uploadData.note"
-                style="width: 80%"
-                :autosize="{ minRows: 4, maxRows: 8 }"
-                type="textarea"
-                placeholder="Please input"
-            />
-            <div style="margin-top: 20px;">
-                <el-button type="primary" @click="upload()">上传</el-button>
+                <el-button @click="addMetric()">新建</el-button>
+                <el-button type="primary" @click="generateMetric">生成</el-button>
+                <el-button type="success" @click="editMetricTag = !editMetricTag">确认</el-button>
+                <el-button type="danger" @click="editMetricTag = !editMetricTag">取消</el-button>
             </div>
         </el-dialog>
         <div class="subRect" style="left: 0px; width: 24%">
@@ -223,7 +196,7 @@
                         <div class="align-class">
                             <span class="align-class">
                                 <span class="title uxButton" @click="selectProblem(problem, 1)">
-                                        {{ problem.Video + ' ' + secondsToHMS(problem.Timestamp) }}
+                                        {{ problem.Video + ' ' + secondsToHMS(problem.time) }}
                                 </span> &nbsp;
                                 <div @click="problem.finishTag = !problem.finishTag" class="uxButton">
                                     <svg v-if="problem.finishStatus == 0" t="1722527575157" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7245" width="20" height="20"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64z m0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z" p-id="7246" fill="#d81e06"></path><path d="M512 688m-48 0a48 48 0 1 0 96 0 48 48 0 1 0-96 0Z" p-id="7247" fill="#d81e06"></path><path d="M488 576h48c4.4 0 8-3.6 8-8V296c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8z" p-id="7248" fill="#d81e06"></path></svg>&nbsp;
@@ -240,7 +213,7 @@
                                     <svg class="uxButton" @click="changeStatus(problem, 2)" t="1722527413330" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6210" width="18" height="18"><path d="M512 1024a512 512 0 1 1 512-512 512 512 0 0 1-512 512z m0-960a448 448 0 1 0 416.736 611.52A27.552 27.552 0 0 1 928 672a31.424 31.424 0 0 1 10.656-23.36A448 448 0 0 0 512 64z m246.624 342.72l-288 288A32 32 0 0 1 448 704a31.52 31.52 0 0 1-24.256-11.84l-0.32 0.32-160-192 0.32-0.32A31.392 31.392 0 0 1 256 480a32 32 0 0 1 32-32 31.52 31.52 0 0 1 24.256 11.84l0.32-0.32 137.6 165.12 263.232-263.36a32.064 32.064 0 0 1 45.216 45.44z" fill="#1afa29" p-id="6211"></path></svg>
                                 </div>
                             </span>
-                            <span class="icon uxButton">
+                            <span class="icon uxButton" @click="showPreviewVideo(problem.Video.substring(1), problem.time, problem.ui, problem.Problem)">
                                 <svg t="1721144591461" class="icon" viewBox="0 0 1024 1024" version="1.1"
                                     xmlns="http://www.w3.org/2000/svg" p-id="1750" width="20" height="20">
                                     <path
@@ -279,7 +252,7 @@
                         </el-checkbox>
                         <div>
                             <!-- addMetric() -->
-                            <el-button style="margin-top: 10px;" @click="editMetricTag = !editMetricTag"><svg t="1722493771653" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="12842" width="15" height="15"><path d="M576 64H448v384H64v128h384v384h128V576h384V448H576z" fill="#262626" p-id="12843"></path></svg></el-button>
+                            <el-button style="margin-top: 10px;" @click="editMetricTag = !editMetricTag">修改</el-button>
                         </div>
                     </el-popover>
                     | 
@@ -288,7 +261,7 @@
                     </span>
                 </span>
             </div>
-            <div class="subContent" :style="{height: compareTag == true ? 'calc(58% - 12px)' : 'calc(100% - 30px)'}">
+            <div class="subContent" ref="startingPointList" :style="{height: compareTag == true ? 'calc(58% - 12px)' : 'calc(100% - 30px)'}">
                 <div v-for="(problem, problem_i) in startingPoint" :key="'startingPoint_' + problem_i" class="container" :style="{ 'border-color': problem.selectStatus == 1 ? 'rgba(255, 159, 49, 1)' : '#AAA' }">
                     <div class="align-class">
                         <span style="display: flex; align-items: center;">
@@ -331,7 +304,7 @@
                                     </span>
                         </span>
                     </div>
-                    <div class="content">
+                    <div class="content" v-loading="problem.loadingTag">
                         <div v-if="startingPoint[problem_i].editStatus == 0">
                             {{ problem.content }}
                         </div>
@@ -341,17 +314,8 @@
                                                     Edit
                                                 </div> -->
                             <el-input v-model="startingPoint[problem_i].content" style="width: 100%; margin-bottom: 10px;" :rows="3" type="textarea" placeholder="Please input" />
-                            <template v-for="(d, i) in problem.score">
-                                <div>
-                                    <strong>{{ criterion[i] }}: <span><el-input v-model="startingPoint[problem_i].score[i].Score" style="width: 30px;"></el-input></span></strong> &nbsp;
-                                    <div style="margin-top: 5px; margin-bottom: 5px;">
-                                        <el-input type="textarea" v-model="startingPoint[problem_i].score[i].Reason"></el-input>
-                                        <!-- {{d.Reason}} -->
-                                    </div>
-                                </div>
-                            </template>
                             <div class="align-class" style="margin-top: 5px; justify-content: right;">
-                                <div class="edit-button" style="background-color: #c6e6f8; cursor: pointer;">
+                                <div class="edit-button" @click="generatePoint(startingPoint[problem_i])" style="background-color: #c6e6f8; cursor: pointer;">
                                     <svg t="1719773054162" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="12918" width="20" height="20">
                                         <path
                                             d="M939.733333 495.866667c-206.266667-44.266667-367.333333-205.333333-411.6-411.6L512 9.2l-16.533333 77.066667c-44 204.933333-204.266667 365.2-409.2 409.2L9.2 512l76.266667 16.4c205.466667 44.133333 366 204.533333 410 410l16.4 76.4 15.866666-74.133333c44.4-206.8 206-368.4 412.8-412.8L1014.666667 512l-74.933334-16.133333z"
@@ -373,6 +337,15 @@
                                             </svg>
                                 </div>
                             </div>
+                            <template v-for="(d, i) in problem.score">
+                                <div>
+                                    <strong>{{ criterion[i] }}: <span><el-input v-model="startingPoint[problem_i].score[i].Score" style="width: 30px;"></el-input></span></strong> &nbsp;
+                                    <div style="margin-top: 5px; margin-bottom: 5px;">
+                                        <el-input type="textarea" v-model="startingPoint[problem_i].score[i].Reason"></el-input>
+                                        <!-- {{d.Reason}} -->
+                                    </div>
+                                </div>
+                            </template>
                         </div>
                     </div>
                     <div class="info-content" :ref="'info_content' + problem_i">
@@ -384,7 +357,7 @@
                                         <path v-for="(d, i) in strokePath" :key="'radar_' + i" :d="d.d" :stroke="d.stroke" :stroke-width="d.width" :fill="d.fill" fill-opacity=".3"></path>
                                         <path v-for="(d, i) in problem.radarPath" :key="'radar_' + i" :d="d.d" :stroke="d.stroke" :stroke-width="d.width" :fill="d.fill" fill-opacity=".3"></path>
                                         <g>
-                                            <text v-for="(d, i) in problem.radarPoint" :key="'radar_point_' + i" :x="d.x * (radarWidth + 20) / 2" :y="d.y * (radarWidth + 20) / 2" :fill="d.fill" font-size="12px" text-anchor="middle">{{ d.text + ': ' + d.score }}
+                                            <text v-for="(d, i) in problem.radarPoint" :key="'radar_point_' + i" :x="d.x * (radarWidth + 20) / 2" :y="d.y * (radarWidth + 20) / 2" :fill="d.fill" font-size="12px" text-anchor="middle" @mouseenter="showDefinition($event, d.definition)" @mouseout="tooltip.showTag = 'none'">{{ d.text + ': ' + d.score }}
 
                                             </text>
                                         </g>
@@ -400,7 +373,7 @@
                                     </h3>
                                     <div v-if="showReason[problem_i] == 1">
                                         <template v-for="(d, i) in problem.score">
-                                            <div v-if="criterionList[parseInt(i[i.length - 1]) - 1].status == true">
+                                            <div v-if="criterionList[parseInt(i.substring(10)) - 1].status == true">
                                                 <strong>{{ criterion[i] }}: <span>{{ d.Score }}</span></strong> &nbsp;
                                                 <span>
                                                     {{d.Reason}}
@@ -440,25 +413,26 @@
     
             <div class="subtitle">
                 <span @click="showText">
-                    &nbsp;最终方案
+                    &nbsp;解决方案
                 </span>
                 <span style="font-size: 15px; font-weight: normal;">
-                    <span class="uxButton" style="text-decoration: underline;"  @click="selectProblem({sid: 0}, 2)">
+                    <span class="uxButton" style="text-decoration: underline;"  @click="addSolution()">
                         新建
                     </span>
                     
                 </span>
             </div>
             <div class="subContent" style="overflow: inherit;">
-                <div v-for="(problem, problem_i) in solution" :key="'startingPoint_' + problem_i" class="container" style="height: 100%;">
+                <template v-for="(problem, problem_i) in solution" :key="'startingPoint_' + problem_i">
+                <div v-if="problem.pid == selectProblemIndex" class="container" style="height: 100%;">
                     <div class="align-class">
                         <span class="title">
-                                    {{ '最终方案' + (problem_i + 1) }}
-                                </span>
+                            {{ '解决方案' + (problem_i + 1) }}
+                        </span>
                         <span v-if="problem.editStatus == 1" @click="editSolution(problem)" class="evaluation-button" style="position: absolute; right: 80px;">保存</span>
     
                         <span style="display: flex;">
-                            <span class="uxButton">
+                            <span @click="generateSolution(problem, problem_i)" class="uxButton">
                                 <svg t="1722488059992" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6602" width="20" height="20"><path d="M779.410286 789.406476c94.598095-52.565333 157.305905-143.36 157.305904-246.735238 0-65.389714-25.35619-125.610667-67.681523-174.470095 3.023238-19.260952 4.583619-38.66819 4.729904-58.124191 0-9.020952-0.975238-17.846857-1.560381-26.721523C950.51581 347.672381 999.619048 438.174476 999.619048 538.819048c0 112.88381-61.68381 213.089524-157.305905 277.650285v175.884191l-176.323048-107.032381a473.86819 473.86819 0 0 1-75.337143 6.241524c-121.124571 0-198.168381-45.689905-273.066666-117.857524 12.336762 0.682667 24.576 1.560381 37.107809 1.560381 17.554286 0 34.913524-0.828952 52.028953-2.194286 59.14819 40.082286 102.4 64.219429 183.929904 64.219429a403.260952 403.260952 0 0 0 81.383619-8.533334l107.373715 70.558477v-109.860572z m-346.063238-76.166095a933.790476 933.790476 0 0 1-105.813334-8.192l-177.298285 101.180952v-175.835428C68.022857 561.39581 24.380952 465.578667 24.380952 352.743619 24.380952 157.93981 207.189333 0 433.347048 0c188.025905 0 377.514667 157.93981 377.514666 352.743619s-151.649524 360.496762-377.514666 360.496762zM320.512 642.681905c26.136381 5.36381 84.74819 8.533333 112.835048 8.533333 191.146667 0 314.61181-131.900952 314.611809-294.619428 0-162.718476-158.183619-294.570667-314.611809-294.570667-196.510476 0-346.063238 131.900952-346.063238 294.570667 0 103.375238 49.103238 185.344 125.854476 246.735238v109.909333l107.373714-70.558476z m285.891048-239.567238a46.518857 46.518857 0 1 1 47.152762-46.518857 46.811429 46.811429 0 0 1-47.152762 46.518857z m-188.757334 0a46.518857 46.518857 0 1 1 47.152762-46.518857 46.86019 46.86019 0 0 1-47.152762 46.518857z m-188.757333 0a46.518857 46.518857 0 1 1 47.152762-46.518857 46.811429 46.811429 0 0 1-47.152762 46.518857z" p-id="6603" fill="#6c6c6c"></path></svg>
                             </span>&nbsp;
                             <span @click="editSolution(problem)" class="uxButton">
@@ -469,57 +443,29 @@
                                         </svg>
                                     </span> &nbsp;
                         <span @click="deleteStartingPoint(problem.sid)" class="uxButton">
-                                        <svg t="1721312041338" class="icon" viewBox="0 0 1024 1024" version="1.1"
-                                            xmlns="http://www.w3.org/2000/svg" p-id="2821" width="20" height="20">
-                                            <path
-                                                d="M608 768c-17.696 0-32-14.304-32-32V384c0-17.696 14.304-32 32-32s32 14.304 32 32v352c0 17.696-14.304 32-32 32zM416 768c-17.696 0-32-14.304-32-32V384c0-17.696 14.304-32 32-32s32 14.304 32 32v352c0 17.696-14.304 32-32 32zM928 224H768v-64c0-52.928-42.72-96-95.264-96H352c-52.928 0-96 43.072-96 96v64H96c-17.696 0-32 14.304-32 32s14.304 32 32 32h832c17.696 0 32-14.304 32-32s-14.304-32-32-32z m-608-64c0-17.632 14.368-32 32-32h320.736C690.272 128 704 142.048 704 160v64H320v-64z"
-                                                p-id="2822" fill="#6c6c6c"></path>
-                                            <path
-                                                d="M736.128 960H288.064c-52.928 0-96-43.072-96-96V383.52c0-17.664 14.336-32 32-32s32 14.336 32 32V864c0 17.664 14.368 32 32 32h448.064c17.664 0 32-14.336 32-32V384.832c0-17.664 14.304-32 32-32s32 14.336 32 32V864c0 52.928-43.072 96-96 96z"
-                                                p-id="2823" fill="#6c6c6c"></path>
-                                        </svg>
-                                    </span>
+                            <svg t="1721312041338" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" p-id="2821" width="20" height="20">
+                                <path
+                                    d="M608 768c-17.696 0-32-14.304-32-32V384c0-17.696 14.304-32 32-32s32 14.304 32 32v352c0 17.696-14.304 32-32 32zM416 768c-17.696 0-32-14.304-32-32V384c0-17.696 14.304-32 32-32s32 14.304 32 32v352c0 17.696-14.304 32-32 32zM928 224H768v-64c0-52.928-42.72-96-95.264-96H352c-52.928 0-96 43.072-96 96v64H96c-17.696 0-32 14.304-32 32s14.304 32 32 32h832c17.696 0 32-14.304 32-32s-14.304-32-32-32z m-608-64c0-17.632 14.368-32 32-32h320.736C690.272 128 704 142.048 704 160v64H320v-64z"
+                                    p-id="2822" fill="#6c6c6c"></path>
+                                <path
+                                    d="M736.128 960H288.064c-52.928 0-96-43.072-96-96V383.52c0-17.664 14.336-32 32-32s32 14.336 32 32V864c0 17.664 14.368 32 32 32h448.064c17.664 0 32-14.336 32-32V384.832c0-17.664 14.304-32 32-32s32 14.336 32 32V864c0 52.928-43.072 96-96 96z"
+                                    p-id="2823" fill="#6c6c6c"></path>
+                            </svg>
+                        </span>
                         </span>
                     </div>
-                    <div class="content" style="height: calc(58% - 20px); overflow-y: auto">
+                    <div class="content" style="height: calc(100% - 20px); overflow-y: auto">
                         <div v-if="problem.editStatus == 0">
-                            <v-md-preview :text="finalSolutionContent"></v-md-preview>
+                            <v-md-preview :text="problem.content"></v-md-preview>
                         </div>
-                        <div v-else>
-                            <v-md-editor mode="edit" v-model="finalSolutionContent"></v-md-editor>
+                        <div v-else style="height: 100%;">
+                            <v-md-editor style="height: 100%;" mode="edit" v-model="problem.content"></v-md-editor>
                         </div>
-                    </div>
-    
-                    <hr style="margin: 5px;">
-                    <div style="width: 100%; height: calc(42% - 20px);">
-                        <span class="align-class">
-                            <span class="title">
-                                设计更新
-                            </span>
-                            <span class="uxButton" @click="uploadDialogTag = true">
-                                <svg t="1722556775460" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="17628" width="20" height="20"><path d="M1022.955204 556.24776c0 100.19191-81.516572 181.698249-181.718715 181.698249l-185.637977 0c-11.2973 0-20.466124-9.168824-20.466124-20.466124 0-11.307533 9.168824-20.466124 20.466124-20.466124l185.637977 0c77.628008 0 140.786467-63.148226 140.786467-140.766001 0-77.423347-62.841234-140.448776-140.203182-140.766001-0.419556 0.030699-0.828878 0.051165-1.248434 0.061398-5.935176 0.153496-11.665691-2.302439-15.666818-6.702656-4.001127-4.41045-5.884011-10.345626-5.157463-16.250102 1.330298-10.806113 1.944282-19.760043 1.944282-28.192086 0-60.763922-23.658839-117.874641-66.617234-160.833035-42.968627-42.958394-100.089579-66.617234-160.843268-66.617234-47.368844 0-92.742241 14.449084-131.208321 41.781592-37.616736 26.738991-65.952084 63.700811-81.925894 106.884332-2.425236 6.54916-8.012488 11.399631-14.827707 12.893658-6.815219 1.483794-13.927197-0.603751-18.859533-5.536087-19.289322-19.340487-44.943608-29.982872-72.245418-29.982872-56.322773 0-102.146425 45.813419-102.146425 102.125959 0 0.317225 0.040932 0.982374 0.092098 1.627057 0.061398 0.920976 0.122797 1.831718 0.153496 2.762927 0.337691 9.465582-5.863545 17.928325-15.001669 20.455891-32.356942 8.943696-61.541635 28.550243-82.181721 55.217602-21.305235 27.516704-32.571836 60.508096-32.571836 95.41307 0 86.244246 70.188572 156.422585 156.443052 156.422585l169.981393 0c11.2973 0 20.466124 9.15859 20.466124 20.466124 0 11.2973-9.168824 20.466124-20.466124 20.466124l-169.981393 0c-108.828614 0-197.3753-88.536452-197.3753-197.354833 0-44.053332 14.223956-85.712127 41.126676-120.473839 22.809495-29.450752 53.897537-52.086285 88.710414-64.816215 5.065366-74.322729 67.149353-133.2447 142.751215-133.2447 28.386514 0 55.504128 8.217149 78.651314 23.52581 19.657712-39.868009 48.842405-74.169233 85.497233-100.212376 45.434795-32.295544 99.004875-49.354058 154.918325-49.354058 71.692832 0 139.087778 27.915793 189.782368 78.600149 50.694589 50.694589 78.610382 118.089535 78.610382 189.782368 0 3.704368-0.102331 7.470135-0.296759 11.368932C952.633602 386.245901 1022.955204 463.188294 1022.955204 556.24776z" p-id="17629" fill="#4c4c4c"></path><path d="M629.258611 589.106122c-3.990894 3.990894-9.230222 5.996574-14.46955 5.996574s-10.478655-2.00568-14.46955-5.996574l-67.087954-67.077721 0 358.689289c0 11.307533-9.15859 20.466124-20.466124 20.466124-11.307533 0-20.466124-9.15859-20.466124-20.466124l0-358.689289-67.087954 67.077721c-7.992021 7.992021-20.947078 7.992021-28.939099 0s-7.992021-20.957311 0-28.949332l102.023628-102.013395c7.992021-7.992021 20.947078-7.992021 28.939099 0l102.023628 102.013395C637.250632 568.148811 637.250632 581.114101 629.258611 589.106122z" p-id="17630" fill="#4c4c4c"></path></svg>
-                            </span>
-                        </span>
-                        <div style="overflow-y: auto; height: calc(100% - 20px); width: 100%;">
-                            <div v-for="(design, design_i) in problem.designPath" :key="design_i" class="design" >
-                                <div v-if="design.length != 0">
-                                    <img class="uxButton" @click="showPreview(design.url[0])" :src="design.url[0]" alt="" style="width: 100%;">
-                                    
-                                </div>
-                                <h3>笔记</h3>
-                                <div>
-                                    {{ design.note }}
-                                </div>
-                            </div>
-                        </div>
-                        <!-- <img src="../assets/figure/redesign1.png" alt="" style="width: 100%;">
-                        <h3>Change</h3>
-                        <ol>
-                            <li>Add a color-coded overlay in the image</li>
-                            <li>Add a tooltip next to the “Remove background”</li>
-                        </ol> -->
                     </div>
                 </div>
+                    
+                </template>
             </div>
         </div>
     </div>
@@ -527,14 +473,18 @@
 
 <script>
 import problemData from '../assets/problem.json';
+import criterionData from '../assets/criterion.json';
 import { useDataStore } from "../stores/counter";
+import PreviewVideoPlayer from './utils/PreviewVideoPlayer.vue';
 
 export default {
     name: "APP",
-    props: ["msgH"],
+    props: ["msgH", "startTag"],
     data() {
         return {
             msg1: "Hello, main!",
+            dialogVisible: false,
+            config: {},
             raw_data: {},
             uploadData: {
                 note: '',
@@ -551,78 +501,150 @@ export default {
             editContent: '',
             selectProblemIndexList: [],
             selectProblemIndex: -1,
+            selectProblemData: [],
             strokePath: [],
             compareTag: false,
-            radarColor: ['#C5C2ED', '#96C8ED', '#FFCEBF', '#FFCEEE'],
+            radarColor: ['#D1A42E', '#780853', '#126E64', '#006699', '#451D6E', '#725B4A', '#8A1816', '#0D1320'],
             criterion: {
                 Criterion_1: "复杂性",
-                Criterion_2: "可行性",
-                Criterion_3: "影响力",
-                Criterion_4: "合理性"
+                Criterion_2: "花费时间",
+                Criterion_3: "花费金钱",
+                Criterion_4: "一致性",
+                Criterion_5: "合理性",
+                Criterion_6: "可行性",
+                Criterion_7: "影响力",
+                Criterion_8: "包容性",
+                Criterion_9: "局限性",
+                Criterion_10: "美观性"
             },
-            criterionList: [
-                {
-                    value: "Criterion_1",
-                    label: "复杂性",
-                    status: true,
-                    info: {
-                        "Definition": "复杂性评估重设计解决方案的难度，区分小修和新增功能。",
-                        "Rating_1": "非常低：微小调整，需最少努力。",
-                        "Rating_2": "低：简单修复，易于实施，对现有结构影响小。",
-                        "Rating_3": "中等：引入需适度规划和资源的小型新功能。",
-                        "Rating_4": "高：引入需大量资源和整合努力的重要新功能。",
-                        "Rating_5": "极高：实施改变用户体验或产品功能的主要新功能。"
-                    }
-                },
-                {
-                    value: "Criterion_2",
-                    label: "可行性",
-                    status: true,
-                    info: {
-                        "Definition": "可行性评估实施重设计解决方案的实用性和成功可能性。",
-                        "Rating_1": "非常低：几乎不可能实施。",
-                        "Rating_2": "低：实施困难，有重大障碍。",
-                        "Rating_3": "中等：可合理实现，挑战可管理。",
-                        "Rating_4": "高：容易实施，小障碍。",
-                        "Rating_5": "非常高：实施直接，无重大障碍。"
-                    }
-                },
-                {
-                    value: "Criterion_3",
-                    label: "影响力",
-                    status: true,
-                    info: {
-                        "Definition": "影响力衡量重设计解决方案提升用户体验的程度。",
-                        "Rating_1": "非常低：对用户体验几乎无改善。",
-                        "Rating_2": "低：对用户体验有轻微提升。",
-                        "Rating_3": "中等：对用户体验有明显改善。",
-                        "Rating_4": "高：对用户体验有显著提升。",
-                        "Rating_5": "非常高：对用户体验有革命性的改善。"
-                    }
-                },
-                {
-                    value: 'Criterion_4',
-                    label: "合理性",
-                    status: true,
-                    info: {
-                        "Definition": "合理性评估重设计解决方案是否逻辑上解决并消除了识别出的可用性问题。",
-                        "Rating_1": "非常低：未解决可用性问题。",
-                        "Rating_2": "低：较差地解决轻微的可用性问题。",
-                        "Rating_3": "中等：适当解决一些可用性问题。",
-                        "Rating_4": "高：有效解决大部分可用性问题。",
-                        "Rating_5": "非常高：极好地解决和消除所有相关的可用性问题。"
-                    }
-                }
-            ],
+            criterionList: criterionData,
             selectAttributeList: [],
             radarPoint: [],
             radarPath: [],
             radarWidth: 0,
             zoomTag: .5,
-            finalSolutionContent: '## Redesign Steps for Interface Updates and Guidance Elements\n### Interface Updates\n1. **Dynamic Feedback Implementation**\n- Design overlays that show real-time changes and effects during the background removal process.\n- Use animations to highlight changes in the image as the user applies different settings.\n2. **Visual Enhancements**\n- Implement color-coded feedback to help users understand success (green) or errors (red) quickly.\n### Guidance Elements\n1. **Placement of Help Icons**\n- Position help icons (e.g., question marks or lightbulbs) next to frequently used tools.\n- Ensure the icons are placed consistently across the interface to maintain user familiarity.\n2. **Design of Help Icons**\n- Choose a design that is easily recognizable and fits within the overall aesthetic of the application.\n- Consider using tooltips that appear on hover to provide immediate help without a click, ensuring a non-intrusive experience.\n3. **Content of Tooltips**\n- Develop tooltips content that provides quick and practical advice tailored to the tool it\'s associated with.\n- Include short descriptions, quick tips, and links to more in-depth tutorials.\n4. **Interactive Elements**\n- Make tooltips interactive, allowing users to access additional resources directly from the tooltip (e.g., video tutorials, step-by-step guides).\nThis revised design plan focuses on enhancing visual feedback and providing context-sensitive guidance without overwhelming the user during the rapid background removal process.'
+            
+            tooltip: {
+                x: -1000, 
+                y: -1000,
+                definition: "",
+                showTag: 'none'
+            },
+            previewInfo: {}
         };
     },
     methods: {
+        showPreviewVideo(id, time, ui, content) {
+            this.dialogVisible = true;
+            this.config = {
+                time: time,
+                video_id: id,
+                name: id
+            }
+            this.previewInfo = {
+                ui: ui,
+                text: content
+            }
+        },
+        showDialog(data) {
+            this.dialogVisible = data;
+        },
+        addSolution() {
+            const now = new Date();
+            const timeTag = Math.floor(now.getTime() / 1000);
+            const dataStore = useDataStore();
+            dataStore.interactionList.push({
+                time: timeTag,
+                text: '增加解决方案',
+                id: this.selectProblemIndex
+            })
+            this.solution.push({
+                "pid": this.selectProblemIndex,
+                "sid": 0,
+                "chatHistory": [{
+                    "role": "user",
+                    "content": [{
+                        "type": "text",
+                        "text": "问题: " + this.selectProblemData.Problem
+                    }, {
+                        "type": "image_url",
+                        "image_url": this.selectProblemData.ui
+                    }]
+                }, {
+                    "role": "assistant",
+                    "content": [{
+                        "type": "text",
+                        "text": "请提出问题"
+                    }]
+                }],
+                "content": "",
+                "selectStatus": 0,
+                "editStatus": 1,
+                "designPath": [],
+                "timeTag": timeTag
+            });
+            console.log(dataStore.solutionList)
+        },
+        generateSolution(data, index) {
+            const dataStore = useDataStore();
+            // if (dataStore.chatTag == -1) {
+            //     dataStore.
+            // }
+            dataStore.chatTag = index;
+            dataStore.chatData = data.chatHistory;
+
+        },
+        async generatePoint(data) {
+            data.loadingTag = true;
+            let info = [{
+                        "type": "text",
+                        "text": "问题: " + this.selectProblemData.Problem + " input: " + data.content
+                    }, {
+                        "type": "image_url",
+                        "image_url": this.selectProblemData.ui
+                    }]
+                console.log(info);
+            console.log(this.criterionList)
+            const dataStore = useDataStore();
+            let res = await dataStore.generatePoint({ 'info': info, 'tag': 1 })
+            // console.log(res);
+            data.content = res.data.response;
+            info[0].text = "问题: " + this.selectProblemData.Problem + " input: " + data.content;
+
+            let evaluate = await dataStore.evaluatePoint({ 'info': info, 'criterion': JSON.stringify(this.criterionList) })
+            let criterionData = (JSON.parse(evaluate.data.response));
+            for (let i in criterionData) {
+                data.score[i] = criterionData[i];
+            }
+            data.authorStatus = 3;
+            data.loadingTag = false;
+        },
+        showDefinition(event, definition) {
+            this.tooltip = {
+                x: event.pageX,
+                y: event.pageY,
+                definition: definition,
+                showTag: 'inline'
+            }
+            console.log(event, definition);
+            // this.$refs.tooltip.showTooltip(event, definition);
+        },
+        hideDefinition() {
+            this.$refs.tooltip.hideTooltip();
+        },
+        uploadDataChange() {
+            this.uploadDialogTag = !this.uploadDialogTag;
+            this.uploadData = {
+                note: '',
+                figure: []
+            };
+        },
+        uploadDataConfirm() {
+            this.uploadDialogTag = !this.uploadDialogTag;
+            this.raw_data = this.uploadData;
+            this.raw_data.figure = this.uploadData.figure.map(item => item.url);
+            this.raw_data.note = this.uploadData.note;
+        },
         showPreview(url) {
             this.previewDialogTag = !this.previewDialogTag;
             this.previewUrl = url;
@@ -643,6 +665,14 @@ export default {
             return `${format(hours)}:${format(minutes)}:${format(finalSeconds)}`;
         },
         createStartingPoint() {
+            const dataStore = useDataStore();
+            let now = new Date();
+            let timeTag = Math.floor(now.getTime() / 1000);
+            dataStore.interactionList.push({
+                time: timeTag,
+                id: this.selectProblemIndex,
+                text: '创建启发'
+            })
             let cnt = this.startingPoint.length;
             this.startingPoint.push({
                 "sid": cnt,
@@ -655,15 +685,29 @@ export default {
                 "radarStatus": true,
                 "score": {},
                 "selectStatus": 0,
-                "showTag": 0
+                "showTag": 0,
+                "time": timeTag
             });
             for (let i in this.criterion) {
                 this.startingPoint[this.startingPoint.length - 1].score[i] = {"Score": 0, "Reason": ""};
             }
+            const startingPointScroll = this.$refs.startingPointList;
+            this.$nextTick(() => {
+                    
+                startingPointScroll.scrollTo({
+                    top: startingPointScroll.scrollHeight,
+                    behavior: 'smooth'
+                })
+            })
         },
         confirmStartingPointChange(data) {
             data.editStatus = !data.editStatus;
             this.calcRadar()
+            if (data.authorStatus == 0) {
+                data.authorStatus = 1;
+            } else if (data.authorStatus == 2) {
+                data.authorStatus = 3;
+            }
         },
         handleSuccess(response, file) {
             // console.log(file)
@@ -671,14 +715,6 @@ export default {
             // file.url = fileUrl;
             this.uploadData.figure.push(fileUrl);
             // console.log(this.uploadData, file.url)
-        },
-        upload() {
-            // console.log(this.uploadData);
-            this.solution[0].designPath.push({
-                url: this.uploadData.figure,
-                note: this.uploadData.note
-            });
-            this.uploadDialogTag = false;
         },
         changeStatus(data, tag) {
             data.finishStatus = tag;
@@ -689,20 +725,48 @@ export default {
             data.authorTag = !data.authorTag;
         },
         addMetric() {
+            const now = new Date();
+            const timeTag = Math.floor(now.getTime() / 1000);
+            const dataStore = useDataStore();
+            dataStore.interactionList.push({
+                time: timeTag,
+                text: '增加指标',
+                // id: this.selectProblemIndex
+            })
             this.criterionList.push({
                 value: 'Criterion_' + (this.criterionList.length + 1),
                 label: '',
                 status: false,
-                info: {
-                    Definition: '',
-                    Rating_1: '',
-                    Rating_2: '',
-                    Rating_3: '',
-                    Rating_4: '',
-                    Rating_5: ''
-                }
+                Definition: '',
+                Rating_1: '',
+                Rating_2: '',
+                Rating_3: '',
+                Rating_4: '',
+                Rating_5: '',
+                time: timeTag
             });
             this.criterion['Criterion_' + (this.criterionList.length + 1)] = '';
+            const metricScroll = this.$refs.metricScroll;
+            this.$nextTick(() => {
+                    
+                metricScroll.scrollTo({
+                    top: metricScroll.scrollHeight,
+                    behavior: 'smooth'
+                })
+            })
+        },
+        async generateMetric() {
+            const metric = this.criterionList[this.criterionList.length - 1].label;
+            console.log(metric);
+            const dataStore = useDataStore();
+            const data = await dataStore.addMetric({
+                label: metric
+            });
+            let res = JSON.parse(data.data.response);
+            for (let i in res) {
+                this.criterionList[this.criterionList.length - 1][i] = res[i];
+            }
+            this.criterion['Criterion_' + (this.criterionList.length + 1)] = metric;
         },
         showText() {
             console.log(JSON.stringify(this.finalSolutionContent));
@@ -711,6 +775,15 @@ export default {
             return `translate(${x}, ${y})`;
         },
         showRadar(data) {
+            const dataStore = useDataStore();
+            let now = new Date();
+            let timeTag = Math.floor(now.getTime() / 1000);
+            dataStore.interactionList.push({
+                time: timeTag,
+                text: '评估启发',
+                id: data.sid,
+                pid: data.pid
+            })
             if (data.showTag == 0) {
                 data.showTag = 1;
                 
@@ -746,16 +819,17 @@ export default {
                     if (this.criterionList[i].status == false) {
                         continue;
                     }
-                    selectPath.d += (data['score'][`Criterion_${i + 1}`]['Score'] / 5 * this.radarWidth / 2) * Math.cos((tmpCnt * radarAngle / 180) * Math.PI) + ',' + (data['score'][`Criterion_${i + 1}`]['Score'] / 5 * this.radarWidth / 2) * Math.sin((tmpCnt * radarAngle / 180) * Math.PI) + ' ';
+                    selectPath.d += (data['score'][`Criterion_${i + 1}`]['Score'] / 5 * this.radarWidth / 2) * Math.cos((tmpCnt * radarAngle / 180 - 0.5) * Math.PI) + ',' + (data['score'][`Criterion_${i + 1}`]['Score'] / 5 * this.radarWidth / 2) * Math.sin((tmpCnt * radarAngle / 180 - 0.5) * Math.PI) + ' ';
                     // if (i != Object.keys(this.criterion).length - 1) {
                     radarPoint.push({
-                        x: Math.cos((tmpCnt * radarAngle / 180) * Math.PI),
-                        y: Math.sin((tmpCnt * radarAngle / 180) * Math.PI),
+                        x: Math.cos((tmpCnt * radarAngle / 180 - 0.5) * Math.PI),
+                        y: Math.sin((tmpCnt * radarAngle / 180 - 0.5) * Math.PI),
                         text: this.criterion[`Criterion_${i + 1}`],
-                        score: data['score'][`Criterion_${i + 1}`]['Score']
+                        score: data['score'][`Criterion_${i + 1}`]['Score'],
+                        definition: this.criterionList[i].Definition 
                     });
                     strokePath.push({
-                        d: 'M 0 0 L ' + Math.cos((tmpCnt * radarAngle / 180) * Math.PI) * this.radarWidth / 2 + ' ' + Math.sin((tmpCnt * radarAngle / 180) * Math.PI) * this.radarWidth / 2,
+                        d: 'M 0 0 L ' + Math.cos((tmpCnt * radarAngle / 180 - 0.5) * Math.PI) * this.radarWidth / 2 + ' ' + Math.sin((tmpCnt * radarAngle / 180 - 0.5) * Math.PI) * this.radarWidth / 2,
                         width: .5,
                         stroke: '#ccc',
                         fill: 'none'
@@ -821,22 +895,36 @@ export default {
         selectProblem(data, level) {
             if (level == 1) {
                 this.selectProblemIndex = data.pid;
-                this.startingPoint = this.startingPointsProcess(this.raw_data.startingPoint, data.pid);
+                const dataStore = useDataStore();
+                if (this.selectProblemIndexList.indexOf(data.pid) == -1) {
+                    this.selectProblemIndexList.push(data.pid);
+                    this.startingPoint = this.startingPointsProcess(this.raw_data.startingPoint, data.pid);
+                    dataStore.startingPointList.push(this.startingPoint);
+                } else {
+                    this.startingPoint = dataStore.startingPointList[this.selectProblemIndexList.indexOf(data.pid)];
+                }
+                
                 for (const pi in this.problemList) {
                     for (const d of this.problemList[pi]) {
                         d.selectStatus = 0;
                     }
                 }
                 this.showReason = {};
+                this.strokePath = [];
+                dataStore.selectProblem = data;
+                dataStore.chatTag = -1;
+                this.selectProblemData = data;
+                
+                console.log(data)
             }
-            if (level == 2) {
-                this.solution = this.finalSolutionProcess(this.raw_data.finalSolution, data.sid);
-                for (const d of this.startingPoint) {
-                    d.selectStatus = 0;
-                }
-                const dataStore = useDataStore();
-                dataStore.showChatbot = true;
-            }
+            // if (level == 2) {
+            //     this.solution = this.finalSolutionProcess(this.raw_data.finalSolution, data.sid);
+            //     for (const d of this.startingPoint) {
+            //         d.selectStatus = 0;
+            //     }
+            //     const dataStore = useDataStore();
+            //     dataStore.showChatbot = true;
+            // }
             data.selectStatus = 1;
         },
         editStartingPoint(data) {
@@ -845,6 +933,14 @@ export default {
         },
         editSolution(data) {
             data.editStatus = !data.editStatus;
+            const dataStore = useDataStore();
+            let now = new Date();
+            let timeTag = Math.floor(now.getTime() / 1000);
+            dataStore.interactionList.push({
+                time: timeTag,
+                text: '编辑解决方案',
+                pid: data.pid
+            })
         },
         problemProcess(data) {
             let problemData = {};
@@ -894,27 +990,60 @@ export default {
     },
     created() {},
     mounted() {
-        // let dataStore = useDataStore();
+        let dataStore = useDataStore();
         // dataStore.$subscribe(() => {
         //     this.leftShow = dataStore.leftShow;
         //     this.video_select = dataStore.select_video;
         // })
         // console.log(problemData)
-        this.raw_data = problemData;
-        this.problemList = this.problemProcess(problemData.problem);
-        // this.startingPoint = this.startingPointsProcess(this.raw_data.startingPoint, 1);
-        // this.solution = this.finalSolutionProcess(this.raw_data.finalSolution, 0);
-        // this.radarPoint = this.calcRadarPoint()
-        // this.startingPointStatus = [];
-        // for (let i = 0; i < this.startingPoint.length; ++i) {
-        //     this.startingPointStatus.push(0);
-        // }
+
+
+        // this.raw_data = problemData;
+        // this.problemList = this.problemProcess(problemData.problem);
+        // dataStore.problemList = this.problemList;
+        // dataStore.solutionList = this.solution;
     },
     updated () {
         if (this.strokePath.length == 0)
             this.calcRadar();
     },
     watch: {
+        startTag: {
+            handler() {
+                if (this.startTag) {
+                    let dataStore = useDataStore();
+                    this.raw_data = problemData;
+                    this.problemList = this.problemProcess(problemData.problem);
+                    dataStore.problemList = this.problemList;
+                    dataStore.solutionList = this.solution;
+                }
+            }
+        },
+        criterionList: {
+            handler() {
+                const dataStore = useDataStore();
+                let now = new Date();
+                let timeTag = Math.floor(now.getTime() / 1000);
+                dataStore.interactionList.push({
+                    time: timeTag,
+                    text: '修改评估标准'
+                })
+                dataStore.criterionList = this.criterionList;
+            },
+            deep: true
+        },
+        compareTag: {
+            handler () {
+                const dataStore = useDataStore();
+                let now = new Date();
+                let timeTag = Math.floor(now.getTime() / 1000);
+
+                dataStore.interactionList.push({
+                    time: timeTag,
+                    text: '比较解决方案'
+                })
+            }
+        },
         criterionList: {
             handler () {
                 // console.log(this.criterionList);
@@ -928,7 +1057,7 @@ export default {
             deep: true
         },
     },
-    components: {}
+    components: { PreviewVideoPlayer }
 }
 </script>
 

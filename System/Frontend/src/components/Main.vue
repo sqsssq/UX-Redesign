@@ -3,20 +3,22 @@
  * @Author: Qing Shi
  * @Date: 2024-02-01 19:32:17
  * @LastEditors: Qing Shi
- * @LastEditTime: 2024-07-29 00:20:47
+ * @LastEditTime: 2024-08-04 22:36:43
 -->
 <template>
     <div style="width: 100%; height: 100%;">
         
-        <div id="navBar">
-            <span style="font-weight: 800; padding-left: 0px;position: absolute;">
+        <div id="navBar" style="display: flex; justify-content: space-between;">
+            <div style="font-weight: 800; padding-left: 0px;position: absolute;">
                     UX Redesign
                     <!-- <span id="version">
                     <a id="version" style="font-size: 16px; font-style: italic;">
                         <router-link to="/baseline">Full Version</router-link>
                     </a>
                 </span> -->
-            </span>
+            </div>
+
+            <div style="position: absolute; right: 10px;"><el-button text bg type="primary" @click="startStudy()">开始</el-button> <el-button text bg type="success" @click="saveData()">保存</el-button> <el-button text bg type="danger" @click="endStudy()">结束</el-button></div>
         </div>
         <div style="height: calc(100vh - 40px); width: calc(100% - 0px);">
             <div class="framework" id="videoView" style="position: absolute; left: calc(5px); top: calc(5px); height: calc(100% - 10px); width: calc(70vw - 0px);">
@@ -28,10 +30,24 @@
                     <div class="titleTriangle"></div>
                 </div>
                 <div class="frameworkBody">
-                    <MainView />
+                    <MainView :startTag="startTag" />
                 </div>
             </div>
-            <div class="framework" id="controlView" style="position: absolute; right: calc(5px); top: calc(5px); height: calc(100% - 10px); width: calc(30vw - 15px);">
+            <div class="framework" id="controlView" style="position: absolute; right: calc(5px); top: calc(5px); height: calc(60% - 5px); width: calc(30vw - 15px);">
+                
+                <div class="frameworkTitle" style="display: flex;">
+                    <div class="title"> 
+                        <div style="margin-top: -3px;">Chatbot</div>
+                        
+                    </div>
+                    <div class="titleTriangle"></div>
+                    
+                </div>
+                <div class="frameworkBody">
+                    <DesignView />
+                </div>
+            </div>
+            <div class="framework" id="controlView" style="position: absolute; right: calc(5px); top: calc(5px + 60%); height: calc(40% - 10px); width: calc(30vw - 15px);">
                 
                 <div class="frameworkTitle">
                     <div class="title">
@@ -40,7 +56,8 @@
                     <div class="titleTriangle"></div>
                 </div>
                 <div class="frameworkBody">
-                    <DesignView />
+                    <!-- <DesignView /> -->
+                    <ResultView />
                 </div>
             </div>
         </div>
@@ -52,17 +69,51 @@ import { useDataStore } from "@/stores/counter";
 import { Fireworks } from 'fireworks-js';
 import MainView from './MainView.vue';
 import DesignView from './DesignView.vue';
+import ResultView from "./ResultView.vue";
+import axios from 'axios';
 export default {
     name: "APP",
     props: ["msgH"],
     data() {
         return {
             msg1: "Hello, main!",
-            
+            intervalID: null,
+            startTag: false
         };
     },
     methods: {
-        
+        generalChat() {
+            const dataStore = useDataStore();
+            dataStore.chatData = dataStore.generalChatData;
+        },
+        sendData(data) {
+            // https://formspree.io/f/mnnavdze
+            axios.post('https://formspree.io/f/xrgnoavv', {
+                data: JSON.stringify(data),
+                dataType: 'json'
+            }).then((res) => {
+                console.log(res);
+            }).catch(err => {
+                console.log(err);
+            })
+        },
+        saveData() {
+            const dataStore = useDataStore();
+            const data = dataStore.saveData();
+            console.log(data);
+            this.sendData(data);
+        },
+        startStudy() {
+            this.startTag = true;
+            const vm = this;
+            this.intervalID = setInterval(() => {
+                vm.saveData();
+            }, 600000);
+        },
+        endStudy() {
+            clearInterval(this.intervalID);
+            this.saveData();
+        }
     },
     created() {},
     mounted() {
@@ -75,7 +126,7 @@ export default {
     watch: {
         
     },
-    components: { MainView, DesignView }
+    components: { MainView, DesignView, ResultView }
 }
 </script>
 

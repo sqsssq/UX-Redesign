@@ -1,37 +1,229 @@
-[
-    {
-      "Video": "V4",
-      "Timestamp": "00:06:49",
-      "Problem": "用户发现设计输出未将元素放置在期望的位置，并且不能同时提出两个要求。",
-      "Solution": ["实现一个实时视觉反馈系统，用户输入命令或修改元素时可以立即预览更改和调整。这个功能将允许用户看到他们的设计随着每个命令或操作的调整情况，从而立即了解AI如何解释他们的输入。",
-      "开发一个分割输入界面，用户可以分别输入多个设计命令，每个命令都有自己的参数集，以提高清晰度和系统解释能力。",
-      "引入一个拖放界面，用于生成后手动调整元素位置。",
-      "开发高级工具包，允许用户使用精确工具而不仅仅依赖于AI解释来指定详细属性，如字体大小、颜色和方向。",
-      "整合上下文工具提示和帮助提示，指导用户如何结构化他们的命令以达到预期结果，特别是在放置多个元素或使用复杂属性时。",
-      "提供可自定义的模板和预设，用户可以根据其具体需求进行修改。这些应包括常用的布局模式和经常使用的设计元素。"]
-    },
-    {
-      "Video": "V5",
-      "Timestamp": "00:00:00",
-      "Problem": "用户寻找如何使用系统的指导，但只找到了一个一般性的介绍。缺乏有效使用系统的教学支持。",
-      "Solution": ["判断是否为新用户，并制定新手期（例如在首次注册后or注册后前三次使用or某个功能的第一次使用,在新手期新用户提供新手指导。不过这是一个比较复杂的系统，因为除了在输入prompt阶段，进入custmize后，依然有很多藏得很深的入口，因此所有的新手指导可能不是在一次体验中展示完的，而是根据用户的特定体验而出现。新手指导形式可分为两种1）强打扰：对于比较关键的步骤。2）弱打扰，对于不是很关键，但是判断用户可能存在疑问的地方，可使用气泡提醒等弱打扰样式。"]
-    },
-    {
-      "Video": "V5",
-      "Timestamp": "00:01:54",
-      "Problem": "用户注意到生成的图像与输入描述不匹配，感觉结果与他们的期望无关。",
-      "Solution": ["目前输入prompt的方式为整段输入，可以调整为分词/关键词输入，并且可以对不同的关键词调整权重，以更准确输出符合预期的结果。Reference：抖音-可以调整不同推送内容的权重。","输入prompt结果产生后，需要再次输入并重新产出所有结果。可以参照midjourny对特定图片输入prompt进行二次自动生成。","输入prompt结果产生后，部分动图超出了用户的预期，并且是进入custmize阶段才发现是动图。对于需要静图的用户来说，需要返回上一级界面重新输入。因此可以在输入prompt后的结果页，通过简单的ui对图片类型进行标记，将该理解问题前置，减少漏斗，管理用户预期。","输入prompt结果产生后，左侧输入框下方有个“click to try this prompt”，这个东西的意义在于，从microsoft designer，这么输入更有益于理解并生成。但是需要从用户的角度，告诉他们这么输入更有用。情感化的设计尝试也许能起到一定作用，例如Try this better prompt！或者Maybe that's what you want。","输入prompt的结果页，目前是大小相等图片组成的3*N矩阵，通常首屏只能看到六张图片。因此在结果生成完成后，可以允许用户将结果页（右侧）拉大，甚至全屏展示，提高用户搜索效率，减少交互（上滑）成本。Reference：pinterest首屏瀑布流。","当用户连续输入两次或三次以时（判定可能无法用文字准确描述需求时），推荐其他输入方式，例如左侧已有的add media的方式，触发时可以对这个button样式做个强化，配合气泡文案例如Try adding pictures to create。"]
-    },
-    {
-      "Video": "V4",
-      "Timestamp": "00:04:17",
-      "Problem": "用户在使用撤销功能时遇到困难，无法轻松退出当前交互。",
-      "Solution": ["在编辑页上方是有撤回/重做的入口，从位置来看，当前位置稳定且适用于编辑全链路，问题是，该入口ui样式太弱，无法有效吸引注意力，可以对button样式做加强，其次可以考虑当鼠标悬浮在撤回button上时，气泡提示“撤回”的快捷键操作，养成用户心智和快捷操作习惯。", "确实没看到有返回至prompt页的入口，从位置来看，应当设置在顶bar，并且该操作从优先级上，可以和最右侧的“download”并列。"]
-    },
-    {
-      "Video": "V9",
-      "Timestamp": "00:17:40",
-      "Problem": "用户想调整行间距，但似乎无法做到，最终决定多次复制文本作为解决方法。",
-      "Solution": ["在选中文字后的”编辑栏“中，添加一个more的button，用来集合更多地细节功能。"]
-    }
-  ]
+{
+    "problem": [
+        {
+            "pid": 0,
+            "Video": "V3",
+            "Timestamp": 381,
+            "problemType": "功能性问题",
+            "Problem": "用户认为“去除背景”的效果不好。",
+            "status": 0,
+            "selectStatus": 0,
+            "finishStatus": 0,
+            "finishTag": 0
+        },
+        {
+            "pid": 1,
+            "Video": "V3",
+            "Timestamp": 496,
+            "problemType": "导航和工作流程问题",
+            "Problem": "用户寻找如何添加文本的方式，似乎需要帮助。",
+            "status": 0,
+            "selectStatus": 0,
+            "finishStatus": 0,
+            "finishTag": 0
+        },
+        {
+            "pid": 2,
+            "Video": "V3",
+            "Timestamp": 587,
+            "problemType": "功能性问题",
+            "Problem": "建议字体中没有用户想要的。",
+            "status": 0,
+            "selectStatus": 0,
+            "finishStatus": 0,
+            "finishTag": 0
+        },
+        {
+            "pid": 3,
+            "Video": "V4",
+            "Timestamp": 104,
+            "problemType": "AI理解和生成",
+            "Problem": "用户对生成的元素不满意，需要重新生成，显示可能缺乏对如何修改或重做操作的控制或反馈。",
+            "status": 0,
+            "selectStatus": 0,
+            "finishStatus": 0,
+            "finishTag": 0
+        },
+        {
+            "pid": 4,
+            "Video": "V4",
+            "Timestamp": 257,
+            "problemType": "导航和工作流程问题",
+            "Problem": "用户在使用撤销功能时遇到困难，无法轻松退出当前交互。",
+            "status": 0,
+            "selectStatus": 0,
+            "finishStatus": 0,
+            "finishTag": 0
+        },
+        {
+            "pid": 5,
+            "Video": "V4",
+            "Timestamp": 743,
+            "problemType": "功能性问题",
+            "Problem": "文本对齐工具不直观，对齐按钮的行为不可预测。",
+            "status": 0,
+            "selectStatus": 0,
+            "finishStatus": 0,
+            "finishTag": 0
+        },
+        {
+            "pid": 6,
+            "Video": "V4",
+            "Timestamp": 790,
+            "problemType": "导航和工作流程问题",
+            "Problem": "用户对撤销功能的工作方式感到惊讶，意味着它交互方式不标准，不符合用户的使用习惯。",
+            "status": 0,
+            "selectStatus": 0,
+            "finishStatus": 0,
+            "finishTag": 0
+        },
+        {
+            "pid": 7,
+            "Video": "V4",
+            "Timestamp": 817,
+            "problemType": "功能性问题",
+            "Problem": "用户对调整文本大小的方法感到惊讶，并发现其违反直觉。",
+            "status": 0,
+            "selectStatus": 0,
+            "finishStatus": 0,
+            "finishTag": 0
+        },
+        {
+            "pid": 8,
+            "Video": "V5",
+            "Timestamp": 0,
+            "problemType": "帮助和文档",
+            "Problem": "用户寻找如何使用系统的指导，但只找到了一个一般性的介绍。缺乏有效使用系统的教学支持。",
+            "status": 0,
+            "selectStatus": 0,
+            "finishStatus": 0,
+            "finishTag": 0
+        },
+        {
+            "pid": 9,
+            "Video": "V5",
+            "Timestamp": 615,
+            "problemType": "导航和工作流程问题",
+            "Problem": "用户在尝试添加雪人图形时想进行生成，但实际上使用的是搜索功能，这可能表明界面没有清晰区分不同的操作。",
+            "status": 0,
+            "selectStatus": 0,
+            "finishStatus": 0,
+            "finishTag": 0
+        },
+        {
+            "pid": 10,
+            "Video": "V6",
+            "Timestamp": 350,
+            "problemType": "导航和工作流程问题",
+            "Problem": "用户难以找到退出不需要功能的方法。",
+            "status": 0,
+            "selectStatus": 0,
+            "finishStatus": 0,
+            "finishTag": 0
+        }
+    ],
+    "startingPoint": [
+        {
+            "sid": 0,
+            "pid": 0,
+            "editStatus": 0,
+            "authorStatus": 0,
+            "authorTag": 0,
+            "history": ["Enhance Algorithm Accuracy: Improve the background removal algorithm to better detect edges and handle complex images, reducing artifacts and misinterpretations."],
+            "content": "Enhance Algorithm Accuracy: Improve the background removal algorithm to better detect edges and handle complex images, reducing artifacts and misinterpretations.",
+            "selectStatus": 0,
+            "radarStatus": true,
+            "showTag": 0,
+            "score": {
+                "Criterion_1": {
+                    "Score": 4,
+                    "Reason": "Enhancing an algorithm involves significant integration and testing, requiring considerable resources."
+                    },
+                "Criterion_2":{
+                    "Score": 3,
+                    "Reason": "Achievable with current technology, but involves complexities related to algorithm training and testing."
+                    },
+                "Criterion_3":{
+                    "Score": 4,
+                    "Reason": "Significantly reduces user frustration by improving accuracy, thus enhancing user experience."
+                    },
+                "Criterion_4":{
+                    "Score": 4,
+                    "Reason": "Directly addresses the core issue of poor edge detection and artifacts, effectively resolving the reported problem."
+                    }
+                }
+                
+        },
+        {
+            "sid": 1,
+            "pid": 0,
+            "editStatus": 0,
+            "authorStatus": 0,
+            "authorTag": 0,
+            "history": ["User Control Enhancement: Introduce manual adjustment tools allowing users to refine the automatic background removal, such as adding or subtracting areas from the selection."],
+            "content": "User Control Enhancement: Introduce manual adjustment tools allowing users to refine the automatic background removal, such as adding or subtracting areas from the selection.",
+            "radarStatus": true,
+            "score": {
+                "Criterion_1": {
+                    "Score": 3,
+                    "Reason": "Introducing new tools involves moderate development efforts for UI and functional integration."
+                    },
+                "Criterion_2":{
+                    "Score": 4,
+                    "Reason": "Adding manual controls is a common feature in image editing tools, making implementation straightforward with minor hurdles."
+                    },
+                "Criterion_3":{
+                    "Score": 3,
+                    "Reason": "Provides noticeable improvement by empowering users, though its effectiveness depends on user skill."
+                    },
+                "Criterion_4":{
+                    "Score": 4,
+                    "Reason": "Appropriately addresses user needs for more control, directly solving issues of dissatisfaction with automated results."
+                    }
+                },
+            "selectStatus": 0,
+            "showTag": 0
+        },
+        {
+            "sid": 2,
+            "pid": 0,
+            "editStatus": 0,
+            "authorStatus": 0,
+            "authorTag": 0,
+            "history": ["Visual Feedback and Guidance: Provide real-time visual feedback during the background removal process and offer tutorials or tips on achieving the best results, enhancing user understanding and satisfaction with the tool."],
+            "content": "Visual Feedback and Guidance: Provide real-time visual feedback during the background removal process and offer tutorials or tips on achieving the best results, enhancing user understanding and satisfaction with the tool.",
+            "radarStatus": true,
+            "score": {
+                "Criterion_1": {
+                    "Score": 3,
+                    "Reason": "Developing real-time feedback and creating educational content require moderate effort and resource allocation."
+                    },
+                "Criterion_2":{
+                    "Score": 4,
+                    "Reason": "Practical to implement as it leverages existing system capabilities and user interface components."
+                    },
+                "Criterion_3":{
+                    "Score": 4,
+                    "Reason": " Greatly enhances user experience by reducing confusion and increasing confidence in using the tool."
+                    },
+                "Criterion_4":{
+                    "Score": 5,
+                    "Reason": "Directly improves user understanding and satisfaction, fully addressing issues related to user expectations and tool performance."
+                    }
+                },
+            "selectStatus": 0,
+            "showTag": 0
+        }
+    ],
+    "finalSolution": [
+        {
+            "fid": 0,
+            "sid": 0,
+            "chatHistory": [],
+            "content": "新开发一个界面",
+            "selectStatus": 0,
+            "editStatus": 0,
+            "designPath": []
+        }
+    ]
+}

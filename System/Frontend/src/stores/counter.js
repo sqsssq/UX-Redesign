@@ -6,7 +6,12 @@
  */
 import {
     fetchAllData,
-    fetchHello, uploadData, queryRecommendation, queryNewTag, saveData, tagOptimize
+    fetchHello, uploadData, generalChat,
+    addMetric,
+    solutionChat,
+    generatePoint,
+    evaluatePoint,
+    reflectResult
 } from "../service/module/dataService";
 import {
     ref,
@@ -30,29 +35,31 @@ export const useDataStore = defineStore("dataStore", {
     state: () => {
         return {
             msg: 'Hello, Vue SQ',
-            categorySource: [],
-            selectShowLevel: 1,
-            noneDisabledTag: {},
-            emptyTag: 0,
-            showTagList: [],
-            isShowTagList: false,
-            select_video: '',
-            select_dataset: '',
-            noneDisabledTag: {},
-            all_data: [],
-            currentPlayTime: 0,
-            leftShow: 1,
-            video_list: [],
-            time_list: [],
-            reuse_list: [],
-            changeTag_list: [],
-            dataSelect: -1,
-            previewSelect: 0,
-            select_all: 1,
             showChatbot: false,
+            generalChatData: [],
+            chatData: [],
+            chatTag: -1,
+            selectProblem: [],
+            problemList: [],
+            startingPointList: [],
+            solutionList: [],
+            criterionList: [],
+            interactionList: []
         }
     },
     actions: {
+        saveData() {
+            const st = new Date();
+            const data = {
+                "time": st,
+                "solutionList": this.solutionList,
+                "startingPointList": this.startingPointList,
+                // "criterionList": this.criterionList,
+                "generalChatData": this.generalChatData,
+                "interactionList": this.interactionList
+            }
+            return data;
+        },
         fetchHello() {
             const st = new Date();
             fetchHello({}, resp => {
@@ -74,21 +81,28 @@ export const useDataStore = defineStore("dataStore", {
                 console.log("Fetch Data: ", new Date() - st);
             });
         },
-        async queryRecommendation(param) {
-            const st = new Date();
-            const data = await queryRecommendation(param);
+        async getGeneralChat(param) {
+            const data = await generalChat(param);
             return data;
         },
-        async queryNewTag(param) {
-            const data = await queryNewTag(param);
+        async addMetric(param) {
+            const data = await addMetric(param);
             return data;
         },
-        async saveData(param) {
-            const data = await saveData(param);
+        async solutionChat(param) {
+            const data = await solutionChat(param);
             return data;
         },
-        async tagOptimize(param) {
-            const data = await tagOptimize(param);
+        async generatePoint(param) {
+            const data = await generatePoint(param);
+            return data;
+        },
+        async evaluatePoint(param) {
+            const data = await evaluatePoint(param);
+            return data;
+        },
+        async reflectResult() {
+            const data = await reflectResult();
             return data;
         }
     }

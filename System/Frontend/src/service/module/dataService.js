@@ -8,7 +8,7 @@
 import axios from 'axios';
 
 // axios.defaults.withCredentials = true
-const TEST_URL_PREFIX = 'http://43.153.168.84:8000/apis';
+const TEST_URL_PREFIX = 'http://127.0.0.1:5000/api/test';
 
 export function fetchHello(param, callback) {
     const url = `${TEST_URL_PREFIX}/hello/`;
@@ -84,6 +84,90 @@ export async function saveData(param) {
 
 export async function tagOptimize(param) {
     const url = `${TEST_URL_PREFIX}/TagOp`;
+    const jsonString = JSON.stringify(param);
+    const data = await axios({
+        method: "post",
+        url: url,
+        headers: {
+            "Content-Type": "application/json",
+        },
+        data: jsonString
+    });
+    return data;
+}
+
+export async function generalChat(param) {
+    const url = `${TEST_URL_PREFIX}/GeneralChat`;
+    const jsonString = JSON.stringify(param);
+    const data = await axios({
+        method: "post",
+        url: url,
+        headers: {
+            "Content-Type": "application/json",
+        },
+        data: jsonString
+    });
+    return data;
+}
+
+export async function addMetric(param) {
+    const url = `${TEST_URL_PREFIX}/AddMetric`;
+    const jsonString = JSON.stringify(param);
+    const data = await axios({
+        method: "post",
+        url: url,
+        headers: {
+            "Content-Type": "application/json",
+        },
+        data: jsonString
+    });
+    return data;
+}
+
+export async function solutionChat(param) {
+    const url = `${TEST_URL_PREFIX}/SolutionChat`;
+    const jsonString = JSON.stringify(param);
+    const data = await axios({
+        method: "post",
+        url: url,
+        headers: {
+            "Content-Type": "application/json",
+        },
+        data: jsonString
+    });
+    return data;
+}
+
+export async function generatePoint(param) {
+    const url = `${TEST_URL_PREFIX}/GeneratePoint`;
+    const jsonString = JSON.stringify(param);
+    const data = await axios({
+        method: "post",
+        url: url,
+        headers: {
+            "Content-Type": "application/json",
+        },
+        data: jsonString
+    });
+    return data;
+}
+
+export async function evaluatePoint(param) {
+    const url = `${TEST_URL_PREFIX}/EvaluatePoint`;
+    const jsonString = JSON.stringify(param);
+    const data = await axios({
+        method: "post",
+        url: url,
+        headers: {
+            "Content-Type": "application/json",
+        },
+        data: jsonString
+    });
+    return data;
+}
+
+export async function reflectResult(param) {
+    const url = `${TEST_URL_PREFIX}/Lucky`;
     const jsonString = JSON.stringify(param);
     const data = await axios({
         method: "post",
