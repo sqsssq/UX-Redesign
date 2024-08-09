@@ -8,7 +8,9 @@
 import axios from 'axios';
 
 // axios.defaults.withCredentials = true
-const TEST_URL_PREFIX = 'http://43.133.208.67:5000/api/test';
+// const TEST_URL_PREFIX = 'http://43.133.208.67:5000/api/test';
+
+const TEST_URL_PREFIX = 'http://127.0.0.1:5000/api/test';
 
 export function fetchHello(param, callback) {
     const url = `${TEST_URL_PREFIX}/hello/`;
@@ -166,8 +168,9 @@ export async function evaluatePoint(param) {
     return data;
 }
 
-export async function reflectResult(param) {
-    const url = `${TEST_URL_PREFIX}/Lucky`;
+
+export async function save(param) {
+    const url = `${TEST_URL_PREFIX}/Save`;
     const jsonString = JSON.stringify(param);
     const data = await axios({
         method: "post",

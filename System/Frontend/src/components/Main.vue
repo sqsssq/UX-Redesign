@@ -3,7 +3,7 @@
  * @Author: Qing Shi
  * @Date: 2024-02-01 19:32:17
  * @LastEditors: Qing Shi
- * @LastEditTime: 2024-08-04 22:36:43
+ * @LastEditTime: 2024-08-09 20:51:34
 -->
 <template>
     <div style="width: 100%; height: 100%;">
@@ -71,6 +71,7 @@ import MainView from './MainView.vue';
 import DesignView from './DesignView.vue';
 import ResultView from "./ResultView.vue";
 import axios from 'axios';
+import { ElMessage } from 'element-plus';
 export default {
     name: "APP",
     props: ["msgH"],
@@ -88,6 +89,7 @@ export default {
         },
         sendData(data) {
             // https://formspree.io/f/mnnavdze
+
             axios.post('https://formspree.io/f/mnnavdze', {
                 data: JSON.stringify(data),
                 dataType: 'json'
@@ -97,34 +99,68 @@ export default {
                 console.log(err);
             })
         },
-        saveData() {
+        async saveData() {
             const dataStore = useDataStore();
             const data = dataStore.saveData();
             console.log(data);
+            const res = await dataStore.save(data);
+            
+            console.log(res)
             this.sendData(data);
+            ElMessage({
+                message: "保存成功",
+                type: "success"
+            })
         },
         startStudy() {
-            this.startTag = true;
+            // this.startTag = true;
             const vm = this;
-            // webgazer.setGazeListener(function(data, elapsedTime) {
-            //     if (data == null) {
-            //         return;
-            //     }
-            //     var xprediction = data.x; //these x coordinates are relative to the viewport
-            //     var yprediction = data.y; //these y coordinates are relative to the viewport
-            //     console.log(elapsedTime, xprediction, yprediction); //elapsed time is based on time since begin was called
-            // }).begin();
+            // webgazer.showVideo(false);
+            // webgazer.showPredictionPoints(false);
+            const dataStore = useDataStore();
+            
+            webgazer.setGazeListener(function(data, elapsedTime) {
+                if (data == null) {
+                    return;
+                }
+                if (!vm.startTag) {
+                    vm.startTag = true;
+                    webgazer.showVideo(false);
+                    webgazer.showPredictionPoints(false);
+                }
+                var xprediction = data.x; //these x coordinates are relative to the viewport
+                var yprediction = data.y; //these y coordinates are relative to the viewport
+                dataStore.eyeTrackList.push({
+                    x: xprediction,
+                    y: yprediction,
+                    time: elapsedTime
+                });
+                // console.log(elapsedTime, xprediction, yprediction); //elapsed time is based on time since begin was called
+            }).begin();
             this.intervalID = setInterval(() => {
                 vm.saveData();
-            }, 600000);
+            }, 3600000);
         },
-        endStudy() {
+        async endStudy() {
             clearInterval(this.intervalID);
-            this.saveData();
+            webgazer.end();
+            // this.saveData();
+
+            const dataStore = useDataStore();
+            const data = dataStore.saveData();
+            console.log(data);
+            const res =  await dataStore.save(data);
+            console.log(res);
+            this.sendData(data);
+            ElMessage({
+                message: "实验结束，感谢您的参与",
+                type: "success"
+            })
         }
     },
     created() {},
     mounted() {
+        
         // let dataStore = useDataStore();
         // dataStore.$subscribe(() => {
         //     this.leftShow = dataStore.leftShow;
@@ -132,7 +168,14 @@ export default {
         // })
     },
     watch: {
-        
+        startTag: {
+            handler() {
+                ElMessage({
+                    message: "眼动记录开始，开始实验",
+                    type: "success"
+                })
+            }
+        }
     },
     components: { MainView, DesignView, ResultView }
 }

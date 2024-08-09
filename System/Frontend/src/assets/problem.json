@@ -160,7 +160,7 @@
             "tag": [
                 7
             ],
-            "problemType": "自定义和灵活性",
+            "problemType": "自定义与灵活性",
             "user_said": "然后因为我选了模板，它不够智能。刚刚被我分了两排的dress code我要把它变成一排。",
             "reason": "用户发现模板无法智能地适应他们的更改，表明布局和设计适应性方面的问题。",
             "ui": "text_edit",
@@ -449,7 +449,7 @@
             "tag": [
                 7
             ],
-            "problemType": "自定义和灵活性",
+            "problemType": "自定义与灵活性",
             "user_said": "怎么样给它变得亮晶晶呢？我真的很想了解。",
             "reason": "用户难以弄清楚如何让设计闪亮，表明美学定制能力存在问题。",
             "ui": "text_edit",
@@ -486,7 +486,7 @@
             "problemType": "用户界面和体验问题",
             "user_said": "那这个是什么呢？诶，什么意思？色块吗？",
             "reason": "用户对设计元素的用途感到困惑，表明在选择和理解用户界面元素方面存在问题。",
-            "ui": "brand_kit",
+            "ui": "brank_kit",
             "status": 0,
             "selectStatus": 0,
             "finishStatus": 0,
@@ -503,7 +503,6 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["增强个性化和定制功能：允许用户通过一个高级工具栏详细定制设计元素，如颜色方案、字体和图像，同时提供实时预览功能以便用户即时看到并调整更改。"],
             "content": "增强个性化和定制功能：允许用户通过一个高级工具栏详细定制设计元素，如颜色方案、字体和图像，同时提供实时预览功能以便用户即时看到并调整更改。",
@@ -558,21 +557,20 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["改进用户引导和教育：提供详细的操作教程和智能建议系统，帮助用户更好地理解和使用设计工具，同时根据用户历史行为推荐设计模板。"],
             "content": "改进用户引导和教育：提供详细的操作教程和智能建议系统，帮助用户更好地理解和使用设计工具，同时根据用户历史行为推荐设计模板。",
             "score": {
                 "Criterion_1": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "主要涉及添加教程和建议系统，较为简单的改进。"
                 },
                 "Criterion_2": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "相对较快地实施教程和智能建议系统。"
                 },
                 "Criterion_3": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "需要一定的投资用于制作教程和开发推荐系统。"
                 },
                 "Criterion_4": {
@@ -596,7 +594,7 @@
                     "Reason": "有效地考虑到了不同技能水平用户的需求。"
                 },
                 "Criterion_9": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "局限性较小，主要是提供信息和指导。"
                 },
                 "Criterion_10": {
@@ -613,7 +611,6 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["优化反馈和迭代过程：设置快速评分系统或文字反馈选项，让用户能够直接反馈生成的设计，根据用户反馈不断迭代更新设计模板和算法。"],
             "content": "优化反馈和迭代过程：设置快速评分系统或文字反馈选项，让用户能够直接反馈生成的设计，根据用户反馈不断迭代更新设计模板和算法。",
@@ -668,7 +665,6 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["增加风格选择功能：在用户输入描述后，提供一个风格选择器，用户可以选择生成图像的风格，如“二维”、“卡通”或“超现实”等。"],
             "content": "增加风格选择功能：在用户输入描述后，提供一个风格选择器，用户可以选择生成图像的风格，如“二维”、“卡通”或“超现实”等。",
@@ -706,7 +702,7 @@
                     "Reason": "增加了对不同审美需求的支持，提高了平台的包容性。"
                 },
                 "Criterion_9": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "限制较少，主要是增加了用户的选择复杂度。"
                 },
                 "Criterion_10": {
@@ -723,21 +719,20 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["优化图像生成算法：调整图像生成算法，使其在解析用户描述时能更好地理解和区分不同的风格需求。"],
             "content": "优化图像生成算法：调整图像生成算法，使其在解析用户描述时能更好地理解和区分不同的风格需求。",
             "score": {
                 "Criterion_1": {
-                    "Score": 4,
+                    "Score": 2,
                     "Reason": "需要深入调整和优化算法，复杂度较高。"
                 },
                 "Criterion_2": {
-                    "Score": 4,
+                    "Score": 2,
                     "Reason": "算法优化是一个时间消耗较大的过程。"
                 },
                 "Criterion_3": {
-                    "Score": 4,
+                    "Score": 2,
                     "Reason": "需要较大的研发投资。"
                 },
                 "Criterion_4": {
@@ -778,7 +773,6 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["增设用户反馈和迭代机制：在生成的图像旁边增加“反馈”按钮，用户可以对生成的图像进行评价，并提供具体的改进建议。"],
             "content": "增设用户反馈和迭代机制：在生成的图像旁边增加“反馈”按钮，用户可以对生成的图像进行评价，并提供具体的改进建议。",
@@ -833,21 +827,20 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["优化背景去除算法：改进现有的背景去除算法，使其能更精确地识别和分离主要对象与背景"],
             "content": "优化背景去除算法：改进现有的背景去除算法，使其能更精确地识别和分离主要对象与背景。",
             "score": {
                 "Criterion_1": {
-                    "Score": 4,
+                    "Score": 2,
                     "Reason": "需要深度优化复杂的图像处理算法。"
                 },
                 "Criterion_2": {
-                    "Score": 4,
+                    "Score": 2,
                     "Reason": "算法优化是一个长期且复杂的过程。"
                 },
                 "Criterion_3": {
-                    "Score": 4,
+                    "Score": 2,
                     "Reason": "需要显著的财务投入用于研发和测试。"
                 },
                 "Criterion_4": {
@@ -888,7 +881,6 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["引入手动辅助工具：添加手动调整工具，如边缘微调滑块或刷子，让用户能手动修正自动去除效果不理想的区域。"],
             "content": "引入手动辅助工具：添加手动调整工具，如边缘微调滑块或刷子，让用户能手动修正自动去除效果不理想的区域。",
@@ -926,7 +918,7 @@
                     "Reason": "提供了更多的操作灵活性，适合各种技能水平的用户。"
                 },
                 "Criterion_9": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "新工具的使用可能需要一定的学习曲线。"
                 },
                 "Criterion_10": {
@@ -943,21 +935,20 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["增设教程和提示：在工具使用界面提供动态教程或使用提示，教用户如何有效地使用“去除背景”工具。"],
             "content": "增设教程和提示：在工具使用界面提供动态教程或使用提示，教用户如何有效地使用“去除背景”工具。",
             "score": {
                 "Criterion_1": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "添加教程和提示是相对简单的任务。"
                 },
                 "Criterion_2": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "相对快速的实施过程。"
                 },
                 "Criterion_3": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "低成本的解决方案。"
                 },
                 "Criterion_4": {
@@ -981,7 +972,7 @@
                     "Reason": "通过教程让所有用户都能更好地理解和使用工具。"
                 },
                 "Criterion_9": {
-                    "Score": 1,
+                    "Score": 5,
                     "Reason": "教程和提示几乎没有明显的局限性。"
                 },
                 "Criterion_10": {
@@ -998,21 +989,20 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["增加明显的文本工具按钮：在界面中显著位置添加一个“添加文本”或“文本工具”的按钮。"],
             "content": "增加明显的文本工具按钮：在界面中显著位置添加一个“添加文本”或“文本工具”的按钮。",
             "score": {
                 "Criterion_1": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "添加一个按钮是相对简单的任务。"
                 },
                 "Criterion_2": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "这种改动可以迅速实施。"
                 },
                 "Criterion_3": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "成本较低，主要是界面设计的小幅调整。"
                 },
                 "Criterion_4": {
@@ -1036,7 +1026,7 @@
                     "Reason": "使功能对所有用户都更为明显和易用。"
                 },
                 "Criterion_9": {
-                    "Score": 1,
+                    "Score": 5,
                     "Reason": "几乎没有明显的局限性。"
                 },
                 "Criterion_10": {
@@ -1053,7 +1043,6 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["优化用户界面布局：调整用户界面的布局，确保所有重要的编辑工具如添加文本都在用户可以容易看到的位置。"],
             "content": "优化用户界面布局：调整用户界面的布局，确保所有重要的编辑工具如添加文本都在用户可以容易看到的位置。",
@@ -1091,7 +1080,7 @@
                     "Reason": "更清晰的布局使功能对所有用户都更易于访问。"
                 },
                 "Criterion_9": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "需要用户适应新的界面布局。"
                 },
                 "Criterion_10": {
@@ -1108,7 +1097,6 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["引入交互式教程和提示：设计一个交互式教程或引导，当用户首次使用软件时，引导他们了解如何添加和编辑文本。"],
             "content": "引入交互式教程和提示：设计一个交互式教程或引导，当用户首次使用软件时，引导他们了解如何添加和编辑文本。",
@@ -1146,7 +1134,7 @@
                     "Reason": "增加了对技术不熟悉用户的支持。"
                 },
                 "Criterion_9": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "需要用户花时间学习，但长远来看是有益的。"
                 },
                 "Criterion_10": {
@@ -1163,17 +1151,16 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["增加更广泛的字体库：扩展现有的字体库，包括更多种类和风格的字体，以满足更广泛的用户需求。"],
             "content": "增加更广泛的字体库：扩展现有的字体库，包括更多种类和风格的字体，以满足更广泛的用户需求。",
             "score": {
                 "Criterion_1": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "主要是增加更多的字体到现有库中，技术复杂度较低。"
                 },
                 "Criterion_2": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "相对快速地实现，主要是资源的集成。"
                 },
                 "Criterion_3": {
@@ -1201,7 +1188,7 @@
                     "Reason": "提供更多的字体选择，适应更广泛的用户需求。"
                 },
                 "Criterion_9": {
-                    "Score": 1,
+                    "Score": 5,
                     "Reason": "几乎没有限制，为用户提供了更多的选择。"
                 },
                 "Criterion_10": {
@@ -1218,21 +1205,20 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["引入字体推荐系统：开发一个智能字体推荐系统，根据用户以往的选择和流行趋势推荐字体。"],
             "content": "引入字体推荐系统：开发一个智能字体推荐系统，根据用户以往的选择和流行趋势推荐字体。",
             "score": {
                 "Criterion_1": {
-                    "Score": 4,
+                    "Score": 2,
                     "Reason": "开发智能推荐系统需要一定的技术投入。"
                 },
                 "Criterion_2": {
-                    "Score": 4,
+                    "Score": 2,
                     "Reason": "开发和集成智能系统可能需要较长时间。"
                 },
                 "Criterion_3": {
-                    "Score": 4,
+                    "Score": 2,
                     "Reason": "需要投入资金用于开发和维护推荐算法。"
                 },
                 "Criterion_4": {
@@ -1273,7 +1259,6 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["允许用户上传自定义字体：允许用户上传自己的字体文件到平台上，用于个人项目。"],
             "content": "允许用户上传自定义字体：允许用户上传自己的字体文件到平台上，用于个人项目。",
@@ -1311,7 +1296,7 @@
                     "Reason": "允许所有用户按自己的需求使用任何字体。"
                 },
                 "Criterion_9": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "需要确保上传的字体符合版权要求。"
                 },
                 "Criterion_10": {
@@ -1328,21 +1313,20 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["改进撤销按钮的可视性和访问性：界面中撤销和重做按钮应放在更显眼的位置，如工作区的顶部或底部工具栏中，并添加清晰的文本标签，如“撤销（Ctrl+Z）”，以增强其可识别性和可访问性。"],
             "content": "改进撤销按钮的可视性和访问性：界面中撤销和重做按钮应放在更显眼的位置，如工作区的顶部或底部工具栏中，并添加清晰的文本标签，如“撤销（Ctrl+Z）”，以增强其可识别性和可访问性。",
             "score": {
                 "Criterion_1": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "实现简单，改变位置和添加标签不涉及复杂开发。"
                 },
                 "Criterion_2": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "相对快速的实现，主要是界面调整。"
                 },
                 "Criterion_3": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "财务投入小，主要是设计时间的投入。"
                 },
                 "Criterion_4": {
@@ -1366,7 +1350,7 @@
                     "Reason": "适中地考虑到所有用户的需求，使功能更易被找到和使用。"
                 },
                 "Criterion_9": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "限制少，主要是视觉和位置调整。"
                 },
                 "Criterion_10": {
@@ -1383,7 +1367,6 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["增加快捷键提示和引导教程：提供引导教程和快捷键帮助指南，教育用户如何使用撤销功能，包括快捷键和按钮位置，帮助新用户快速上手并熟悉界面操作。"],
             "content": "增加快捷键提示和引导教程：提供引导教程和快捷键帮助指南，教育用户如何使用撤销功能，包括快捷键和按钮位置，帮助新用户快速上手并熟悉界面操作。",
@@ -1438,7 +1421,6 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["优化交互流程和反馈：优化撤销操作的用户反馈，如按钮操作的视觉反馈和操作成功的通知，同时考虑增加一个操作历史面板，使用户能够直观看到操作记录，并进行选择性撤销。"],
             "content": "优化交互流程和反馈：优化撤销操作的用户反馈，如按钮操作的视觉反馈和操作成功的通知，同时考虑增加一个操作历史面板，使用户能够直观看到操作记录，并进行选择性撤销。",
@@ -1493,7 +1475,6 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["增强定位和分层控制：引入直观的图层和元素位置控制工具，如拖拽式图层管理器和细节对齐工具，允许用户通过简单操作精确控制元素的位置和层次。"],
             "content": "增强定位和分层控制：引入直观的图层和元素位置控制工具，如拖拽式图层管理器和细节对齐工具，允许用户通过简单操作精确控制元素的位置和层次。",
@@ -1548,21 +1529,20 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["改进多任务处理能力：设计系统应增强处理多重设计要求的能力，如同时调整元素位置和大小，通过增强自然语言处理算法或提供高级命令输入框实现。"],
             "content": "改进多任务处理能力：设计系统应增强处理多重设计要求的能力，如同时调整元素位置和大小，通过增强自然语言处理算法或提供高级命令输入框实现。",
             "score": {
                 "Criterion_1": {
-                    "Score": 4,
+                    "Score": 2,
                     "Reason": "需要复杂的算法优化和界面调整。"
                 },
                 "Criterion_2": {
-                    "Score": 4,
+                    "Score": 2,
                     "Reason": "开发周期较长，涉及底层算法的改进。"
                 },
                 "Criterion_3": {
-                    "Score": 4,
+                    "Score": 2,
                     "Reason": "高昂的开发成本，需要专业的技术支持。"
                 },
                 "Criterion_4": {
@@ -1603,21 +1583,20 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["引入更智能的布局预览和调整功能：实现实时预览功能，并结合人工智能提供布局建议和自动调整工具，帮助用户快速实现并优化复杂的设计要求。"],
             "content": "引入更智能的布局预览和调整功能：实现实时预览功能，并结合人工智能提供布局建议和自动调整工具，帮助用户快速实现并优化复杂的设计要求。",
             "score": {
                 "Criterion_1": {
-                    "Score": 4,
+                    "Score": 2,
                     "Reason": "需要集成先进的AI技术和实时反馈系统。"
                 },
                 "Criterion_2": {
-                    "Score": 4,
+                    "Score": 2,
                     "Reason": "开发和集成高级技术需时间较长。"
                 },
                 "Criterion_3": {
-                    "Score": 4,
+                    "Score": 2,
                     "Reason": "对高级技术的投入显著，成本较高。"
                 },
                 "Criterion_4": {
@@ -1658,21 +1637,20 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["直观的对齐反馈：引入即时视觉反馈机制于文本对齐工具中，允许用户通过高亮显示对齐参考线或在预览中即时展示文本对齐结果，以增强操作的直观性和预测性。"],
             "content": "直观的对齐反馈：引入即时视觉反馈机制于文本对齐工具中，允许用户通过高亮显示对齐参考线或在预览中即时展示文本对齐结果，以增强操作的直观性和预测性。",
             "score": {
                 "Criterion_1": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "相对简单的改动，主要涉及界面反馈机制的增强。"
                 },
                 "Criterion_2": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "快速实现，主要是界面调整和反馈逻辑的添加。"
                 },
                 "Criterion_3": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "需要较低的投资，主要是界面设计和编程时间。"
                 },
                 "Criterion_4": {
@@ -1696,7 +1674,7 @@
                     "Reason": "对所有用户都有帮助，特别是视觉反馈对新手友好。"
                 },
                 "Criterion_9": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "局限性小，主要是改善用户交互。"
                 },
                 "Criterion_10": {
@@ -1713,21 +1691,20 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["增强对齐选项的描述性：对每个对齐按钮进行详细标注和描述，增设工具提示以解释按钮的具体作用，例如“左对齐-将文本对齐到左侧边缘”，从而提供更清晰的功能指导和帮助用户作出准确选择。"],
             "content": "增强对齐选项的描述性：对每个对齐按钮进行详细标注和描述，增设工具提示以解释按钮的具体作用，例如“左对齐-将文本对齐到左侧边缘”，从而提供更清晰的功能指导和帮助用户作出准确选择。",
             "score": {
                 "Criterion_1": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "实现简单，主要是文本和工具提示的增加。"
                 },
                 "Criterion_2": {
-                    "Score": 1,
+                    "Score": 5,
                     "Reason": "非常快速的实现，主要涉及文本编辑。"
                 },
                 "Criterion_3": {
-                    "Score": 1,
+                    "Score": 5,
                     "Reason": "成本非常低，几乎不需要额外资源。"
                 },
                 "Criterion_4": {
@@ -1751,7 +1728,7 @@
                     "Reason": "增加了对新用户的指导，帮助他们更快学习。"
                 },
                 "Criterion_9": {
-                    "Score": 1,
+                    "Score": 5,
                     "Reason": "几乎没有明显的局限性。"
                 },
                 "Criterion_10": {
@@ -1768,7 +1745,6 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["优化对齐控制的界面布局：重新设计对齐控制的界面布局，使其更符合用户操作习惯和逻辑。通过将对齐工具移到界面的更显眼位置，使用更大的图标与清晰的分隔，改进按钮间的逻辑关系，确保每次点击都有一致的响应。"],
             "content": "优化对齐控制的界面布局：重新设计对齐控制的界面布局，使其更符合用户操作习惯和逻辑。通过将对齐工具移到界面的更显眼位置，使用更大的图标与清晰的分隔，改进按钮间的逻辑关系，确保每次点击都有一致的响应。",
@@ -1823,7 +1799,6 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["增加交互式教程：提供一个交互式教程，详细介绍如何调整文本框的大小、位置和样式。教程在用户首次操作文本框时自动启动，通过实际操作引导用户学习，以提高操作理解和体验。"],
             "content": "增加交互式教程：提供一个交互式教程，详细介绍如何调整文本框的大小、位置和样式。教程在用户首次操作文本框时自动启动，通过实际操作引导用户学习，以提高操作理解和体验。",
@@ -1861,7 +1836,7 @@
                     "Reason": "特别适合新用户，有助于提高所有用户的操作效率。"
                 },
                 "Criterion_9": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "效果受用户参与度和教程质量影响，但通常局限小。"
                 },
                 "Criterion_10": {
@@ -1878,21 +1853,20 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["改进文本框调整的界面提示：在文本框调整工具上增加直观的界面提示和图标，如明显的拖动手柄和边缘调整提示。这些改进可以帮助用户更容易地理解和执行文本框调整。"],
             "content": "改进文本框调整的界面提示：在文本框调整工具上增加直观的界面提示和图标，如明显的拖动手柄和边缘调整提示。这些改进可以帮助用户更容易地理解和执行文本框调整。",
             "score": {
                 "Criterion_1": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "主要是界面小幅调整，复杂度较低。"
                 },
                 "Criterion_2": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "快速实现，主要涉及界面元素的微调。"
                 },
                 "Criterion_3": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "成本较低，主要是界面设计工作。"
                 },
                 "Criterion_4": {
@@ -1916,7 +1890,7 @@
                     "Reason": "帮助所有用户更好地理解界面，尤其是视觉提示对老年用户友好。"
                 },
                 "Criterion_9": {
-                    "Score": 1,
+                    "Score": 5,
                     "Reason": "局限性很小，主要是视觉辅助。"
                 },
                 "Criterion_10": {
@@ -1933,7 +1907,6 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["实现实时反馈系统：引入实时反馈系统，提供即时的视觉和文本反馈。当用户调整文本框时，界面实时显示新的尺寸和位置参数，通过小提示窗口增强用户对操作结果的理解和掌控。"],
             "content": "实现实时反馈系统：引入实时反馈系统，提供即时的视觉和文本反馈。当用户调整文本框时，界面实时显示新的尺寸和位置参数，通过小提示窗口增强用户对操作结果的理解和掌控。",
@@ -1988,7 +1961,6 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["增强模板的可配置性：通过提供更多可自定义的模板选项，如多种布局、颜色方案和字体样式，增加模板的灵活性，使用户能够更容易地根据自己的需求进行调整。"],
             "content": "增强模板的可配置性：通过提供更多可自定义的模板选项，如多种布局、颜色方案和字体样式，增加模板的灵活性，使用户能够更容易地根据自己的需求进行调整。",
@@ -2043,21 +2015,20 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["引入智能适应技术：开发智能适应技术，利用机器学习算法根据用户过去的选择和当前的设计需求自动调整布局和样式，以提供最合适的模板调整建议。"],
             "content": "引入智能适应技术：开发智能适应技术，利用机器学习算法根据用户过去的选择和当前的设计需求自动调整布局和样式，以提供最合适的模板调整建议。",
             "score": {
                 "Criterion_1": {
-                    "Score": 4,
+                    "Score": 2,
                     "Reason": "需要集成机器学习算法，复杂度较高。"
                 },
                 "Criterion_2": {
-                    "Score": 4,
+                    "Score": 2,
                     "Reason": "开发和调试智能适应技术需要较长时间。"
                 },
                 "Criterion_3": {
-                    "Score": 4,
+                    "Score": 2,
                     "Reason": "较高的研发成本，涉及到算法开发和数据处理。"
                 },
                 "Criterion_4": {
@@ -2081,7 +2052,7 @@
                     "Reason": "自动适应技术减少了用户的操作需求，适合各类用户。"
                 },
                 "Criterion_9": {
-                    "Score": 4,
+                    "Score": 2,
                     "Reason": "技术实现复杂，可能存在初期的技术问题。"
                 },
                 "Criterion_10": {
@@ -2098,21 +2069,20 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["增加实时预览功能：实现实时预览功能，允许用户在进行模板更改时可以即时看到修改的效果，从而减少试错时间并增强用户体验。"],
             "content": "增加实时预览功能：实现实时预览功能，允许用户在进行模板更改时可以即时看到修改的效果，从而减少试错时间并增强用户体验。",
             "score": {
                 "Criterion_1": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "实时预览是较常见的功能，技术复杂度低。"
                 },
                 "Criterion_2": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "相对容易实现，开发周期较短。"
                 },
                 "Criterion_3": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "成本相对较低，主要是界面调整和实时渲染技术。"
                 },
                 "Criterion_4": {
@@ -2136,7 +2106,7 @@
                     "Reason": "所有用户均能从实时预览中获益。"
                 },
                 "Criterion_9": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "需要确保预览的性能和准确性。"
                 },
                 "Criterion_10": {
@@ -2153,7 +2123,6 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["增设“如何使用”教程视频或指南：为新用户提供一个明显的“如何使用”链接或按钮，点击后可以展开教程视频或详细的步骤指南。这些教程应涵盖基础功能如如何添加媒体、使用模板、自定义设计等。"],
             "content": "增设“如何使用”教程视频或指南：为新用户提供一个明显的“如何使用”链接或按钮，点击后可以展开教程视频或详细的步骤指南。这些教程应涵盖基础功能如如何添加媒体、使用模板、自定义设计等。",
@@ -2191,7 +2160,7 @@
                     "Reason": "适度地满足不同用户的需求，特别是新用户和非技术用户。"
                 },
                 "Criterion_9": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "限制较少，主要是保持内容的更新和相关性。"
                 },
                 "Criterion_10": {
@@ -2208,21 +2177,20 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["实时辅导功能：引入一个可以即时获取帮助的聊天机器人或客服支持。这个功能可以在用户遇到操作困难时提供帮助，如通过聊天窗口解答用户的具体问题，并提供操作指导。"],
             "content": "实时辅导功能：引入一个可以即时获取帮助的聊天机器人或客服支持。这个功能可以在用户遇到操作困难时提供帮助，如通过聊天窗口解答用户的具体问题，并提供操作指导。",
             "score": {
                 "Criterion_1": {
-                    "Score": 4,
+                    "Score": 2,
                     "Reason": "需要引入全新的功能（实时聊天支持），需要较大的集成努力。"
                 },
                 "Criterion_2": {
-                    "Score": 4,
+                    "Score": 2,
                     "Reason": "实现实时支持系统可能较慢，需要集成到现有系统中。"
                 },
                 "Criterion_3": {
-                    "Score": 4,
+                    "Score": 2,
                     "Reason": "需要较高的初期投资和持续的运营成本。"
                 },
                 "Criterion_4": {
@@ -2263,21 +2231,20 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["交互式指导模式：开发一个交互式的教学模式，当用户第一次使用系统或点击“学习使用”按钮时，系统将引导用户完成一系列设计任务。在这个模式中，界面可以高亮显示用户需要操作的界面元素，并附上简短明了的指导说明。"],
             "content": "交互式指导模式：开发一个交互式的教学模式，当用户第一次使用系统或点击“学习使用”按钮时，系统将引导用户完成一系列设计任务。在这个模式中，界面可以高亮显示用户需要操作的界面元素，并附上简短明了的指导说明。",
             "score": {
                 "Criterion_1": {
-                    "Score": 4,
+                    "Score": 2,
                     "Reason": "引入全新的交互式教学模式，需要大量的开发和测试。"
                 },
                 "Criterion_2": {
-                    "Score": 4,
+                    "Score": 2,
                     "Reason": "设计和实现交互式教学模式可能需要较长时间。"
                 },
                 "Criterion_3": {
-                    "Score": 4,
+                    "Score": 2,
                     "Reason": "开发这种复杂功能需要较高的财务投入。"
                 },
                 "Criterion_4": {
@@ -2318,21 +2285,20 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["明确的步骤指导：在界面中加入一个明确的步骤指导或教程链接，指导用户如何一步步构建海报。这可以是一个交互式的助手，指导用户从选择背景开始，然后添加元素，最后进行细节调整。"],
             "content": "明确的步骤指导：在界面中加入一个明确的步骤指导或教程链接，指导用户如何一步步构建海报。这可以是一个交互式的助手，指导用户从选择背景开始，然后添加元素，最后进行细节调整。",
             "score": {
                 "Criterion_1": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "相对简单的实施，主要是内容创建和界面指导的整合。"
                 },
                 "Criterion_2": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "快速实施，主要是添加指导内容到现有界面。"
                 },
                 "Criterion_3": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "成本较低，主要为内容开发和设计费用。"
                 },
                 "Criterion_4": {
@@ -2356,7 +2322,7 @@
                     "Reason": "适合各类用户，特别是新手用户。"
                 },
                 "Criterion_9": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "限制较少，主要是保持更新和相关性。"
                 },
                 "Criterion_10": {
@@ -2373,7 +2339,6 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["模板定制向导：增加一个功能强大的模板定制向导，允许用户在一个统一的界面内分步骤定制和预览他们的设计。例如，第一步选择背景，第二步添加图形元素，第三步输入文本，每一步都有实时预览。"],
             "content": "模板定制向导：增加一个功能强大的模板定制向导，允许用户在一个统一的界面内分步骤定制和预览他们的设计。例如，第一步选择背景，第二步添加图形元素，第三步输入文本，每一步都有实时预览。",
@@ -2428,21 +2393,20 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["一键式和分步式创建选项：提供两种创建模式的选项：一键式和分步式。一键式允许用户快速使用预设的模板生成完整设计，而分步式则提供更多自定义选项，逐步引导用户添加和调整各个设计元素。"],
             "content": "一键式和分步式创建选项：提供两种创建模式的选项：一键式和分步式。一键式允许用户快速使用预设的模板生成完整设计，而分步式则提供更多自定义选项，逐步引导用户添加和调整各个设计元素。",
             "score": {
                 "Criterion_1": {
-                    "Score": 4,
+                    "Score": 2,
                     "Reason": "需要开发两种不同的用户交互模式。"
                 },
                 "Criterion_2": {
-                    "Score": 4,
+                    "Score": 2,
                     "Reason": "需要较长时间开发和测试两种模式。"
                 },
                 "Criterion_3": {
-                    "Score": 4,
+                    "Score": 2,
                     "Reason": "相对较高的开发成本，因为需要支持两种模式。"
                 },
                 "Criterion_4": {
@@ -2483,21 +2447,20 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["增强自然语言处理能力：改进系统的自然语言处理能力，确保能更准确地理解用户输入的描述，从而生成与描述更匹配的图像。可以通过使用更先进的AI模型来实现这一点。"],
             "content": "增强自然语言处理能力：改进系统的自然语言处理能力，确保能更准确地理解用户输入的描述，从而生成与描述更匹配的图像。可以通过使用更先进的AI模型来实现这一点。",
             "score": {
                 "Criterion_1": {
-                    "Score": 4,
+                    "Score": 2,
                     "Reason": "引入更先进的自然语言处理技术，需要较大的开发和集成工作。"
                 },
                 "Criterion_2": {
-                    "Score": 4,
+                    "Score": 2,
                     "Reason": "需要一段时间进行技术研发和算法优化。"
                 },
                 "Criterion_3": {
-                    "Score": 4,
+                    "Score": 2,
                     "Reason": "投资在高级技术和人才上的成本较高。"
                 },
                 "Criterion_4": {
@@ -2521,7 +2484,7 @@
                     "Reason": "对所有用户都有益，尤其是那些期望高度定制的用户。"
                 },
                 "Criterion_9": {
-                    "Score": 4,
+                    "Score": 2,
                     "Reason": "技术限制较大，需要持续的技术支持和更新。"
                 },
                 "Criterion_10": {
@@ -2538,7 +2501,6 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["实时预览和调整功能：提供一个实时预览功能，允许用户在最终生成图像之前，看到一个基于当前描述的草图预览。用户可以在这一阶段调整描述或添加详细的指定要素，以确保最终结果符合期望。"],
             "content": "实时预览和调整功能：提供一个实时预览功能，允许用户在最终生成图像之前，看到一个基于当前描述的草图预览。用户可以在这一阶段调整描述或添加详细的指定要素，以确保最终结果符合期望。",
@@ -2593,7 +2555,6 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["用户反馈循环：引入一个用户反馈机制，允许用户对生成的图像进行评价，并提供为什么该图像与他们的期望不符的反馈。这些反馈可以被用来训练和改进AI生成算法，使其随着时间的推移而逐渐提高准确性和满意度。"],
             "content": "用户反馈循环：引入一个用户反馈机制，允许用户对生成的图像进行评价，并提供为什么该图像与他们的期望不符的反馈。这些反馈可以被用来训练和改进AI生成算法，使其随着时间的推移而逐渐提高准确性和满意度。",
@@ -2648,21 +2609,20 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["优化后端生成算法：提高生成算法的效率，减少生成时间。这可以通过优化现有算法或升级服务器硬件来实现，以加快处理速度。"],
             "content": "优化后端生成算法：提高生成算法的效率，减少生成时间。这可以通过优化现有算法或升级服务器硬件来实现，以加快处理速度。",
             "score": {
                 "Criterion_1": {
-                    "Score": 4,
+                    "Score": 2,
                     "Reason": "需要技术深入的算法优化或硬件升级。"
                 },
                 "Criterion_2": {
-                    "Score": 4,
+                    "Score": 2,
                     "Reason": "实施时间较长，涉及后端开发和测试。"
                 },
                 "Criterion_3": {
-                    "Score": 4,
+                    "Score": 2,
                     "Reason": "可能需要显著的财务投入，尤其是如果涉及到硬件升级。"
                 },
                 "Criterion_4": {
@@ -2686,7 +2646,7 @@
                     "Reason": "对所有用户都有益，尤其是那些期望快速响应的用户。"
                 },
                 "Criterion_9": {
-                    "Score": 4,
+                    "Score": 2,
                     "Reason": "技术和成本的限制可能较大。"
                 },
                 "Criterion_10": {
@@ -2703,7 +2663,6 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["改进生成过程的视觉反馈：在生成过程中提供更多相关的视觉反馈，例如显示一个进度条，展示当前生成的具体阶段，或者使用与用户设计相关的动态预览，使等待过程更加直观和有趣。"],
             "content": "改进生成过程的视觉反馈：在生成过程中提供更多相关的视觉反馈，例如显示一个进度条，展示当前生成的具体阶段，或者使用与用户设计相关的动态预览，使等待过程更加直观和有趣。",
@@ -2758,7 +2717,6 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["引入背景任务处理：允许用户在设计正在生成的同时浏览其他模板或进行其他操作。通过使生成过程在后台进行，用户可以继续在应用中进行其他活动，减少等待感。"],
             "content": "引入背景任务处理：允许用户在设计正在生成的同时浏览其他模板或进行其他操作。通过使生成过程在后台进行，用户可以继续在应用中进行其他活动，减少等待感。",
@@ -2813,21 +2771,20 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["明确显示长宽比选项：在界面上提供一个明显的选项或设置，允许用户选择或看到当前设计的长宽比设置。这可以是一个下拉菜单或图标，直观显示当前长宽比，并提供改变它的选项。"],
             "content": "明确显示长宽比选项：在界面上提供一个明显的选项或设置，允许用户选择或看到当前设计的长宽比设置。这可以是一个下拉菜单或图标，直观显示当前长宽比，并提供改变它的选项。",
             "score": {
                 "Criterion_1": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "添加一个界面元素来显示和修改长宽比，技术难度较低。"
                 },
                 "Criterion_2": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "开发和集成这个功能相对快速。"
                 },
                 "Criterion_3": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "成本低，主要是小幅界面调整。"
                 },
                 "Criterion_4": {
@@ -2851,7 +2808,7 @@
                     "Reason": "对所有用户有利，尤其是那些需要特定长宽比的用户。"
                 },
                 "Criterion_9": {
-                    "Score": 1,
+                    "Score": 5,
                     "Reason": "几乎没有明显的限制或负面影响。"
                 },
                 "Criterion_10": {
@@ -2868,7 +2825,6 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["长宽比预设和自定义功能：提供多种预设的长宽比选择（如16:9、4:3、1:1等），并允许用户自定义输入具体的长宽比值。这样用户可以根据需要快速选择或设置合适的长宽比。"],
             "content": "长宽比预设和自定义功能：提供多种预设的长宽比选择（如16:9、4:3、1:1等），并允许用户自定义输入具体的长宽比值。这样用户可以根据需要快速选择或设置合适的长宽比。",
@@ -2906,7 +2862,7 @@
                     "Reason": "适用于需要各种长宽比的各类用户。"
                 },
                 "Criterion_9": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "小幅增加了系统复杂度。"
                 },
                 "Criterion_10": {
@@ -2923,21 +2879,20 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["长宽比教育和建议：在设计工具中加入一个帮助图标或提示，当用户选择或调整长宽比时，提供简短的说明和常见用途建议。例如，解释正方形长宽比适合社交媒体平台如Instagram，而宽屏更适合视频内容。"],
             "content": "长宽比教育和建议：在设计工具中加入一个帮助图标或提示，当用户选择或调整长宽比时，提供简短的说明和常见用途建议。例如，解释正方形长宽比适合社交媒体平台如Instagram，而宽屏更适合视频内容。",
             "score": {
                 "Criterion_1": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "实现教育提示和建议的界面元素，技术难度较低。"
                 },
                 "Criterion_2": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "快速实施，主要涉及内容编写和界面集成。"
                 },
                 "Criterion_3": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "成本低，主要是内容创建和少量开发工作。"
                 },
                 "Criterion_4": {
@@ -2961,7 +2916,7 @@
                     "Reason": "适合新用户或不熟悉长宽比设置的用户。"
                 },
                 "Criterion_9": {
-                    "Score": 1,
+                    "Score": 5,
                     "Reason": "几乎没有技术或操作上的限制。"
                 },
                 "Criterion_10": {
@@ -2978,7 +2933,6 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["明确区分搜索和生成功能：重新设计界面，以更明显的方式区分图像搜索和图像生成的功能。例如，可以使用不同的标签页或明显不同的按钮样式来区分这两个功能。"],
             "content": "明确区分搜索和生成功能：重新设计界面，以更明显的方式区分图像搜索和图像生成的功能。例如，可以使用不同的标签页或明显不同的按钮样式来区分这两个功能。",
@@ -3016,7 +2970,7 @@
                     "Reason": "对所有用户有益，特别是新用户可能更容易理解功能区分。"
                 },
                 "Criterion_9": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "主要限制在于确保新设计与用户的预期一致。"
                 },
                 "Criterion_10": {
@@ -3033,21 +2987,20 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["引入操作向导：在用户进行操作之前，提供一个简短的操作向导或提示，解释搜索和生成功能的不同之处，以及如何正确使用它们。这可以在用户第一次使用功能时自动弹出。"],
             "content": "引入操作向导：在用户进行操作之前，提供一个简短的操作向导或提示，解释搜索和生成功能的不同之处，以及如何正确使用它们。这可以在用户第一次使用功能时自动弹出。",
             "score": {
                 "Criterion_1": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "实现操作向导功能相对简单，主要是内容编写和基本的交互设计。"
                 },
                 "Criterion_2": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "可以快速实施，主要涉及提示内容的添加和简单的交互实现。"
                 },
                 "Criterion_3": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "成本低，主要涉及文本内容的创建和少量的UI调整。"
                 },
                 "Criterion_4": {
@@ -3071,7 +3024,7 @@
                     "Reason": "对所有级别的用户都是有益的，特别是新用户。"
                 },
                 "Criterion_9": {
-                    "Score": 1,
+                    "Score": 5,
                     "Reason": "几乎没有明显的技术或操作限制。"
                 },
                 "Criterion_10": {
@@ -3088,7 +3041,6 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["实时反馈和建议系统：在用户输入描述或选择功能时，实时提供反馈或建议，指导用户如何进行操作。例如，当用户输入关键词时，系统可以提示“您是想搜索图片还是生成图片？”并提供相应的操作选项。"],
             "content": "实时反馈和建议系统：在用户输入描述或选择功能时，实时提供反馈或建议，指导用户如何进行操作。例如，当用户输入关键词时，系统可以提示“您是想搜索图片还是生成图片？”并提供相应的操作选项。",
@@ -3143,7 +3095,6 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["性能优化：改进后台服务的处理速度并提供清晰的加载动画或进度条，以减少用户的等待时间和增加透明度。"],
             "content": "性能优化：改进后台服务的处理速度并提供清晰的加载动画或进度条，以减少用户的等待时间和增加透明度。",
@@ -3181,7 +3132,7 @@
                     "Reason": "对所有用户组的体验有一定的改进，但重点是性能提升。"
                 },
                 "Criterion_9": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "有少量局限性，主要集中在实施难度上。"
                 },
                 "Criterion_10": {
@@ -3198,21 +3149,20 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["即时反馈和错误处理：在用户操作后立即提供视觉反馈，并在处理时间过长时，提供选择继续等待或重新操作的选项。"],
             "content": "即时反馈和错误处理：在用户操作后立即提供视觉反馈，并在处理时间过长时，提供选择继续等待或重新操作的选项。",
             "score": {
                 "Criterion_1": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "主要是小修小改，易于实施。"
                 },
                 "Criterion_2": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "快速实施，不涉及复杂的技术问题。"
                 },
                 "Criterion_3": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "需要较少的财务投入。"
                 },
                 "Criterion_4": {
@@ -3236,7 +3186,7 @@
                     "Reason": "为不同能力的用户提供了更好的反馈。"
                 },
                 "Criterion_9": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "功能性局限较少，主要是增加反馈。"
                 },
                 "Criterion_10": {
@@ -3253,7 +3203,6 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["界面简化与实时预览：简化界面元素，集中于核心功能，并改进预览机制，以实时反映用户输入，提高响应速度和用户体验。"],
             "content": "界面简化与实时预览：简化界面元素，集中于核心功能，并改进预览机制，以实时反映用户输入，提高响应速度和用户体验。",
@@ -3308,7 +3257,6 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["建议机制优化：改进“点击尝试此建议”功能，根据用户的具体输入提供相关且实用的设计建议，并实时显示相关联的建议预览，提高用户的参与感和满意度。"],
             "content": "建议机制优化：改进“点击尝试此建议”功能，根据用户的具体输入提供相关且实用的设计建议，并实时显示相关联的建议预览，提高用户的参与感和满意度。",
@@ -3346,7 +3294,7 @@
                     "Reason": "方案改善了所有用户的体验，但对特殊用户群体的直接影响有限。"
                 },
                 "Criterion_9": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "局限性较少，主要是开发和维护成本。"
                 },
                 "Criterion_10": {
@@ -3363,21 +3311,20 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["教程与个性化学习：在建议功能旁边添加直观的教程链接和示例，展示如何根据建议进行具体的设计修改，并根据用户的使用历史推荐个性化的操作指南。"],
             "content": "教程与个性化学习：在建议功能旁边添加直观的教程链接和示例，展示如何根据建议进行具体的设计修改，并根据用户的使用历史推荐个性化的操作指南。",
             "score": {
                 "Criterion_1": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "添加教程和学习路径是相对简单的功能扩展。"
                 },
                 "Criterion_2": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "可以快速实施，主要涉及内容创建和简单的界面集成。"
                 },
                 "Criterion_3": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "主要涉及内容制作和更新，成本相对较低。"
                 },
                 "Criterion_4": {
@@ -3401,7 +3348,7 @@
                     "Reason": "特别是对技术不熟悉的用户群体更加友好。"
                 },
                 "Criterion_9": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "功能性局限较少，主要集中在是否能覆盖所有可能的用户问题。"
                 },
                 "Criterion_10": {
@@ -3418,7 +3365,6 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["增强直接编辑工具：允许用户在点击建议后直接在预览区进行编辑，配备文本编辑器、颜色选择器等直观工具，并加强系统的反馈机制，提供样式和布局的实时建议，以优化用户的设计体验。"],
             "content": "增强直接编辑工具：允许用户在点击建议后直接在预览区进行编辑，配备文本编辑器、颜色选择器等直观工具，并加强系统的反馈机制，提供样式和布局的实时建议，以优化用户的设计体验。",
@@ -3473,21 +3419,20 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["增强功能透明性：在动画元素旁添加明确的功能描述图标，并实施上下文敏感的帮助系统，自动展示关于动画功能和用途的信息。"],
             "content": "增强功能透明性：在动画元素旁添加明确的功能描述图标，并实施上下文敏感的帮助系统，自动展示关于动画功能和用途的信息。",
             "score": {
                 "Criterion_1": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "添加信息图标和帮助系统是相对简单的功能增强。"
                 },
                 "Criterion_2": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "快速实施，主要涉及界面小改动和帮助文档的添加。"
                 },
                 "Criterion_3": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "需要较低的财务投入，主要是界面设计和文档编写的成本。"
                 },
                 "Criterion_4": {
@@ -3511,7 +3456,7 @@
                     "Reason": "对所有用户提供帮助信息，改善了使用的便捷性。"
                 },
                 "Criterion_9": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "局限性较小，主要是维护更新帮助信息的持续性。"
                 },
                 "Criterion_10": {
@@ -3528,7 +3473,6 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["提供动画控制选项：提供一个界面选项，允许用户开启或关闭动画效果，并自定义动画类型和速度，通过增加一个专门的动画控制部分，提高用户对动画效果的控制能力。"],
             "content": "提供动画控制选项：提供一个界面选项，允许用户开启或关闭动画效果，并自定义动画类型和速度，通过增加一个专门的动画控制部分，提高用户对动画效果的控制能力。",
@@ -3583,21 +3527,20 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["改进界面和交互设计：重设计界面，使动画元素功能更直观，并提供交互式教程指导用户如何有效使用动画元素，包括添加、修改和理解其影响的步骤。"],
             "content": "改进界面和交互设计：重设计界面，使动画元素功能更直观，并提供交互式教程指导用户如何有效使用动画元素，包括添加、修改和理解其影响的步骤。",
             "score": {
                 "Criterion_1": {
-                    "Score": 4,
+                    "Score": 2,
                     "Reason": "重新设计界面和增加交互式教程涉及较大的开发工作。"
                 },
                 "Criterion_2": {
-                    "Score": 4,
+                    "Score": 2,
                     "Reason": "设计和实施这些改进可能需要较长时间。"
                 },
                 "Criterion_3": {
-                    "Score": 4,
+                    "Score": 2,
                     "Reason": "高成本投入，涉及界面设计、用户测试和教程制作。"
                 },
                 "Criterion_4": {
@@ -3638,21 +3581,20 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["优化布局与明确标识：在主编辑界面直接集成常用的图像调整工具，如亮度和对比度，并为每个工具配备清晰的图标和标签，确保用户能够轻松识别并使用。"],
             "content": "优化布局与明确标识：在主编辑界面直接集成常用的图像调整工具，如亮度和对比度，并为每个工具配备清晰的图标和标签，确保用户能够轻松识别并使用。",
             "score": {
                 "Criterion_1": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "主要涉及界面的重新布局和标识优化，技术难度低。"
                 },
                 "Criterion_2": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "快速实施，主要涉及界面设计的调整。"
                 },
                 "Criterion_3": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "成本较低，主要是设计和实施界面改进。"
                 },
                 "Criterion_4": {
@@ -3676,7 +3618,7 @@
                     "Reason": "使得所有用户群体都能更容易理解和使用界面。"
                 },
                 "Criterion_9": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "局限性较小，主要是持续的用户教育和适应。"
                 },
                 "Criterion_10": {
@@ -3693,7 +3635,6 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["教程和即时视觉反馈：在图像编辑界面嵌入交互式教程，指导用户如何使用不同工具，并在调整过程中提供实时的视觉反馈，展示调整效果的前后对比。"],
             "content": "教程和即时视觉反馈：在图像编辑界面嵌入交互式教程，指导用户如何使用不同工具，并在调整过程中提供实时的视觉反馈，展示调整效果的前后对比。",
@@ -3748,7 +3689,6 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["直观控件和动态反馈：引入易于操作的滑动条和调整控件，提供精确控制，并在用户调整图像属性时提供动态反馈和确认信息，如动画效果或弹出窗口，以显示调整的即时结果。"],
             "content": "直观控件和动态反馈：引入易于操作的滑动条和调整控件，提供精确控制，并在用户调整图像属性时提供动态反馈和确认信息，如动画效果或弹出窗口，以显示调整的即时结果。",
@@ -3803,7 +3743,6 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["动态调整选择框大小：开发一个功能，使得在移除图像背景后，选择框能自动调整到新图像的边缘，确保选择框大小与图像实际内容匹配。"],
             "content": "动态调整选择框大小：开发一个功能，使得在移除图像背景后，选择框能自动调整到新图像的边缘，确保选择框大小与图像实际内容匹配。",
@@ -3858,21 +3797,20 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["增强用户控制：提供用户界面工具，允许用户手动调整选择框大小，适应图像内容的改变，确保更精确的元素控制和布局自由度。"],
             "content": "增强用户控制：提供用户界面工具，允许用户手动调整选择框大小，适应图像内容的改变，确保更精确的元素控制和布局自由度。",
             "score": {
                 "Criterion_1": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "添加简单的用户控制工具，技术难度相对较低。"
                 },
                 "Criterion_2": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "快速实施，主要涉及用户界面的小范围调整。"
                 },
                 "Criterion_3": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "较低的开发和实施成本。"
                 },
                 "Criterion_4": {
@@ -3896,7 +3834,7 @@
                     "Reason": "提高了功能的可访问性，但需要用户了解如何使用新工具。"
                 },
                 "Criterion_9": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "功能比较基础，可能不会完全满足所有用户的需求。"
                 },
                 "Criterion_10": {
@@ -3913,7 +3851,6 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["优化视觉反馈：在用户移除背景后，通过视觉效果（如高亮显示新的图像边界）明确指示图像的新边界，帮助用户更好地理解图像尺寸的变化，从而更有效地进行元素排列。"],
             "content": "优化视觉反馈：在用户移除背景后，通过视觉效果（如高亮显示新的图像边界）明确指示图像的新边界，帮助用户更好地理解图像尺寸的变化，从而更有效地进行元素排列。",
@@ -3968,21 +3905,20 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["直观导航与步骤指示：优化顶部导航，添加明显的“编辑”按钮或直接链接，并通过引导或向导提供步骤说明，帮助用户快速了解如何进入图像编辑页面。"],
             "content": "直观导航与步骤指示：优化顶部导航，添加明显的“编辑”按钮或直接链接，并通过引导或向导提供步骤说明，帮助用户快速了解如何进入图像编辑页面。",
             "score": {
                 "Criterion_1": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "主要涉及用户界面的简单调整和增加引导，技术难度较低。"
                 },
                 "Criterion_2": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "快速实现，主要涉及修改现有导航结构和添加文本说明。"
                 },
                 "Criterion_3": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "相对较低的开发成本，主要是设计和测试。"
                 },
                 "Criterion_4": {
@@ -4006,7 +3942,7 @@
                     "Reason": "为所有用户提供更明确的指导，特别是新用户。"
                 },
                 "Criterion_9": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "局限性较小，主要在于持续优化用户引导。"
                 },
                 "Criterion_10": {
@@ -4023,7 +3959,6 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["增强入口可视性与教程支持：在首页显眼位置设置一个“开始编辑”的按钮，使用动态效果或特别颜色高亮显示，并提供快速入门视频或帮助图标，清晰说明进入编辑页面的方法。"],
             "content": "增强入口可视性与教程支持：在首页显眼位置设置一个“开始编辑”的按钮，使用动态效果或特别颜色高亮显示，并提供快速入门视频或帮助图标，清晰说明进入编辑页面的方法。",
@@ -4078,7 +4013,6 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["优化交互反馈与个性化推荐：在用户尝试进入编辑模式时提供即时反馈，如弹出提示或交互动画，并根据用户的活动历史推荐“编辑”选项或常用工具，使入口更符合个人习惯，提升直观性和易用性。"],
             "content": "优化交互反馈与个性化推荐：在用户尝试进入编辑模式时提供即时反馈，如弹出提示或交互动画，并根据用户的活动历史推荐“编辑”选项或常用工具，使入口更符合个人习惯，提升直观性和易用性。",
@@ -4133,7 +4067,6 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["增加草稿预览功能：在用户上传草稿后立即提供一个预览窗口，显示草稿的缩略图，确保系统正确理解了用户的意图，从而避免生成与预期不符的内容。"],
             "content": "增加草稿预览功能：在用户上传草稿后立即提供一个预览窗口，显示草稿的缩略图，确保系统正确理解了用户的意图，从而避免生成与预期不符的内容。",
@@ -4171,7 +4104,7 @@
                     "Reason": "合理地满足了特殊用户群体的需要。"
                 },
                 "Criterion_9": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "限制较小，基本上有效。"
                 },
                 "Criterion_10": {
@@ -4188,21 +4121,20 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["改进文本理解和提示系统：通过集成更先进的自然语言处理技术，深度分析用户的描述，系统能提供针对性的设计建议或修改提示，以确保设计输出与用户意图一致。"],
             "content": "改进文本理解和提示系统：通过集成更先进的自然语言处理技术，深度分析用户的描述，系统能提供针对性的设计建议或修改提示，以确保设计输出与用户意图一致。",
             "score": {
                 "Criterion_1": {
-                    "Score": 4,
+                    "Score": 2,
                     "Reason": "重大的新功能需求，需要大量资源和整合努力。"
                 },
                 "Criterion_2": {
-                    "Score": 4,
+                    "Score": 2,
                     "Reason": "实施较慢，需要大量时间。"
                 },
                 "Criterion_3": {
-                    "Score": 4,
+                    "Score": 2,
                     "Reason": "需要重大的财务投入。"
                 },
                 "Criterion_4": {
@@ -4243,7 +4175,6 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["增强用户反馈机制：在设计界面中加入“反馈/修改”按钮，允许用户对不满意的设计直接提出修改建议，系统根据反馈学习和调整，提升设计准确度和用户满意度。"],
             "content": "增强用户反馈机制：在设计界面中加入“反馈/修改”按钮，允许用户对不满意的设计直接提出修改建议，系统根据反馈学习和调整，提升设计准确度和用户满意度。",
@@ -4257,7 +4188,7 @@
                     "Reason": "实施需要合理的时间。"
                 },
                 "Criterion_3": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "需要较小的财务投入。"
                 },
                 "Criterion_4": {
@@ -4281,7 +4212,7 @@
                     "Reason": "合理地满足了特殊用户群体的需要。"
                 },
                 "Criterion_9": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "限制较小，基本上有效。"
                 },
                 "Criterion_10": {
@@ -4298,21 +4229,20 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["明确提示触发规则：通过在用户触发规则后立即提供具体的触发信息，帮助用户理解为何他们的操作不符合系统要求。可以通过弹出窗口或在界面显眼位置显示具体触发的规则和原因。"],
             "content": "明确提示触发规则：通过在用户触发规则后立即提供具体的触发信息，帮助用户理解为何他们的操作不符合系统要求。可以通过弹出窗口或在界面显眼位置显示具体触发的规则和原因。",
             "score": {
                 "Criterion_1": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "简单的修复，容易实施，对现有结构影响小。"
                 },
                 "Criterion_2": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "实施迅速，几乎没有延迟。"
                 },
                 "Criterion_3": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "需要小额的财务投入。"
                 },
                 "Criterion_4": {
@@ -4336,7 +4266,7 @@
                     "Reason": "合理地满足了特殊用户群体的需要。"
                 },
                 "Criterion_9": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "限制较小，基本上有效。"
                 },
                 "Criterion_10": {
@@ -4353,21 +4283,20 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["增加帮助文档和示例链接：在界面添加直接链接到详细帮助文档和示例的按钮，特别是关于常见问题和规则触发的部分。这样可以让用户在遇到问题时能快速找到解答，减少困扰。"],
             "content": "增加帮助文档和示例链接：在界面添加直接链接到详细帮助文档和示例的按钮，特别是关于常见问题和规则触发的部分。这样可以让用户在遇到问题时能快速找到解答，减少困扰。",
             "score": {
                 "Criterion_1": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "简单的修复，容易实施，对现有结构影响小。"
                 },
                 "Criterion_2": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "实施迅速，几乎没有延迟。"
                 },
                 "Criterion_3": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "需要小额的财务投入。"
                 },
                 "Criterion_4": {
@@ -4391,7 +4320,7 @@
                     "Reason": "合理地满足了特殊用户群体的需要。"
                 },
                 "Criterion_9": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "限制较小，基本上有效。"
                 },
                 "Criterion_10": {
@@ -4408,7 +4337,6 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["改善错误信息的交互设计：对于显示的错误信息，应设计为更互动和引导性强的文案。比如，提供“了解更多”或“如何解决？”的直接链接，引导用户解决问题而不只是告知存在问题。"],
             "content": "改善错误信息的交互设计：对于显示的错误信息，应设计为更互动和引导性强的文案。比如，提供“了解更多”或“如何解决？”的直接链接，引导用户解决问题而不只是告知存在问题。",
@@ -4422,7 +4350,7 @@
                     "Reason": "实施需要合理的时间。"
                 },
                 "Criterion_3": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "需要较小的财务投入。"
                 },
                 "Criterion_4": {
@@ -4446,7 +4374,7 @@
                     "Reason": "合理地满足了特殊用户群体的需要。"
                 },
                 "Criterion_9": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "限制较小，基本上有效。"
                 },
                 "Criterion_10": {
@@ -4463,21 +4391,20 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["增加生成算法的多样性：改进生成算法，增加随机性和变化性，确保即使在相同的输入条件下也能产生不同的设计结果。"],
             "content": "增加生成算法的多样性：改进生成算法，增加随机性和变化性，确保即使在相同的输入条件下也能产生不同的设计结果。",
             "score": {
                 "Criterion_1": {
-                    "Score": 4,
+                    "Score": 2,
                     "Reason": "需要重大的新功能开发和资源投入。"
                 },
                 "Criterion_2": {
-                    "Score": 4,
+                    "Score": 2,
                     "Reason": "开发和测试新算法需要较长时间。"
                 },
                 "Criterion_3": {
-                    "Score": 4,
+                    "Score": 2,
                     "Reason": "开发新算法需要较大的财务投入。"
                 },
                 "Criterion_4": {
@@ -4501,7 +4428,7 @@
                     "Reason": "对所有用户都有益，但特殊群体的利益提升不显著。"
                 },
                 "Criterion_9": {
-                    "Score": 4,
+                    "Score": 2,
                     "Reason": "新算法的技术挑战和性能问题。"
                 },
                 "Criterion_10": {
@@ -4518,7 +4445,6 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["引入用户定制参数：允许用户在生成设计前设置更多的定制参数，如风格偏好、颜色方案等，以此增加生成结果的多样性和个性化。"],
             "content": "引入用户定制参数：允许用户在生成设计前设置更多的定制参数，如风格偏好、颜色方案等，以此增加生成结果的多样性和个性化。",
@@ -4573,7 +4499,6 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["提供手动干预和编辑工具：增加手动干预的功能，让用户可以在生成的基础上进行进一步的编辑和调整，提高用户的主动参与度和满意度。"],
             "content": "提供手动干预和编辑工具：增加手动干预的功能，让用户可以在生成的基础上进行进一步的编辑和调整，提高用户的主动参与度和满意度。",
@@ -4628,21 +4553,20 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["增加明显的AI功能入口：在界面中加入一个明显的“AI功能”按钮或图标，位置显眼，用户一目了然可以找到并使用AI相关功能。"],
             "content": "增加明显的AI功能入口：在界面中加入一个明显的“AI功能”按钮或图标，位置显眼，用户一目了然可以找到并使用AI相关功能。",
             "score": {
                 "Criterion_1": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "简单的界面修改。"
                 },
                 "Criterion_2": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "快速实施界面调整。"
                 },
                 "Criterion_3": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "低成本的界面更新。"
                 },
                 "Criterion_4": {
@@ -4666,7 +4590,7 @@
                     "Reason": "改进对所有用户都有益，特别是新用户。"
                 },
                 "Criterion_9": {
-                    "Score": 1,
+                    "Score": 5,
                     "Reason": "几乎没有限制，效果明显。"
                 },
                 "Criterion_10": {
@@ -4683,7 +4607,6 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["集成AI功能到主工具栏：将AI功能直接集成到主工具栏中，如“智能编辑”或“AI建议”，确保用户在使用软件时能自然地注意到并探索这些功能。"],
             "content": "集成AI功能到主工具栏：将AI功能直接集成到主工具栏中，如“智能编辑”或“AI建议”，确保用户在使用软件时能自然地注意到并探索这些功能。",
@@ -4721,7 +4644,7 @@
                     "Reason": "使所有用户都更易发现并使用AI功能。"
                 },
                 "Criterion_9": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "对现有功能影响小，主要是界面调整。"
                 },
                 "Criterion_10": {
@@ -4738,7 +4661,6 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["提供动态引导教程：设计一个简短的动态教程或引导，当用户第一次使用软件或在使用过程中表现出需要帮助时自动弹出，介绍如何使用AI功能，提高其可发现性和易用性。"],
             "content": "提供动态引导教程：设计一个简短的动态教程或引导，当用户第一次使用软件或在使用过程中表现出需要帮助时自动弹出，介绍如何使用AI功能，提高其可发现性和易用性。",
@@ -4776,7 +4698,7 @@
                     "Reason": "特别帮助新用户和非技术用户更好地理解功能。"
                 },
                 "Criterion_9": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "对现有系统的影响小，主要是增加教程。"
                 },
                 "Criterion_10": {
@@ -4793,7 +4715,6 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["增加视觉效果工具库：在界面中增加一个专门的效果库，提供各种预设的视觉效果如光泽、发光、闪光等，让用户可以轻松地添加到文字或图形上。"],
             "content": "增加视觉效果工具库：在界面中增加一个专门的效果库，提供各种预设的视觉效果如光泽、发光、闪光等，让用户可以轻松地添加到文字或图形上。",
@@ -4848,7 +4769,6 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["改善效果预览功能：提供实时预览功能，当用户选择某个视觉效果时，可以立即在主设计区看到效果应用后的结果，这样用户可以直观地选择和调整。"],
             "content": "改善效果预览功能：提供实时预览功能，当用户选择某个视觉效果时，可以立即在主设计区看到效果应用后的结果，这样用户可以直观地选择和调整。",
@@ -4903,21 +4823,20 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["提供教程和引导：在软件中集成教程或引导视频，专门介绍如何添加和调整各种“闪亮”效果，特别是针对新用户或非专业设计师。"],
             "content": "提供教程和引导：在软件中集成教程或引导视频，专门介绍如何添加和调整各种“闪亮”效果，特别是针对新用户或非专业设计师。",
             "score": {
                 "Criterion_1": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "制作和集成教程相对简单。"
                 },
                 "Criterion_2": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "制作教程的时间较短。"
                 },
                 "Criterion_3": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "教程制作成本相对较低。"
                 },
                 "Criterion_4": {
@@ -4941,7 +4860,7 @@
                     "Reason": "帮助新用户和非专业用户更好地了解和使用功能。"
                 },
                 "Criterion_9": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "教程的限制很小，主要是用户参与度的不确定性。"
                 },
                 "Criterion_10": {
@@ -4958,21 +4877,20 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["增加行间距调整工具：在文本属性工具栏中明确增加行间距调整的选项，使其易于发现和使用。"],
             "content": "增加行间距调整工具：在文本属性工具栏中明确增加行间距调整的选项，使其易于发现和使用。",
             "score": {
                 "Criterion_1": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "添加一个新的调整选项，技术上简单。"
                 },
                 "Criterion_2": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "快速实施界面调整。"
                 },
                 "Criterion_3": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "低成本的界面更新。"
                 },
                 "Criterion_4": {
@@ -4996,7 +4914,7 @@
                     "Reason": "改进对所有用户都有益，尤其是那些需要精细控制文本格式的用户。"
                 },
                 "Criterion_9": {
-                    "Score": 1,
+                    "Score": 5,
                     "Reason": "几乎没有限制，效果明显。"
                 },
                 "Criterion_10": {
@@ -5013,7 +4931,6 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["优化界面布局：对现有工具栏进行重新布局，确保所有文本相关的调整选项包括行间距都在用户容易访问的位置。"],
             "content": "优化界面布局：对现有工具栏进行重新布局，确保所有文本相关的调整选项包括行间距都在用户容易访问的位置。",
@@ -5068,21 +4985,20 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["引入上下文敏感帮助：当用户在编辑文本时，提供上下文相关的帮助提示，指导用户如何进行行间距等高级文本格式设置。"],
             "content": "引入上下文敏感帮助：当用户在编辑文本时，提供上下文相关的帮助提示，指导用户如何进行行间距等高级文本格式设置。",
             "score": {
                 "Criterion_1": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "集成上下文敏感的帮助系统相对简单。"
                 },
                 "Criterion_2": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "开发上下文敏感的帮助提示较为快速。"
                 },
                 "Criterion_3": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "开发成本相对较低。"
                 },
                 "Criterion_4": {
@@ -5106,7 +5022,7 @@
                     "Reason": "帮助新手和非专业用户理解复杂功能。"
                 },
                 "Criterion_9": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "帮助系统的引入对现有系统影响小。"
                 },
                 "Criterion_10": {
@@ -5123,21 +5039,20 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["增加详细的帮助文档和引导：提供一键访问的帮助文档或视频教程，详细解释品牌套件的用途和操作方法。"],
             "content": "增加详细的帮助文档和引导：提供一键访问的帮助文档或视频教程，详细解释品牌套件的用途和操作方法。",
             "score": {
                 "Criterion_1": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "制作帮助文档和视频教程技术上较简单。"
                 },
                 "Criterion_2": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "编写和制作帮助内容相对迅速。"
                 },
                 "Criterion_3": {
-                    "Score": 2,
+                    "Score": 4,
                     "Reason": "低成本的文档和视频制作。"
                 },
                 "Criterion_4": {
@@ -5161,7 +5076,7 @@
                     "Reason": "帮助所有用户更好地理解和使用品牌套件。"
                 },
                 "Criterion_9": {
-                    "Score": 1,
+                    "Score": 5,
                     "Reason": "引入帮助文档和教程几乎没有技术限制。"
                 },
                 "Criterion_10": {
@@ -5178,7 +5093,6 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["优化界面设计和文案：改进“Brand Kit”界面的设计和文案，用更直观的语言和图标清晰地标注功能，强化用户的理解。"],
             "content": "优化界面设计和文案：改进“Brand Kit”界面的设计和文案，用更直观的语言和图标清晰地标注功能，强化用户的理解。",
@@ -5233,7 +5147,6 @@
             "authorTag": 0,
             "selectStatus": 0,
             "showTag": 0,
-            "loadingTag": false,
             "radarStatus": true,
             "history": ["实现交互式教程功能：设计一个交互式教程，引导用户一步一步创建和使用品牌套件，通过实际操作加深理解。"],
             "content": "实现交互式教程功能：设计一个交互式教程，引导用户一步一步创建和使用品牌套件，通过实际操作加深理解。",
@@ -5247,7 +5160,7 @@
                     "Reason": "交互式教程的设计和实施需要合理时间。"
                 },
                 "Criterion_3": {
-                    "Score": 4,
+                    "Score": 2,
                     "Reason": "交互式功能的开发成本较高。"
                 },
                 "Criterion_4": {

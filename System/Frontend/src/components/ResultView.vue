@@ -13,35 +13,35 @@
         <el-dialog v-model="previewDialogTag" width="70%">
             <img w-full :src="previewUrl" alt="Preview Image" style="width: 100%;" />
         </el-dialog>
-        <el-dialog v-model="uploadDialogTag" title="Design Upload" width="600" >
+        <el-dialog v-model="uploadDialogTag" title="Design Upload" width="600">
             <div v-loading="loadingTag" element-loading-text="Loading...">
-            <el-upload action="#" list-type="picture-card" :auto-upload="false" :on-change="handleSuccess">
-                <svg t="1722558768874" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="21906" width="20" height="20">
-                        <path d="M474 152m8 0l60 0q8 0 8 8l0 704q0 8-8 8l-60 0q-8 0-8-8l0-704q0-8 8-8Z" fill="#000000"
-                            p-id="21907"></path>
-                        <path d="M168 474m8 0l672 0q8 0 8 8l0 60q0 8-8 8l-672 0q-8 0-8-8l0-60q0-8 8-8Z" fill="#000000"
-                            p-id="21908"></path>
-                    </svg>
+                <el-upload action="#" list-type="picture-card" :auto-upload="false" :on-change="handleSuccess">
+                    <svg t="1722558768874" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="21906" width="20" height="20">
+                            <path d="M474 152m8 0l60 0q8 0 8 8l0 704q0 8-8 8l-60 0q-8 0-8-8l0-704q0-8 8-8Z" fill="#000000"
+                                p-id="21907"></path>
+                            <path d="M168 474m8 0l672 0q8 0 8 8l0 60q0 8-8 8l-672 0q-8 0-8-8l0-60q0-8 8-8Z" fill="#000000"
+                                p-id="21908"></path>
+                        </svg>
     
-                <template #file="{ file }">
-                        <div>
-                            <img class="el-upload-list__item-thumbnail" :src="file.url" alt="" />
-                            <span class="el-upload-list__item-actions">
-                                <span class="el-upload-list__item-preview" @click="showPreview(file.url)">
-                                    <svg t="1722558737907" class="icon" viewBox="0 0 1024 1024" version="1.1"
-                                        xmlns="http://www.w3.org/2000/svg" p-id="20827" width="20" height="20">
-                                        <path
-                                            d="M637 443H519V309c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v134H325c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h118v134c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V519h118c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
-                                            p-id="20828" fill="#fff"></path>
-                                        <path
-                                            d="M921 867L775 721c122.1-148.9 113.6-369.5-26-509-148-148.1-388.4-148.1-537 0-148.1 148.6-148.1 389 0 537 139.5 139.6 360.1 148.1 509 26l146 146c3.2 2.8 8.3 2.8 11 0l43-43c2.8-2.7 2.8-7.8 0-11zM696 696c-118.8 118.7-311.2 118.7-430 0-118.7-118.8-118.7-311.2 0-430 118.8-118.7 311.2-118.7 430 0 118.7 118.8 118.7 311.2 0 430z"
-                                            p-id="20829" fill="#fff"></path>
-                                    </svg>
+                    <template #file="{ file }">
+                            <div>
+                                <img class="el-upload-list__item-thumbnail" :src="file.url" alt="" />
+                                <span class="el-upload-list__item-actions">
+                                    <span class="el-upload-list__item-preview" @click="showPreview(file.url)">
+                                        <svg t="1722558737907" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                            xmlns="http://www.w3.org/2000/svg" p-id="20827" width="20" height="20">
+                                            <path
+                                                d="M637 443H519V309c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v134H325c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h118v134c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V519h118c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
+                                                p-id="20828" fill="#fff"></path>
+                                            <path
+                                                d="M921 867L775 721c122.1-148.9 113.6-369.5-26-509-148-148.1-388.4-148.1-537 0-148.1 148.6-148.1 389 0 537 139.5 139.6 360.1 148.1 509 26l146 146c3.2 2.8 8.3 2.8 11 0l43-43c2.8-2.7 2.8-7.8 0-11zM696 696c-118.8 118.7-311.2 118.7-430 0-118.7-118.8-118.7-311.2 0-430 118.8-118.7 311.2-118.7 430 0 118.7 118.8 118.7 311.2 0 430z"
+                                                p-id="20829" fill="#fff"></path>
+                                        </svg>
+                                    </span>
+        
                                 </span>
-    
-                            </span>
-                        </div>
-                </template>
+                            </div>
+</template>
             </el-upload>
             <!-- <h3>笔记</h3>
             <el-input
@@ -131,21 +131,30 @@ export default {
                 "image_url": this.imgRes
             }]
             console.log(info);
-            let response = await dataStore.generatePoint({ 'info': info, 'tag': 2 });
-            console.log(response)
-            for (let i in dataStore.solutionList) {
-                if (dataStore.solutionList[i].pid == dataStore.selectProblem.pid) {
-                    dataStore.solutionList[i].designPath.push({
-                        url: this.imgUrl,
-                        // note: this.uploadData.note
-                        info: JSON.parse(response.data.response),
-                        time: timeTag
-                    });
-                    this.uploadData = dataStore.solutionList[i].designPath;
+            try {
+
+                let response = await dataStore.generatePoint({ 'info': info, 'tag': 2 });
+                console.log(response)
+                for (let i in dataStore.solutionList) {
+                    if (dataStore.solutionList[i].pid == dataStore.selectProblem.pid) {
+                        dataStore.solutionList[i].designPath.push({
+                            url: this.imgUrl,
+                            // note: this.uploadData.note
+                            info: JSON.parse(response.data.response),
+                            time: timeTag
+                        });
+                        this.uploadData = dataStore.solutionList[i].designPath;
+                    }
+                    this.uploadDialogTag = false;
                 }
+            } catch (error) {
+
+                ElMessage({
+                    message: "Oops, 上传失败，请重新上传",
+                    type: "warning"
+                })
             }
             this.loadingTag = false;
-            this.uploadDialogTag = false;
         },
         showPreview(url) {
             this.previewDialogTag = !this.previewDialogTag;

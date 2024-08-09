@@ -59,7 +59,7 @@
 import { useDataStore } from "../stores/counter";
 
 import PreviewVideoPlayer from './utils/PreviewVideoPlayer.vue';
-
+import useClipboard from "vue-clipboard3";
 import * as d3 from 'd3';
 
 export default {
@@ -87,20 +87,18 @@ export default {
             dataStore.chatTag = -1;
         },
         async copyToClipboard(data) {
-            let clipboard = navigator.clipboard || {
-            writeText: (text) => {
-                let copyInput = document.createElement('input');
-                copyInput.value = text;
-                document.body.appendChild(copyInput);
-                copyInput.select();
-                document.execCommand('copy');
-                document.body.removeChild(copyInput);
-            }
-            }
+            
             try {
-                await clipboard.writeText(data);
+                await useClipboard().toClipboard(data);
+                ElMessage({
+                    message: "复制成功",
+                    type: "success"
+                })
             } catch (error) {
-                
+                ElMessage({
+                    message: "复制失败",
+                    type: "error"
+                })
             }
         },
         async submitConversation() {
@@ -129,26 +127,36 @@ export default {
             })
             const dataStore = useDataStore();
             let data;
-            if (dataStore.chatTag == -1) {
-                data = await dataStore.getGeneralChat({
-                    content: this.askArea,
-                    history: this.chatHistory
-                });
-            } else {
-                data = await dataStore.solutionChat({
-                    history: this.chatHistory
+            try {
+                if (dataStore.chatTag == -1) {
+                    data = await dataStore.getGeneralChat({
+                        content: this.askArea,
+                        history: this.chatHistory
+                    });
+                } else {
+                    data = await dataStore.solutionChat({
+                        history: this.chatHistory
+                    })
+                }
+                timeTag = Math.floor(now.getTime() / 1000);
+                this.chatHistory[this.chatHistory.length - 1] = {
+                    role: "assistant",
+                    content: [{type: "text", text: data.data.response}],
+                    loadingTag: false,
+                    time: timeTag,
+                    editTag: false
+                };
+                if (dataStore.chatTag == -1) {
+                    dataStore.generalChatData = this.chatHistory;
+                }
+            } catch (error) {
+                console.error(error);
+                this.chatHistory.slice(0, -2);
+
+                ElMessage({
+                    message: "Oops，出错了，请重新输入",
+                    type: "warning"
                 })
-            }
-            timeTag = Math.floor(now.getTime() / 1000);
-            this.chatHistory[this.chatHistory.length - 1] = {
-                role: "assistant",
-                content: [{type: "text", text: data.data.response}],
-                loadingTag: false,
-                time: timeTag,
-                editTag: false
-            };
-            if (dataStore.chatTag == -1) {
-                dataStore.generalChatData = this.chatHistory;
             }
             this.$nextTick(() => {
                 chatContent.scrollTo({

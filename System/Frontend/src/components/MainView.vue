@@ -606,17 +606,26 @@ export default {
                 console.log(info);
             console.log(this.criterionList)
             const dataStore = useDataStore();
-            let res = await dataStore.generatePoint({ 'info': info, 'tag': 1 })
-            // console.log(res);
-            data.content = res.data.response;
-            info[0].text = "问题: " + this.selectProblemData.Problem + " input: " + data.content;
+            try {
+                    
+                let res = await dataStore.generatePoint({ 'info': info, 'tag': 1 })
+                // console.log(res);
+                info[0].text = "问题: " + this.selectProblemData.Problem + " input: " + data.content;
 
-            let evaluate = await dataStore.evaluatePoint({ 'info': info, 'criterion': JSON.stringify(this.criterionList) })
-            let criterionData = (JSON.parse(evaluate.data.response));
-            for (let i in criterionData) {
-                data.score[i] = criterionData[i];
+                let evaluate = await dataStore.evaluatePoint({ 'info': info, 'criterion': JSON.stringify(this.criterionList) })
+                let criterionData = (JSON.parse(evaluate.data.response));
+                data.content = res.data.response;
+                for (let i in criterionData) {
+                    data.score[i] = criterionData[i];
+                }
+                data.authorStatus = 3;
+            } catch (error) {
+                
+                ElMessage({
+                    message: "Oops，出错了，请重新生成",
+                    type: "warning"
+                })
             }
-            data.authorStatus = 3;
             data.loadingTag = false;
         },
         showDefinition(event, definition) {

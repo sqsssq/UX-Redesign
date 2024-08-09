@@ -11,7 +11,7 @@ import {
     solutionChat,
     generatePoint,
     evaluatePoint,
-    reflectResult
+    save,
 } from "../service/module/dataService";
 import {
     ref,
@@ -44,7 +44,8 @@ export const useDataStore = defineStore("dataStore", {
             startingPointList: [],
             solutionList: [],
             criterionList: [],
-            interactionList: []
+            interactionList: [],
+            eyeTrackList: [],
         }
     },
     actions: {
@@ -56,7 +57,8 @@ export const useDataStore = defineStore("dataStore", {
                 "startingPointList": this.startingPointList,
                 // "criterionList": this.criterionList,
                 "generalChatData": this.generalChatData,
-                "interactionList": this.interactionList
+                "interactionList": this.interactionList,
+                "eyeTrackList": this.eyeTrackList
             }
             return data;
         },
@@ -101,8 +103,8 @@ export const useDataStore = defineStore("dataStore", {
             const data = await evaluatePoint(param);
             return data;
         },
-        async reflectResult() {
-            const data = await reflectResult();
+        async save(param) {
+            const data = await save(param);
             return data;
         }
     }
