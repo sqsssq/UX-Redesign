@@ -88,7 +88,7 @@ export default {
         },
         sendData(data) {
             // https://formspree.io/f/mnnavdze
-            axios.post('https://formspree.io/f/mnnavdze', {
+            axios.post('https://formspree.io/f/xrgnoavv', {
                 data: JSON.stringify(data),
                 dataType: 'json'
             }).then((res) => {
