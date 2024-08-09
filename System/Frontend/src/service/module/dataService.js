@@ -8,7 +8,7 @@
 import axios from 'axios';
 
 // axios.defaults.withCredentials = true
-const TEST_URL_PREFIX = '/api/test';
+const TEST_URL_PREFIX = '/api/api/test';
 // const TEST_URL_PREFIX = 'https://uxredeisgn.work:5000/api/test';
 // const TEST_URL_PREFIX = 'http://127.0.0.1:5000/api/test';
 
