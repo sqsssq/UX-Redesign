@@ -92,6 +92,7 @@ import { useDataStore } from "../stores/counter";
 
 import PreviewVideoPlayer from './utils/PreviewVideoPlayer.vue';
 
+import { ElMessage } from 'element-plus';
 import * as d3 from 'd3';
 
 export default {

@@ -476,6 +476,7 @@ import problemData from '../assets/problem.json';
 import criterionData from '../assets/criterion.json';
 import { useDataStore } from "../stores/counter";
 import PreviewVideoPlayer from './utils/PreviewVideoPlayer.vue';
+import { ElMessage } from 'element-plus';
 
 export default {
     name: "APP",

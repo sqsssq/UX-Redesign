@@ -61,6 +61,7 @@ import { useDataStore } from "../stores/counter";
 import PreviewVideoPlayer from './utils/PreviewVideoPlayer.vue';
 import useClipboard from "vue-clipboard3";
 import * as d3 from 'd3';
+import { ElMessage } from 'element-plus';
 
 export default {
     name: "PCV",
