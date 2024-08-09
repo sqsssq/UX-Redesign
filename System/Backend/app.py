@@ -2,7 +2,7 @@
 Description: 
 Author: Qing Shi
 Date: 2022-11-20 19:14:42
-LastEditTime: 2023-08-24 12:20:14
+LastEditTime: 2024-08-09 22:14:14
 '''
 from flask import Flask, request, jsonify
 from flask_cors import CORS
@@ -13,6 +13,8 @@ from openai import OpenAI
 import base64
 from PIL import Image
 import io
+from datetime import datetime
+
 
 FILE_ABS_PATH = os.path.dirname(__file__)
 
@@ -21,6 +23,7 @@ CORS(app)
 app.jinja_env.auto_reload = True
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 app.config['SECRET_KEY'] = 'timetuner'
+
 
 client = OpenAI(
 )
@@ -37,7 +40,6 @@ Five users completed a task using this product while following the think-aloud p
 
 """
 
-
 FILE_ABS_PATH = os.path.dirname(__file__)
 
 def encode_image_to_base64(image):
@@ -49,6 +51,35 @@ def encode_image_to_base64(image):
 UPLOAD_FOLDER = 'uploads'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+
+@app.route("/")
+def hello_world():
+    return "<p>Hello, World!</p>"
+
+
+@app.route('/api/test/Save', methods=['POST'])
+def save():
+    # 获取当前时间作为文件名
+    timestamp = datetime.now().strftime('%Y%m%d%H%M%S')
+    filename = f"{timestamp}.json"
+    print(timestamp)
+    
+    # 获取前端传来的 JSON 数据
+    data = request.get_json()
+    
+    # 设置保存路径（可以根据需要修改）
+    save_path = os.path.join('json_files', filename)
+    
+    # 创建目录（如果不存在）
+    os.makedirs(os.path.dirname(save_path), exist_ok=True)
+    
+    # 将数据保存为 JSON 文件
+    with open(save_path, 'w') as json_file:
+        json.dump(data, json_file, ensure_ascii=False, indent=4)
+    
+    return jsonify({"message": f"Data saved to {filename}"}), 200
+
 
 # 设置允许的文件扩展名
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
