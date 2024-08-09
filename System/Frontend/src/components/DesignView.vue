@@ -87,14 +87,24 @@ export default {
             dataStore.chatTag = -1;
         },
         async copyToClipboard(data) {
+            let clipboard = navigator.clipboard || {
+            writeText: (text) => {
+                let copyInput = document.createElement('input');
+                copyInput.value = text;
+                document.body.appendChild(copyInput);
+                copyInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(copyInput);
+            }
+            }
             try {
-                await navigator.clipboard.writeText(data);
+                await clipboard.writeText(data);
             } catch (error) {
                 
             }
         },
         async submitConversation() {
-            // console.log(this.askArea);
+            console.log(this.askArea);
             let now = new Date();
             let timeTag = Math.floor(now.getTime() / 1000);
             this.chatHistory.push({
@@ -134,7 +144,8 @@ export default {
                 role: "assistant",
                 content: [{type: "text", text: data.data.response}],
                 loadingTag: false,
-                time: timeTag
+                time: timeTag,
+                editTag: false
             };
             if (dataStore.chatTag == -1) {
                 dataStore.generalChatData = this.chatHistory;
