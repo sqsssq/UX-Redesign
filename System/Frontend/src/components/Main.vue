@@ -7,6 +7,19 @@
 -->
 <template>
     <div style="width: 100%; height: 100%;">
+        <el-dialog v-model="startEyeTag" title="提示" width="500" >
+            <span style="font-size: 18px;">请确定设备有能正面摄像头，并且是否启动眼动识别</span>
+            <div style="font-size: 18px; margin-top: 10px;">如果开启眼动，会出现一个视频框，请将设备调整至正面，头部处于黑框内，当视频框消失，正式开始实验</div>
+            <div style="font-style: italic; font-size: 16px; margin-top: 10px;"><span style="color: red;">*注：</span>我们只记录眼动坐标数据，不记录视频</div>
+            <template #footer>
+                <div class="dialog-footer" style="text-align: center;">
+                    <el-button @click="startStudy(1)" type="success">开启眼动</el-button>
+                    <el-button type="danger" @click="startStudy(0)">
+                    取消眼动
+                    </el-button>
+                </div>
+</template>
+        </el-dialog>
         
         <div id="navBar" style="display: flex; justify-content: space-between;">
             <div style="font-weight: 800; padding-left: 0px;position: absolute;">
@@ -18,7 +31,7 @@
                 </span> -->
             </div>
 
-            <div style="position: absolute; right: 10px;"><el-button text bg type="primary" @click="startStudy()">开始</el-button> <el-button text bg type="success" @click="saveData()">保存</el-button> <el-button text bg type="danger" @click="endStudy()">结束</el-button></div>
+            <div style="position: absolute; right: 10px;"><el-button text bg type="primary" @click="startEyeTag = !startEyeTag">开始</el-button> <el-button text bg type="success" @click="saveData()">保存</el-button> <el-button text bg type="danger" @click="endStudy()">结束</el-button></div>
         </div>
         <div style="height: calc(100vh - 40px); width: calc(100% - 0px);">
             <div class="framework" id="videoView" style="position: absolute; left: calc(5px); top: calc(5px); height: calc(100% - 10px); width: calc(70vw - 0px);">
@@ -79,7 +92,9 @@ export default {
         return {
             msg1: "Hello, main!",
             intervalID: null,
-            startTag: false
+            startTag: false,
+            startEyeTag: false,
+            eyeTrackTag: 0
         };
     },
     methods: {
@@ -104,7 +119,7 @@ export default {
             const data = dataStore.saveData();
             console.log(data);
             const res = await dataStore.save(data);
-            
+
             console.log(res)
             this.sendData(data);
             ElMessage({
@@ -112,44 +127,54 @@ export default {
                 type: "success"
             })
         },
-        startStudy() {
+        startStudy(eyeTag) {
             // this.startTag = true;
+            this.eyeTrackTag = eyeTag;
+            this.startEyeTag = !this.startEyeTag;
+
             const vm = this;
-            // webgazer.showVideo(false);
-            // webgazer.showPredictionPoints(false);
+
             const dataStore = useDataStore();
-            
-            webgazer.setGazeListener(function(data, elapsedTime) {
-                if (data == null) {
-                    return;
-                }
-                if (!vm.startTag) {
-                    vm.startTag = true;
-                    webgazer.showVideo(false);
-                    webgazer.showPredictionPoints(false);
-                }
-                var xprediction = data.x; //these x coordinates are relative to the viewport
-                var yprediction = data.y; //these y coordinates are relative to the viewport
-                dataStore.eyeTrackList.push({
-                    x: xprediction,
-                    y: yprediction,
-                    time: elapsedTime
-                });
-                // console.log(elapsedTime, xprediction, yprediction); //elapsed time is based on time since begin was called
-            }).begin();
+            if (eyeTag == 1) {
+                webgazer.setGazeListener(function(data, elapsedTime) {
+                    if (data == null) {
+                        return;
+                    }
+                    if (!vm.startTag) {
+                        vm.startTag = true;
+                        webgazer.showVideo(false);
+                        webgazer.showPredictionPoints(false);
+                    }
+                    var xprediction = data.x; //these x coordinates are relative to the viewport
+                    var yprediction = data.y; //these y coordinates are relative to the viewport
+                    dataStore.eyeTrackList.push({
+                        x: xprediction,
+                        y: yprediction,
+                        time: elapsedTime
+                    });
+                    // console.log(elapsedTime, xprediction, yprediction); //elapsed time is based on time since begin was called
+                }).begin();
+            } else {
+                vm.startTag = true;
+            }
+
+
             this.intervalID = setInterval(() => {
                 vm.saveData();
             }, 3600000);
         },
         async endStudy() {
             clearInterval(this.intervalID);
-            webgazer.end();
+            if (this.eyeTrackTag == 1) {
+                webgazer.end();
+            }
+            
             // this.saveData();
 
             const dataStore = useDataStore();
             const data = dataStore.saveData();
             console.log(data);
-            const res =  await dataStore.save(data);
+            const res = await dataStore.save(data);
             console.log(res);
             this.sendData(data);
             ElMessage({
@@ -160,7 +185,7 @@ export default {
     },
     created() {},
     mounted() {
-        
+
         // let dataStore = useDataStore();
         // dataStore.$subscribe(() => {
         //     this.leftShow = dataStore.leftShow;
@@ -171,7 +196,7 @@ export default {
         startTag: {
             handler() {
                 ElMessage({
-                    message: "眼动记录开始，开始实验",
+                    message: this.eyeTrackTag == 1 ? "眼动记录开始，开始实验" : "无眼动记录，开始实验",
                     type: "success"
                 })
             }
