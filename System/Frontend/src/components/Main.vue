@@ -6,6 +6,7 @@
  * @LastEditTime: 2024-08-09 20:51:34
 -->
 <template>
+    
     <div style="width: 100%; height: 100%;">
         <el-dialog v-model="startEyeTag" title="提示" width="500" >
             <span style="font-size: 18px;">请确定设备有能正面摄像头，并且是否启动眼动识别</span>
@@ -31,7 +32,8 @@
                 </span> -->
             </div>
 
-            <div style="position: absolute; right: 10px;"><el-button text bg type="primary" @click="startEyeTag = !startEyeTag">开始</el-button> <el-button text bg type="success" @click="saveData()">保存</el-button> <el-button text bg type="danger" @click="endStudy()">结束</el-button></div>
+            <div style="position: absolute; right: 10px;"><el-button text bg type="primary" @click="startEyeTag = !startEyeTag">开始</el-button> <el-button text bg type="success" @click="saveData()">保存</el-button> <el-button text bg type="danger" @click="endStudy()">结束</el-button>
+                <el-button text bg @click="refreshPage()">刷新</el-button></div>
         </div>
         <div style="height: calc(100vh - 40px); width: calc(100% - 0px);">
             <div class="framework" id="videoView" style="position: absolute; left: calc(5px); top: calc(5px); height: calc(100% - 10px); width: calc(70vw - 0px);">
@@ -98,6 +100,16 @@ export default {
         };
     },
     methods: {
+        async refreshPage() {
+            const dataStore = useDataStore();
+            const data = dataStore.saveData();
+            console.log(data);
+            const res = await dataStore.save(data);
+
+            console.log(res)
+            this.sendData(data);
+            window.location.reload();
+        },
         generalChat() {
             const dataStore = useDataStore();
             dataStore.chatData = dataStore.generalChatData;

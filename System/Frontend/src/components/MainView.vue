@@ -98,22 +98,92 @@
  * @LastEditTime: 2024-03-03 22:17:13
 -->
 <template>
+    <div style="position: absolute; right: 10px; top: -25px" class="uxButton" @click="exportTag = true">
+        <svg t="1723258208248" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1454" width="20" height="20"><path d="M740.910545 451.397818c-4.340364-12.113455-17.652364-18.420364-29.754182-14.08-12.101818 4.328727-18.408727 17.640727-14.091636 29.742545l111.732364 312.692364L128 923.764364 128 96.395636l463.301818 90.938182 18.629818 41.949091c5.213091 11.741091 18.978909 17.012364 30.72 11.834182 11.752727-5.213091 17.047273-18.967273 11.834182-30.72l-23.528727-53.015273c-3.083636-6.935273-9.344-11.927273-16.791273-13.393455L109.207273 45.277091C102.4 43.927273 95.313455 45.730909 89.937455 50.141091 84.573091 54.562909 81.454545 61.149091 81.454545 68.119273l0 884.363636c0 7.028364 3.165091 13.661091 8.622545 18.082909C94.254545 973.940364 99.432727 975.755636 104.727273 975.755636c1.605818 0 3.223273-0.174545 4.817455-0.500364l734.941091-155.473455c6.562909-1.396364 12.218182-5.562182 15.499636-11.415273 3.269818-5.864727 3.851636-12.846545 1.605818-19.176727L740.910545 451.397818z" p-id="1455" fill="#4c4c4c"></path><path d="M963.665455 176.418909c-3.072-6.644364-9.088-11.461818-16.244364-12.997818l-162.909091-34.909091c-12.602182-2.664727-24.948364 5.317818-27.636364 17.885091s5.317818 24.936727 17.885091 27.636364l90.426182 19.386182c-251.450182 69.399273-360.331636 229.271273-403.304727 320.290909-5.492364 11.636364-0.512 25.495273 11.112727 30.987636C476.194909 546.187636 479.569455 546.909091 482.909091 546.909091c8.727273 0 17.093818-4.922182 21.061818-13.335273 40.192-85.131636 143.546182-235.776 385.803636-298.461091l-49.175273 91.322182c-6.085818 11.322182-1.861818 25.437091 9.460364 31.522909 3.514182 1.896727 7.284364 2.792727 11.008 2.792727 8.285091 0 16.302545-4.433455 20.514909-12.241455l81.454545-151.272727C966.516364 190.766545 966.737455 183.063273 963.665455 176.418909z" p-id="1456" fill="#4c4c4c"></path></svg></div>
     <PreviewVideoPlayer :dialogVisible="dialogVisible" :config="config" :info="previewInfo" @showDialog="showDialog" />
     <div style="width: 100%; height: 100%;">
         <div ref="tooltip" :style="{
-            position: 'fixed',
-            left: (tooltip.x - 150) + 'px',
-            top: (tooltip.y - 100) + 'px',
-            display: tooltip.showTag,
-            'z-index': '999999',
-            width: '300px',
-            backgroundColor: 'white',
-            padding: '5px',
-            border: '1px solid #ccc',
-            borderRadius: '5px'
-        }">{{ tooltip.definition }}</div>
+                position: 'fixed',
+                left: (tooltip.x - 150) + 'px',
+                top: (tooltip.y - 100) + 'px',
+                display: tooltip.showTag,
+                'z-index': '999999',
+                width: '300px',
+                backgroundColor: 'white',
+                padding: '5px',
+                border: '1px solid #ccc',
+                borderRadius: '5px'
+            }">{{ tooltip.definition }}</div>
         <el-dialog v-model="previewDialogTag" width="70%">
-            <img w-full :src="previewUrl" alt="Preview Image" style="width: 100%;"/>
+            <img w-full :src="previewUrl" alt="Preview Image" style="width: 100%;" />
+        </el-dialog>
+        <el-dialog v-model="exportTag" width="60%" title="导出" :top="'5vh'">
+            <div v-if="exportTag == true" style="line-height: 1.5; padding: 0px 40px; overflow-y: auto; height: 70vh; font-family: STSong">
+                <div style="width: 100%; border: 1px solid #ccc;">
+                    <div style="height: 100%; width: 100%; padding: 70px 65px;"  ref="pdfContent">
+                    <h1 style="margin-bottom: 20px; font-size: 35px;">设计总结报告</h1>
+                    <!-- <hr style="margin: 20px;"> -->
+                    <div style="text-align: left">
+                        <h2 style="margin-bottom: 10px; margin-top: 10px">可用性问题</h2>
+                        <div style="font-size: 16px; font-style: italic;">{{ selectProblemData.Problem }}</div>
+                        <div style="width: 100%; margin-top: 10px; text-align: center" v-if="typeof selectProblemData.ui != 'undefined'">
+                            <img :src="'Product UI/' + selectProblemData.ui + '.png'" alt="" style="width: 70%;">
+                        </div>
+                    </div>
+                    <div style="text-align: left">
+                        <h2 style="margin-bottom: 10px; margin-top: 10px">启发与评估</h2>
+                        <div style="font-size: 16px; line-height: 1.5;">
+                            <ul>
+                                <li v-for="(item, i) in startingPoint" :key="i">
+                                    <span><span style="font-weight: bold;">{{ '启发' + (parseInt(i) + 1)  + ': ' }}</span>{{ item.content }}</span>
+                                </li>
+                            </ul>
+                            <div>
+                                <svg width="100%" :height="(radarWidth + 80) * Math.ceil(startingPoint.length / 3)">
+                                    <g v-for="(problem, problem_i) in startingPoint" :key="'startingPoint_radar_' + problem_i" :style="{transform: `translate(calc(${startingPoint.length == 4 ? 50 * ((problem_i % 2)) - 25 : 33 * ((problem_i % 3) - 1)}% + 50%), ${startingPoint.length == 4 ? (radarWidth / 2 + 70) + (radarWidth + 80) * Math.floor(problem_i / 2) :(radarWidth / 2 + 70) + (radarWidth + 80) * Math.floor(problem_i / 3)}px)`}">
+                                        <path v-for="(d, i) in strokePath" :key="'radar_' + i" :d="d.d" :stroke="d.stroke" :stroke-width="d.width" :fill="d.fill" fill-opacity=".3"></path>
+                                        
+                                        <path v-for="(d, i) in problem.radarPath" :key="'radar_' + i" :d="d.d" :stroke="radarColor[problem_i]" :stroke-width="d.width" :fill="radarColor[problem_i]" fill-opacity=".3" :opacity="problem.radarStatus ? 1 : 0"></path>
+                                        <text v-for="(d, i) in problem.radarPoint" :key="'radar_point_' + i" :x="d.x * (radarWidth + 20) / 2" :y="d.y * (radarWidth + 20) / 2" :fill="d.fill" font-size="12px" text-anchor="middle">{{ d.text + ':' + d.score }}
+    
+                                        </text>
+    
+                                        <text text-anchor="middle" text-decoration="underline" :x="0" :y="problem.radarPoint[0].y * (radarWidth + 70) / 2">{{ '启发' + (parseInt(problem_i) + 1) }}</text>
+                                        
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+    
+                    </div>
+                    <div style="text-align: left">
+                        <h2 style="margin-bottom: 10px; margin-top: 10px">解决方案</h2>
+                        <div style="font-size: 16px;" v-html="markdownToHTML()"></div>
+    
+                    </div>
+                    <div style="text-align: left" v-if="getResult(0) != -1">
+                        <h2 style="margin-bottom: 10px; margin-top: 10px">修改UI</h2>
+                        <div style="font-size: 16px;" v-html="getResult(1)"></div>
+    
+                        <div style="width: 100%; margin-top: 10px; text-align: center">
+                            <img :src="getResult(0)" alt="" style="width: 70%;">
+                        </div>
+                        <h2 style="margin-bottom: 10px; margin-top: 10px">AI反思</h2>
+                        <div style="font-size: 16px">
+                            {{ getResult(2) }}
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <template #footer> 
+                <div class="dialog-footer" style="text-align: center;">
+                        <el-button type="success" @click="downloadPDF">下载</el-button>
+                        <el-button type="primary" @click="exportTag = !exportTag">
+                        确定
+                        </el-button>
+                    </div>
+</template>
         </el-dialog>
 
         <el-dialog v-model="editMetricTag" width="65%" title="评估指标">
@@ -241,11 +311,10 @@
                     </span>
                     |
                     <el-popover placement="bottom" :width="100" trigger="click">
-                        <template #reference>
-                            <!-- 评估指标 -->
-                            <span class="uxButton" style="text-decoration: underline;">评估</span>
-                            
-                        </template>
+<template #reference>
+    <!-- 评估指标 -->
+    <span class="uxButton" style="text-decoration: underline;">评估</span>
+</template>
                         <el-checkbox v-for="(d, i) in criterionList" :key="'criterionList_' + i" style="margin-top: 10px;" :value="d.value" v-model="criterionList[i].status">
                             <el-input v-model="criterionList[i].label" style="width: 100px;"></el-input>
                             <!-- {{ d }} -->
@@ -337,15 +406,15 @@
                                             </svg>
                                 </div>
                             </div>
-                            <template v-for="(d, i) in problem.score">
-                                <div>
-                                    <strong>{{ criterion[i] }}: <span><el-input v-model="startingPoint[problem_i].score[i].Score" style="width: 30px;"></el-input></span></strong> &nbsp;
-                                    <div style="margin-top: 5px; margin-bottom: 5px;">
-                                        <el-input type="textarea" v-model="startingPoint[problem_i].score[i].Reason"></el-input>
-                                        <!-- {{d.Reason}} -->
-                                    </div>
-                                </div>
-                            </template>
+<template v-for="(d, i) in problem.score">
+    <div>
+        <strong>{{ criterion[i] }}: <span><el-input v-model="startingPoint[problem_i].score[i].Score" style="width: 30px;"></el-input></span></strong> &nbsp;
+        <div style="margin-top: 5px; margin-bottom: 5px;">
+            <el-input type="textarea" v-model="startingPoint[problem_i].score[i].Reason"></el-input>
+            <!-- {{d.Reason}} -->
+        </div>
+    </div>
+</template>
                         </div>
                     </div>
                     <div class="info-content" :ref="'info_content' + problem_i">
@@ -372,14 +441,14 @@
                                         <svg v-else t="1722532024637" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5332" width="30" height="30"><path d="M618.666667 533.333333l-213.333334-170.666666v341.333333z" fill="#000000" p-id="5333"></path></svg>
                                     </h3>
                                     <div v-if="showReason[problem_i] == 1">
-                                        <template v-for="(d, i) in problem.score">
-                                            <div v-if="criterionList[parseInt(i.substring(10)) - 1].status == true">
-                                                <strong>{{ criterion[i] }}: <span>{{ d.Score }}</span></strong> &nbsp;
-                                                <span>
-                                                    {{d.Reason}}
-                                                </span>
-                                            </div>
-                                        </template>
+<template v-for="(d, i) in problem.score">
+    <div v-if="criterionList[parseInt(i.substring(10)) - 1].status == true">
+        <strong>{{ criterion[i] }}: <span>{{ d.Score }}</span></strong> &nbsp;
+        <span>
+                                                        {{d.Reason}}
+                                                    </span>
+    </div>
+</template>
                                     </div>
                                 </div>
                             </div>
@@ -423,49 +492,48 @@
                 </span>
             </div>
             <div class="subContent" style="overflow: inherit;">
-                <template v-for="(problem, problem_i) in solution" :key="'startingPoint_' + problem_i">
-                <div v-if="problem.pid == selectProblemIndex" class="container" style="height: 100%;">
-                    <div class="align-class">
-                        <span class="title">
-                            {{ '解决方案' + (problem_i + 1) }}
-                        </span>
-                        <span v-if="problem.editStatus == 1" @click="editSolution(problem)" class="evaluation-button" style="position: absolute; right: 80px;">保存</span>
+<template v-for="(problem, problem_i) in solution" :key="'startingPoint_' + problem_i">
+    <div v-if="problem.pid == selectProblemIndex" class="container" style="height: 100%;">
+        <div class="align-class">
+            <span class="title">
+                                {{ '解决方案' + (problem_i + 1) }}
+                            </span>
+            <span v-if="problem.editStatus == 1" @click="editSolution(problem)" class="evaluation-button" style="position: absolute; right: 80px;">保存</span>
     
-                        <span style="display: flex;">
-                            <span @click="generateSolution(problem, problem_i)" class="uxButton">
-                                <svg t="1722488059992" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6602" width="20" height="20"><path d="M779.410286 789.406476c94.598095-52.565333 157.305905-143.36 157.305904-246.735238 0-65.389714-25.35619-125.610667-67.681523-174.470095 3.023238-19.260952 4.583619-38.66819 4.729904-58.124191 0-9.020952-0.975238-17.846857-1.560381-26.721523C950.51581 347.672381 999.619048 438.174476 999.619048 538.819048c0 112.88381-61.68381 213.089524-157.305905 277.650285v175.884191l-176.323048-107.032381a473.86819 473.86819 0 0 1-75.337143 6.241524c-121.124571 0-198.168381-45.689905-273.066666-117.857524 12.336762 0.682667 24.576 1.560381 37.107809 1.560381 17.554286 0 34.913524-0.828952 52.028953-2.194286 59.14819 40.082286 102.4 64.219429 183.929904 64.219429a403.260952 403.260952 0 0 0 81.383619-8.533334l107.373715 70.558477v-109.860572z m-346.063238-76.166095a933.790476 933.790476 0 0 1-105.813334-8.192l-177.298285 101.180952v-175.835428C68.022857 561.39581 24.380952 465.578667 24.380952 352.743619 24.380952 157.93981 207.189333 0 433.347048 0c188.025905 0 377.514667 157.93981 377.514666 352.743619s-151.649524 360.496762-377.514666 360.496762zM320.512 642.681905c26.136381 5.36381 84.74819 8.533333 112.835048 8.533333 191.146667 0 314.61181-131.900952 314.611809-294.619428 0-162.718476-158.183619-294.570667-314.611809-294.570667-196.510476 0-346.063238 131.900952-346.063238 294.570667 0 103.375238 49.103238 185.344 125.854476 246.735238v109.909333l107.373714-70.558476z m285.891048-239.567238a46.518857 46.518857 0 1 1 47.152762-46.518857 46.811429 46.811429 0 0 1-47.152762 46.518857z m-188.757334 0a46.518857 46.518857 0 1 1 47.152762-46.518857 46.86019 46.86019 0 0 1-47.152762 46.518857z m-188.757333 0a46.518857 46.518857 0 1 1 47.152762-46.518857 46.811429 46.811429 0 0 1-47.152762 46.518857z" p-id="6603" fill="#6c6c6c"></path></svg>
-                            </span>&nbsp;
-                            <span @click="editSolution(problem)" class="uxButton">
-                                <svg t="1720712559835" class="icon" viewBox="0 0 1024 1024" version="1.1"
-                                            xmlns="http://www.w3.org/2000/svg" p-id="4277" width="20" height="20">
-                                    <path d="M955.2384 1024H40.0896a40.0896 40.0896 0 0 1 0-80.1792h915.1488a40.0896 40.0896 0 0 1 0 80.1792zM745.472 390.2976L559.4112 200.704l102.9632-105.0112 186.6752 189.5424-103.2704 105.0624h-0.3072zM406.3744 735.744l-230.2464 40.704 44.7488-229.6832L503.808 257.4848l186.0608 189.5424-283.4944 288.768z m523.7248-480.9728L692.5312 12.5952A42.7008 42.7008 0 0 0 663.2448 0a41.5744 41.5744 0 0 0-29.2352 12.5952L157.0816 497.3568a39.2192 39.2192 0 0 0-12.288 22.528L88.3712 819.2a39.7824 39.7824 0 0 0 10.8032 35.1232 38.2976 38.2976 0 0 0 34.5088 11.4176L430.08 813.568a39.4752 39.4752 0 0 0 23.9616-11.3664l476.0576-486.5536a43.6224 43.6224 0 0 0 12.288-29.2864 43.3152 43.3152 0 0 0-12.288-29.2352v-2.3552z"
-                                                p-id="4278" fill="#6c6c6c"></path>
-                                        </svg>
-                                    </span> &nbsp;
-                        <span @click="deleteStartingPoint(problem.sid)" class="uxButton">
-                            <svg t="1721312041338" class="icon" viewBox="0 0 1024 1024" version="1.1"
-                                xmlns="http://www.w3.org/2000/svg" p-id="2821" width="20" height="20">
-                                <path
-                                    d="M608 768c-17.696 0-32-14.304-32-32V384c0-17.696 14.304-32 32-32s32 14.304 32 32v352c0 17.696-14.304 32-32 32zM416 768c-17.696 0-32-14.304-32-32V384c0-17.696 14.304-32 32-32s32 14.304 32 32v352c0 17.696-14.304 32-32 32zM928 224H768v-64c0-52.928-42.72-96-95.264-96H352c-52.928 0-96 43.072-96 96v64H96c-17.696 0-32 14.304-32 32s14.304 32 32 32h832c17.696 0 32-14.304 32-32s-14.304-32-32-32z m-608-64c0-17.632 14.368-32 32-32h320.736C690.272 128 704 142.048 704 160v64H320v-64z"
-                                    p-id="2822" fill="#6c6c6c"></path>
-                                <path
-                                    d="M736.128 960H288.064c-52.928 0-96-43.072-96-96V383.52c0-17.664 14.336-32 32-32s32 14.336 32 32V864c0 17.664 14.368 32 32 32h448.064c17.664 0 32-14.336 32-32V384.832c0-17.664 14.304-32 32-32s32 14.336 32 32V864c0 52.928-43.072 96-96 96z"
-                                    p-id="2823" fill="#6c6c6c"></path>
-                            </svg>
-                        </span>
-                        </span>
-                    </div>
-                    <div class="content" style="height: calc(100% - 20px); overflow-y: auto">
-                        <div v-if="problem.editStatus == 0">
-                            <v-md-preview :text="problem.content"></v-md-preview>
-                        </div>
-                        <div v-else style="height: 100%;">
-                            <v-md-editor style="height: 100%;" mode="edit" v-model="problem.content"></v-md-editor>
-                        </div>
-                    </div>
-                </div>
-                    
-                </template>
+            <span style="display: flex;">
+                                <span @click="generateSolution(problem, problem_i)" class="uxButton">
+                                    <svg t="1722488059992" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6602" width="20" height="20"><path d="M779.410286 789.406476c94.598095-52.565333 157.305905-143.36 157.305904-246.735238 0-65.389714-25.35619-125.610667-67.681523-174.470095 3.023238-19.260952 4.583619-38.66819 4.729904-58.124191 0-9.020952-0.975238-17.846857-1.560381-26.721523C950.51581 347.672381 999.619048 438.174476 999.619048 538.819048c0 112.88381-61.68381 213.089524-157.305905 277.650285v175.884191l-176.323048-107.032381a473.86819 473.86819 0 0 1-75.337143 6.241524c-121.124571 0-198.168381-45.689905-273.066666-117.857524 12.336762 0.682667 24.576 1.560381 37.107809 1.560381 17.554286 0 34.913524-0.828952 52.028953-2.194286 59.14819 40.082286 102.4 64.219429 183.929904 64.219429a403.260952 403.260952 0 0 0 81.383619-8.533334l107.373715 70.558477v-109.860572z m-346.063238-76.166095a933.790476 933.790476 0 0 1-105.813334-8.192l-177.298285 101.180952v-175.835428C68.022857 561.39581 24.380952 465.578667 24.380952 352.743619 24.380952 157.93981 207.189333 0 433.347048 0c188.025905 0 377.514667 157.93981 377.514666 352.743619s-151.649524 360.496762-377.514666 360.496762zM320.512 642.681905c26.136381 5.36381 84.74819 8.533333 112.835048 8.533333 191.146667 0 314.61181-131.900952 314.611809-294.619428 0-162.718476-158.183619-294.570667-314.611809-294.570667-196.510476 0-346.063238 131.900952-346.063238 294.570667 0 103.375238 49.103238 185.344 125.854476 246.735238v109.909333l107.373714-70.558476z m285.891048-239.567238a46.518857 46.518857 0 1 1 47.152762-46.518857 46.811429 46.811429 0 0 1-47.152762 46.518857z m-188.757334 0a46.518857 46.518857 0 1 1 47.152762-46.518857 46.86019 46.86019 0 0 1-47.152762 46.518857z m-188.757333 0a46.518857 46.518857 0 1 1 47.152762-46.518857 46.811429 46.811429 0 0 1-47.152762 46.518857z" p-id="6603" fill="#6c6c6c"></path></svg>
+                                </span>&nbsp;
+            <span @click="editSolution(problem)" class="uxButton">
+                                    <svg t="1720712559835" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                                xmlns="http://www.w3.org/2000/svg" p-id="4277" width="20" height="20">
+                                        <path d="M955.2384 1024H40.0896a40.0896 40.0896 0 0 1 0-80.1792h915.1488a40.0896 40.0896 0 0 1 0 80.1792zM745.472 390.2976L559.4112 200.704l102.9632-105.0112 186.6752 189.5424-103.2704 105.0624h-0.3072zM406.3744 735.744l-230.2464 40.704 44.7488-229.6832L503.808 257.4848l186.0608 189.5424-283.4944 288.768z m523.7248-480.9728L692.5312 12.5952A42.7008 42.7008 0 0 0 663.2448 0a41.5744 41.5744 0 0 0-29.2352 12.5952L157.0816 497.3568a39.2192 39.2192 0 0 0-12.288 22.528L88.3712 819.2a39.7824 39.7824 0 0 0 10.8032 35.1232 38.2976 38.2976 0 0 0 34.5088 11.4176L430.08 813.568a39.4752 39.4752 0 0 0 23.9616-11.3664l476.0576-486.5536a43.6224 43.6224 0 0 0 12.288-29.2864 43.3152 43.3152 0 0 0-12.288-29.2352v-2.3552z"
+                                                    p-id="4278" fill="#6c6c6c"></path>
+                                            </svg>
+                                        </span> &nbsp;
+            <span @click="deleteStartingPoint(problem.sid)" class="uxButton">
+                                <svg t="1721312041338" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" p-id="2821" width="20" height="20">
+                                    <path
+                                        d="M608 768c-17.696 0-32-14.304-32-32V384c0-17.696 14.304-32 32-32s32 14.304 32 32v352c0 17.696-14.304 32-32 32zM416 768c-17.696 0-32-14.304-32-32V384c0-17.696 14.304-32 32-32s32 14.304 32 32v352c0 17.696-14.304 32-32 32zM928 224H768v-64c0-52.928-42.72-96-95.264-96H352c-52.928 0-96 43.072-96 96v64H96c-17.696 0-32 14.304-32 32s14.304 32 32 32h832c17.696 0 32-14.304 32-32s-14.304-32-32-32z m-608-64c0-17.632 14.368-32 32-32h320.736C690.272 128 704 142.048 704 160v64H320v-64z"
+                                        p-id="2822" fill="#6c6c6c"></path>
+                                    <path
+                                        d="M736.128 960H288.064c-52.928 0-96-43.072-96-96V383.52c0-17.664 14.336-32 32-32s32 14.336 32 32V864c0 17.664 14.368 32 32 32h448.064c17.664 0 32-14.336 32-32V384.832c0-17.664 14.304-32 32-32s32 14.336 32 32V864c0 52.928-43.072 96-96 96z"
+                                        p-id="2823" fill="#6c6c6c"></path>
+                                </svg>
+                            </span>
+            </span>
+        </div>
+        <div class="content" style="height: calc(100% - 20px); overflow-y: auto">
+            <div v-if="problem.editStatus == 0">
+                <v-md-preview :text="problem.content"></v-md-preview>
+            </div>
+            <div v-else style="height: 100%;">
+                <v-md-editor style="height: 100%;" mode="edit" v-model="problem.content"></v-md-editor>
+            </div>
+        </div>
+    </div>
+</template>
             </div>
         </div>
     </div>
@@ -477,6 +545,10 @@ import criterionData from '../assets/criterion.json';
 import { useDataStore } from "../stores/counter";
 import PreviewVideoPlayer from './utils/PreviewVideoPlayer.vue';
 import { ElMessage } from 'element-plus';
+import VueMarkdownEditor, { xss } from '@kangc/v-md-editor';
+
+import jsPDF from "jspdf";
+import html2canvas from "html2canvas";
 
 export default {
     name: "APP",
@@ -484,6 +556,7 @@ export default {
     data() {
         return {
             msg1: "Hello, main!",
+            exportTag: false,
             dialogVisible: false,
             config: {},
             raw_data: {},
@@ -524,9 +597,9 @@ export default {
             radarPath: [],
             radarWidth: 0,
             zoomTag: .5,
-            
+
             tooltip: {
-                x: -1000, 
+                x: -1000,
                 y: -1000,
                 definition: "",
                 showTag: 'none'
@@ -535,6 +608,88 @@ export default {
         };
     },
     methods: {
+        async downloadPDF() {
+        const element = this.$refs.pdfContent;
+
+        try {
+            const canvas = await html2canvas(element);
+            const imgData = canvas.toDataURL('image/png');
+
+            // 创建一个隐藏的链接并触发下载
+            const link = document.createElement('a');
+            link.href = imgData;
+            link.download = 'content-image.png';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        } catch (error) {
+            console.error('Image creation failed:', error);
+        }
+        },
+        async downloadPDF2() {
+            const pdf = new jsPDF({
+                orientation: 'portrait',
+                unit: 'mm',
+                format: 'a4'
+            });
+
+            const element = this.$refs.pdfContent;
+            const canvas = await html2canvas(element);
+            const imgData = canvas.toDataURL('image/png');
+
+            const imgWidth = 210; // A4纸的宽度（以毫米为单位）
+            const pageHeight = 297; // A4纸的高度（以毫米为单位）
+            const imgHeight = (canvas.height * imgWidth) / canvas.width;
+            let heightLeft = imgHeight;
+
+            let position = 0;
+
+            // 将内容分割到多页
+            while (heightLeft > 0) {
+                pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                heightLeft -= pageHeight;
+                position -= pageHeight;
+
+                // 如果还有内容需要分页，添加新页
+                if (heightLeft > 0) {
+                    pdf.addPage();
+                }
+            }
+
+            pdf.save('download.pdf');
+        },
+        getResult(tag) {
+            let data = 0;
+            for (let i in this.solution) {
+                if (this.solution[i].pid == this.selectProblemIndex) {
+                    data = this.solution[i].designPath[0];
+                    break;
+                }
+            }
+            console.log(data)
+            if (data == 0) {
+                return -1;
+            }
+            if (tag == 0) {
+                return data.url;
+            } else if (tag == 2) {
+                return data.info.reflection;
+            }
+            const html = xss.process(VueMarkdownEditor.vMdParser.themeConfig.markdownParser.render(data.info.change));
+            return html;
+        },
+        markdownToHTML() {
+            let data;
+            for (let i in this.solution) {
+                if (this.solution[i].pid == this.selectProblemIndex) {
+                    data = this.solution[i].content;
+                    break;
+                }
+            }
+            const html = xss.process(VueMarkdownEditor.vMdParser.themeConfig.markdownParser.render(data));
+            console.log(html);
+            return html;
+        },
         showPreviewVideo(id, time, ui, content) {
             this.dialogVisible = true;
             this.config = {
@@ -598,17 +753,17 @@ export default {
         async generatePoint(data) {
             data.loadingTag = true;
             let info = [{
-                        "type": "text",
-                        "text": "问题: " + this.selectProblemData.Problem + " input: " + data.content
-                    }, {
-                        "type": "image_url",
-                        "image_url": this.selectProblemData.ui
-                    }]
-                console.log(info);
+                "type": "text",
+                "text": "问题: " + this.selectProblemData.Problem + " input: " + data.content
+            }, {
+                "type": "image_url",
+                "image_url": this.selectProblemData.ui
+            }]
+            console.log(info);
             console.log(this.criterionList)
             const dataStore = useDataStore();
             try {
-                    
+
                 let res = await dataStore.generatePoint({ 'info': info, 'tag': 1 })
                 // console.log(res);
                 info[0].text = "问题: " + this.selectProblemData.Problem + " input: " + data.content;
@@ -621,7 +776,7 @@ export default {
                 }
                 data.authorStatus = 3;
             } catch (error) {
-                
+
                 ElMessage({
                     message: "Oops，出错了，请重新生成",
                     type: "warning"
@@ -699,11 +854,11 @@ export default {
                 "time": timeTag
             });
             for (let i in this.criterion) {
-                this.startingPoint[this.startingPoint.length - 1].score[i] = {"Score": 0, "Reason": ""};
+                this.startingPoint[this.startingPoint.length - 1].score[i] = { "Score": 0, "Reason": "" };
             }
             const startingPointScroll = this.$refs.startingPointList;
             this.$nextTick(() => {
-                    
+
                 startingPointScroll.scrollTo({
                     top: startingPointScroll.scrollHeight,
                     behavior: 'smooth'
@@ -758,7 +913,7 @@ export default {
             this.criterion['Criterion_' + (this.criterionList.length + 1)] = '';
             const metricScroll = this.$refs.metricScroll;
             this.$nextTick(() => {
-                    
+
                 metricScroll.scrollTo({
                     top: metricScroll.scrollHeight,
                     behavior: 'smooth'
@@ -796,7 +951,7 @@ export default {
             })
             if (data.showTag == 0) {
                 data.showTag = 1;
-                
+
             } else {
                 data.showTag = 0;
             }
@@ -809,7 +964,7 @@ export default {
                 let strokePath = [];
                 let radarCnt = 0;
                 for (let i in this.criterionList) {
-                    if (this.criterionList[i].status == true) { 
+                    if (this.criterionList[i].status == true) {
                         radarCnt++;
                     }
                 }
@@ -836,7 +991,7 @@ export default {
                         y: Math.sin((tmpCnt * radarAngle / 180 - 0.5) * Math.PI),
                         text: this.criterion[`Criterion_${i + 1}`],
                         score: data['score'][`Criterion_${i + 1}`]['Score'],
-                        definition: this.criterionList[i].Definition 
+                        definition: this.criterionList[i].Definition
                     });
                     strokePath.push({
                         d: 'M 0 0 L ' + Math.cos((tmpCnt * radarAngle / 180 - 0.5) * Math.PI) * this.radarWidth / 2 + ' ' + Math.sin((tmpCnt * radarAngle / 180 - 0.5) * Math.PI) * this.radarWidth / 2,
@@ -913,7 +1068,7 @@ export default {
                 } else {
                     this.startingPoint = dataStore.startingPointList[this.selectProblemIndexList.indexOf(data.pid)];
                 }
-                
+
                 for (const pi in this.problemList) {
                     for (const d of this.problemList[pi]) {
                         d.selectStatus = 0;
@@ -924,7 +1079,7 @@ export default {
                 dataStore.selectProblem = data;
                 dataStore.chatTag = -1;
                 this.selectProblemData = data;
-                
+
                 console.log(data)
             }
             // if (level == 2) {
@@ -1013,7 +1168,7 @@ export default {
         // dataStore.problemList = this.problemList;
         // dataStore.solutionList = this.solution;
     },
-    updated () {
+    updated() {
         if (this.strokePath.length == 0)
             this.calcRadar();
     },
@@ -1043,7 +1198,7 @@ export default {
             deep: true
         },
         compareTag: {
-            handler () {
+            handler() {
                 const dataStore = useDataStore();
                 let now = new Date();
                 let timeTag = Math.floor(now.getTime() / 1000);
@@ -1055,7 +1210,7 @@ export default {
             }
         },
         criterionList: {
-            handler () {
+            handler() {
                 // console.log(this.criterionList);
                 for (let d of this.criterionList) {
                     if (d.label != this.criterion[d.value]) {
@@ -1077,6 +1232,7 @@ export default {
     padding: 10px;
     border-radius: 5px;
 }
+
 .square-svg {
     width: 100%;
 }
@@ -1181,5 +1337,17 @@ export default {
 .evaluation-radar {
     width: 100%;
     margin-top: 10px;
+}
+
+ul {
+    padding-inline-start: 20px;
+}
+
+ol {
+    padding-inline-start: 20px;
+}
+
+h2 {
+    font-size: 25px;
 }
 </style>

@@ -132,29 +132,26 @@ export default {
                 "image_url": this.imgRes
             }]
             console.log(info);
-            // try {
-
-                let response = await dataStore.generatePoint({ 'info': info, 'tag': 2 });
-                console.log(response)
-                for (let i in dataStore.solutionList) {
-                    if (dataStore.solutionList[i].pid == dataStore.selectProblem.pid) {
-                        dataStore.solutionList[i].designPath.push({
-                            url: this.imgUrl,
-                            // note: this.uploadData.note
-                            info: JSON.parse(response.data.response),
-                            time: timeTag
-                        });
-                        this.uploadData = dataStore.solutionList[i].designPath;
-                    }
+            
+            let response = await dataStore.generatePoint({ 'info': info, 'tag': 2 });
+            console.log(response)
+            for (let i in dataStore.solutionList) {
+                if (dataStore.solutionList[i].pid == dataStore.selectProblem.pid) {
+                    dataStore.solutionList[i].designPath.push({
+                        url: this.imgUrl,
+                        info: JSON.parse(response.data.response),
+                        // info: {
+                        //     change: '1. 修改了My brand kit的文案。\n2. 增加了帮助文档的入口\n3. 点击帮助文档入口，显示pop-up弹窗，显示帮助文档内容',
+                        //     reflection: '这些改动大大提升了用户的体验。这不仅有效解决了用户在使用过程中遇到的困惑问题，还通过界面改进，使文档帮助清晰可见，并且用户能够快速学习和确保有效使用该工具。这样提升了操作的直观性和理解的容易性。'
+                            
+                        // },
+                        time: timeTag
+                    });
+                    this.uploadData = dataStore.solutionList[i].designPath;
                     this.uploadDialogTag = false;
                 }
-            // } catch (error) {
-
-            //     ElMessage({
-            //         message: "Oops, 上传失败，请重新上传",
-            //         type: "warning"
-            //     })
-            // }
+            }
+            
             this.loadingTag = false;
         },
         showPreview(url) {
