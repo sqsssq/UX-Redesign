@@ -81,7 +81,6 @@
 
 <script>
 import { useDataStore } from "@/stores/counter";
-import { Fireworks } from 'fireworks-js';
 import MainView from './MainView.vue';
 import DesignView from './DesignView.vue';
 import ResultView from "./ResultView.vue";
