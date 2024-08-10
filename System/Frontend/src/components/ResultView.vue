@@ -132,7 +132,7 @@ export default {
                 "image_url": this.imgRes
             }]
             console.log(info);
-            try {
+            // try {
 
                 let response = await dataStore.generatePoint({ 'info': info, 'tag': 2 });
                 console.log(response)
@@ -148,13 +148,13 @@ export default {
                     }
                     this.uploadDialogTag = false;
                 }
-            } catch (error) {
+            // } catch (error) {
 
-                ElMessage({
-                    message: "Oops, 上传失败，请重新上传",
-                    type: "warning"
-                })
-            }
+            //     ElMessage({
+            //         message: "Oops, 上传失败，请重新上传",
+            //         type: "warning"
+            //     })
+            // }
             this.loadingTag = false;
         },
         showPreview(url) {
