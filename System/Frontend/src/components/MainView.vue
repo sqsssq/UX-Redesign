@@ -3,7 +3,7 @@
  * @Author: Qing Shi
  * @Date: 2024-07-01 00:15:05
  * @LastEditors: Qing Shi
- * @LastEditTime: 2024-08-04 22:58:09
+ * @LastEditTime: 2024-08-11 18:33:04
 -->
 <!--
  *                        _oo0oo_
@@ -391,6 +391,9 @@
                                             fill="#ffffff" p-id="12919"></path>
                                     </svg>
                                 </div>&nbsp;
+                                <div class="edit-button" @click="evaluatePoint(startingPoint[problem_i])" style="background-color: rgb(242, 211, 110); cursor: pointer;">
+                                    <svg t="1723372474028" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6058" width="20" height="20"><path d="M958 989.7H68V33.9h890v955.8z m-830-60h770V93.9H128v835.8z" p-id="6059" fill="#ffffff"></path><path d="M319.4 264.4h512v60h-512zM224.2 278.9l14.7-29.7 14.7 29.8 32.8 4.8-23.8 23.1 5.6 32.8-29.4-15.5-29.4 15.4 5.6-32.7-23.7-23.2zM575.4 702h256v60h-256zM224.2 716.5l14.7-29.7 14.7 29.8 32.8 4.8-23.8 23.1 5.6 32.8-29.4-15.5-29.4 15.4 5.6-32.7-23.7-23.3zM352.2 716.5l14.7-29.7 14.7 29.8 32.8 4.8-23.8 23.1 5.6 32.8-29.4-15.5-29.4 15.4 5.7-32.7-23.8-23.3zM480.5 716.5l14.7-29.7 14.6 29.8 32.9 4.8-23.8 23.1 5.5 32.8-29.3-15.5-29.4 15.4 5.6-32.7-23.7-23.3zM447.6 483.2h383.8v60H447.6zM224.2 497.7l14.7-29.7 14.7 29.8 32.8 4.8-23.8 23.1 5.6 32.8-29.4-15.5-29.4 15.4 5.6-32.7-23.7-23.2zM352.2 497.8l14.7-29.8 14.7 29.8 32.8 4.8-23.8 23.2 5.6 32.7-29.4-15.5-29.4 15.4 5.7-32.7-23.8-23.2z" p-id="6060" fill="#ffffff"></path></svg>
+                                </div>&nbsp;
                                 <div class="edit-button" @click="confirmStartingPointChange(problem)" style="background-color: #11a420; cursor: pointer;">
                                     <svg t="1719773588642" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="13943" width="18" height="18">
                                         <path
@@ -749,6 +752,40 @@ export default {
             dataStore.chatTag = index;
             dataStore.chatData = data.chatHistory;
 
+        },
+        async evaluatePoint(data) {
+            data.loadingTag = true;
+            let info = [{
+                "type": "text",
+                "text": "问题: " + this.selectProblemData.Problem + " input: " + data.content
+            }, {
+                "type": "image_url",
+                "image_url": this.selectProblemData.ui
+            }]
+            console.log(info);
+            console.log(this.criterionList)
+            const dataStore = useDataStore();
+            try {
+
+                // let res = await dataStore.generatePoint({ 'info': info, 'tag': 1 })
+                // console.log(res);
+                info[0].text = "问题: " + this.selectProblemData.Problem + " input: " + data.content;
+
+                let evaluate = await dataStore.evaluatePoint({ 'info': info, 'criterion': JSON.stringify(this.criterionList) })
+                let criterionData = (JSON.parse(evaluate.data.response));
+                // data.content = res.data.response;
+                for (let i in criterionData) {
+                    data.score[i] = criterionData[i];
+                }
+                data.authorStatus = 3;
+            } catch (error) {
+
+                ElMessage({
+                    message: "Oops，出错了，请重新生成",
+                    type: "warning"
+                })
+            }
+            data.loadingTag = false;
         },
         async generatePoint(data) {
             data.loadingTag = true;
