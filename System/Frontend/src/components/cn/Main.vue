@@ -3,20 +3,20 @@
  * @Author: Qing Shi
  * @Date: 2024-02-01 19:32:17
  * @LastEditors: Qing Shi
- * @LastEditTime: 2024-08-25 21:01:39
+ * @LastEditTime: 2024-08-25 20:48:58
 -->
 <template>
     
     <div style="width: 100%; height: 100%;">
-        <el-dialog v-model="startEyeTag" title="Tips" width="600" >
-            <span style="font-size: 18px;">Please ensure that the device has a front-facing camera and check if eye-tracking is enabled.</span>
-            <div style="font-size: 18px; margin-top: 10px;">If eye-tracking is enabled, a video box will appear. Please adjust the device so that it faces you directly, and position your head within the black frame. Once the video box disappears, the experiment will officially begin.</div>
-            <div style="font-style: italic; font-size: 16px; margin-top: 10px;"><span style="color: red;">*Note:&nbsp;</span>We only record eye-tracking coordinate data; the video is not recorded.</div>
+        <el-dialog v-model="startEyeTag" title="Tips" width="500" >
+            <span style="font-size: 18px;">请确定设备有能正面摄像头，并且是否启动眼动识别</span>
+            <div style="font-size: 18px; margin-top: 10px;">如果开启眼动，会出现一个视频框，请将设备调整至正面，头部处于黑框内，当视频框消失，正式开始实验</div>
+            <div style="font-style: italic; font-size: 16px; margin-top: 10px;"><span style="color: red;">*注：</span>我们只记录眼动坐标数据，不记录视频</div>
             <template #footer>
                 <div class="dialog-footer" style="text-align: center;">
-                    <el-button @click="startStudy(1)" type="success">Yes</el-button>
+                    <el-button @click="startStudy(1)" type="success">开启眼动</el-button>
                     <el-button type="danger" @click="startStudy(0)">
-                    No
+                    取消眼动
                     </el-button>
                 </div>
 </template>
@@ -134,7 +134,7 @@ export default {
             console.log(res)
             this.sendData(data);
             ElMessage({
-                message: "Save successful.",
+                message: "保存成功",
                 type: "success"
             })
         },
@@ -189,7 +189,7 @@ export default {
             console.log(res);
             this.sendData(data);
             ElMessage({
-                message: "The user study has ended. Thank you for your participation.",
+                message: "实验结束，感谢您的参与",
                 type: "success"
             })
         }
@@ -207,7 +207,7 @@ export default {
         startTag: {
             handler() {
                 ElMessage({
-                    message: this.eyeTrackTag == 1 ? "Eye-tracking recording has started. Begin the user study." : "No eye-tracking recording. Begin the user study.",
+                    message: this.eyeTrackTag == 1 ? "眼动记录开始，开始实验" : "无眼动记录，开始实验",
                     type: "success"
                 })
             }
@@ -278,7 +278,7 @@ export default {
     padding-left: 10px;
     padding-right: 3px;
     padding-top: 0px;
-    font-family: 'Rajdhani';
+    font-family: 'KoHo';
     line-height: 35px;
 }
 

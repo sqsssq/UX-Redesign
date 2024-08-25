@@ -3,7 +3,7 @@
  * @Author: Qing Shi
  * @Date: 2024-01-24 17:02:12
  * @LastEditors: Qing Shi
- * @LastEditTime: 2024-08-25 20:59:38
+ * @LastEditTime: 2024-08-04 22:41:27
 -->
 <template>
     <!-- <PreviewVideoPlayer :dialogVisible="dialogVisible" :config="config" @showDialog="showDialog" /> -->
@@ -52,7 +52,7 @@
                 placeholder="Please input"
             /> -->
             <div style="margin-top: 20px;">
-                <el-button type="primary" @click="upload()">Upload</el-button>
+                <el-button type="primary" @click="upload()">上传</el-button>
             </div>
             </div>
         </el-dialog>
@@ -74,11 +74,11 @@
                     <img class="uxButton" @click="showPreview(design.url)" :src="design.url" alt="" style="width: 100%;">
                     
                 </div>
-                <h3>Change</h3>
+                <h3>修改</h3>
                 <div>
                     <v-md-preview :text="design.info.change"></v-md-preview>
                 </div>
-                <h3>Reflection</h3>
+                <h3>反思</h3>
                 <div>
                     {{ design.info.reflection }}
                 </div>

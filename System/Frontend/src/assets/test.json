@@ -1,3 +1,4 @@
+新！键盘快捷键 … 云端硬盘键盘快捷键已更新，以便支持首字母导航
 {
     "problem": [
         {
@@ -504,49 +505,50 @@
             "selectStatus": 0,
             "showTag": 0,
             "radarStatus": true,
-            "history": ["Enhance personalization and customization features: Allows users to customize design elements in detail, such as color schemes, fonts, and images, through an advanced toolbar while providing real-time preview functionality so that users can instantly see and adjust changes."],
-            "content": "Enhance personalization and customization features: Allows users to customize design elements in detail, such as color schemes, fonts, and images, through an advanced toolbar while providing real-time preview functionality so that users can instantly see and adjust changes.",
-            "score": {
-                "Criterion_1": {
-                    "Score": 3,
-                    "Reason": "Introduces some new features like the advanced toolbar and real-time preview, requiring moderate planning and resources."
-                },
-                "Criterion_2": {
-                    "Score": 3,
-                    "Reason": "Reasonable time is required to implement these new features."
-                },
-                "Criterion_3": {
-                    "Score": 3,
-                    "Reason": "Moderate funding is needed to develop the advanced tools and real-time preview functionality."
-                },
-                "Criterion_4": {
-                    "Score": 3,
-                    "Reason": "Some existing design elements are utilized, but new interfaces and features are also introduced."
-                },
-                "Criterion_5": {
-                    "Score": 4,
-                    "Reason": "Effectively addresses user needs for personalization and detailed customization."
-                },
-                "Criterion_6": {
-                    "Score": 3,
-                    "Reason": "The implementation of new features presents manageable challenges but is feasible."
-                },
-                "Criterion_7": {
-                    "Score": 4,
-                    "Reason": "Significantly enhances the user experience by allowing users to precisely control design details."
-                },
-                "Criterion_8": {
-                    "Score": 3,
-                    "Reason": "Considers the needs of a broader user base, though with more focus on general design."
-                },
-                "Criterion_9": {
-                    "Score": 3,
-                    "Reason": "There are some limitations, such as requiring a certain level of design ability from users."
-                },
-                "Criterion_10": {
-                    "Score": 4,
-                    "Reason": "Providing more customization options can enhance the overall attractiveness and consistency of the design."
-                        }
+            {
+    "history": ["Enhance personalization and customization features: Allows users to customize design elements in detail, such as color schemes, fonts, and images, through an advanced toolbar while providing real-time preview functionality so that users can instantly see and adjust changes."],
+    "content": "Enhance personalization and customization features: Allows users to customize design elements in detail, such as color schemes, fonts, and images, through an advanced toolbar while providing real-time preview functionality so that users can instantly see and adjust changes.",
+    "score": {
+        "Criterion_1": {
+            "Score": 3,
+            "Reason": "Introduces some new features like the advanced toolbar and real-time preview, requiring moderate planning and resources."
+        },
+        "Criterion_2": {
+            "Score": 3,
+            "Reason": "Reasonable time is required to implement these new features."
+        },
+        "Criterion_3": {
+            "Score": 3,
+            "Reason": "Moderate funding is needed to develop the advanced tools and real-time preview functionality."
+        },
+        "Criterion_4": {
+            "Score": 3,
+            "Reason": "Some existing design elements are utilized, but new interfaces and features are also introduced."
+        },
+        "Criterion_5": {
+            "Score": 4,
+            "Reason": "Effectively addresses user needs for personalization and detailed customization."
+        },
+        "Criterion_6": {
+            "Score": 3,
+            "Reason": "The implementation of new features presents manageable challenges but is feasible."
+        },
+        "Criterion_7": {
+            "Score": 4,
+            "Reason": "Significantly enhances the user experience by allowing users to precisely control design details."
+        },
+        "Criterion_8": {
+            "Score": 3,
+            "Reason": "Considers the needs of a broader user base, though with more focus on general design."
+        },
+        "Criterion_9": {
+            "Score": 3,
+            "Reason": "There are some limitations, such as requiring a certain level of design ability from users."
+        },
+        "Criterion_10": {
+            "Score": 4,
+            "Reason": "Providing more customization options can enhance the overall attractiveness and consistency of the design."
+                }
             }
         },
         {

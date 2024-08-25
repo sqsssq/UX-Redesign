@@ -3,12 +3,12 @@
  * @Author: Qing Shi
  * @Date: 2024-01-23 13:24:12
  * @LastEditors: Qing Shi
- * @LastEditTime: 2024-01-24 15:13:23
+ * @LastEditTime: 2024-08-25 21:03:29
 -->
 <template>
-    <el-dialog ref="videoDialog" v-model="visible" :title="'视频预览 ' + video_name" width="50%"  :class="'show_info_dialog_pre'">
+    <el-dialog ref="videoDialog" v-model="visible" :title="'Video ' + video_name" width="50%"  :class="'show_info_dialog_pre'">
         <div style="font-style: italic;font-size: 16px;">
-            <span style="color: red; font-weight: bold;">问题：</span>
+            <span style="color: red; font-weight: bold;">Problem: </span>
             <span>{{  info.text }}</span>
         </div>
         
@@ -27,7 +27,7 @@
                     分析
                 </el-button> -->
                 <el-button type="primary" @click="visible = false">
-                    关闭
+                    Close
                 </el-button>
             </span>
         </template>

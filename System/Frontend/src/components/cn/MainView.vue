@@ -3,7 +3,7 @@
  * @Author: Qing Shi
  * @Date: 2024-07-01 00:15:05
  * @LastEditors: Qing Shi
- * @LastEditTime: 2024-08-25 21:24:00
+ * @LastEditTime: 2024-08-11 18:33:04
 -->
 <!--
  *                        _oo0oo_
@@ -121,21 +121,21 @@
             <div v-if="exportTag == true" style="line-height: 1.5; padding: 0px 40px; overflow-y: auto; height: 70vh; font-family: STSong">
                 <div style="width: 100%; border: 1px solid #ccc;">
                     <div style="height: 100%; width: 100%; padding: 70px 65px;"  ref="pdfContent">
-                    <h1 style="margin-bottom: 20px; font-size: 35px;">Design Report</h1>
+                    <h1 style="margin-bottom: 20px; font-size: 35px;">设计总结报告</h1>
                     <!-- <hr style="margin: 20px;"> -->
                     <div style="text-align: left">
-                        <h2 style="margin-bottom: 10px; margin-top: 10px">Usability Problem</h2>
+                        <h2 style="margin-bottom: 10px; margin-top: 10px">可用性问题</h2>
                         <div style="font-size: 16px; font-style: italic;">{{ selectProblemData.Problem }}</div>
                         <div style="width: 100%; margin-top: 10px; text-align: center" v-if="typeof selectProblemData.ui != 'undefined'">
                             <img :src="'Product UI/' + selectProblemData.ui + '.png'" alt="" style="width: 70%;">
                         </div>
                     </div>
                     <div style="text-align: left">
-                        <h2 style="margin-bottom: 10px; margin-top: 10px">Inspiration & Evaluation</h2>
+                        <h2 style="margin-bottom: 10px; margin-top: 10px">启发与评估</h2>
                         <div style="font-size: 16px; line-height: 1.5;">
                             <ul>
                                 <li v-for="(item, i) in startingPoint" :key="i">
-                                    <span><span style="font-weight: bold;">{{ 'Inspiration' + (parseInt(i) + 1)  + ': ' }}</span>{{ item.content }}</span>
+                                    <span><span style="font-weight: bold;">{{ '启发' + (parseInt(i) + 1)  + ': ' }}</span>{{ item.content }}</span>
                                 </li>
                             </ul>
                             <div>
@@ -148,7 +148,7 @@
     
                                         </text>
     
-                                        <text text-anchor="middle" text-decoration="underline" :x="0" :y="problem.radarPoint[0].y * (radarWidth + 70) / 2">{{ 'Inspiration' + (parseInt(problem_i) + 1) }}</text>
+                                        <text text-anchor="middle" text-decoration="underline" :x="0" :y="problem.radarPoint[0].y * (radarWidth + 70) / 2">{{ '启发' + (parseInt(problem_i) + 1) }}</text>
                                         
                                     </g>
                                 </svg>
@@ -157,18 +157,18 @@
     
                     </div>
                     <div style="text-align: left">
-                        <h2 style="margin-bottom: 10px; margin-top: 10px">Solution</h2>
+                        <h2 style="margin-bottom: 10px; margin-top: 10px">解决方案</h2>
                         <div style="font-size: 16px;" v-html="markdownToHTML()"></div>
     
                     </div>
                     <div style="text-align: left" v-if="getResult(0) != -1">
-                        <h2 style="margin-bottom: 10px; margin-top: 10px">UI Change</h2>
+                        <h2 style="margin-bottom: 10px; margin-top: 10px">修改UI</h2>
                         <div style="font-size: 16px;" v-html="getResult(1)"></div>
     
                         <div style="width: 100%; margin-top: 10px; text-align: center">
                             <img :src="getResult(0)" alt="" style="width: 70%;">
                         </div>
-                        <h2 style="margin-bottom: 10px; margin-top: 10px">AI Reflection</h2>
+                        <h2 style="margin-bottom: 10px; margin-top: 10px">AI反思</h2>
                         <div style="font-size: 16px">
                             {{ getResult(2) }}
                         </div>
@@ -178,34 +178,34 @@
             </div>
             <template #footer> 
                 <div class="dialog-footer" style="text-align: center;">
-                        <el-button type="success" @click="downloadPDF">Download</el-button>
+                        <el-button type="success" @click="downloadPDF">下载</el-button>
                         <el-button type="primary" @click="exportTag = !exportTag">
-                        Confirm
+                        确定
                         </el-button>
                     </div>
 </template>
         </el-dialog>
 
-        <el-dialog v-model="editMetricTag" width="65%" title="Evaluation Metric">
+        <el-dialog v-model="editMetricTag" width="65%" title="评估指标">
             <div class="align-class" style="margin-top: 0px;">
-                <div style="width: 80px;">Metric</div>
+                <div style="width: 80px;">指标</div>
                 <div style="width: 15%;">
-                    Definition
+                    定义
                 </div>
                 <div style="width: 15%;">
-                    Level 1
+                    1级
                 </div>
                 <div style="width: 15%;">
-                    Level 2
+                    2级
                 </div>
                 <div style="width: 15%;">
-                    Level 3
+                    3级
                 </div>
                 <div style="width: 15%;">
-                    Level 4
+                    4级
                 </div>
                 <div style="width: 15%;">
-                    Level 5
+                    5级
                 </div>
             </div>
             <div style="height: 600px; width: 100%; overflow-y: auto" ref="metricScroll"> 
@@ -232,16 +232,16 @@
                 </div>
             </div>
             <div style="margin-top: 20px;">
-                <el-button @click="addMetric()">Add</el-button>
-                <el-button type="primary" @click="generateMetric">Generate</el-button>
-                <el-button type="success" @click="editMetricTag = !editMetricTag">Confirm</el-button>
-                <el-button type="danger" @click="editMetricTag = !editMetricTag">Cancel</el-button>
+                <el-button @click="addMetric()">新建</el-button>
+                <el-button type="primary" @click="generateMetric">生成</el-button>
+                <el-button type="success" @click="editMetricTag = !editMetricTag">确认</el-button>
+                <el-button type="danger" @click="editMetricTag = !editMetricTag">取消</el-button>
             </div>
         </el-dialog>
         <div class="subRect" style="left: 0px; width: 24%">
             <div class="subtitle">
                 <span>
-                    &nbsp;Problem List
+                    &nbsp;问题列表
                 </span>
             </div>
             <div class="subContent">
@@ -303,17 +303,17 @@
         <div class="subRect" style="left: calc(24% + 10px); width: calc(35% - 20px)">
             <div class="subtitle align-class">
                 <div>
-                    &nbsp;Inspiration List
+                    &nbsp;启发列表
                 </div>
                 <span style="font-size: 15px; font-weight: normal;">
                     <span @click="createStartingPoint()" class="uxButton" style="text-decoration: underline;">
-                        Add
+                        新建
                     </span>
                     |
                     <el-popover placement="bottom" :width="100" trigger="click">
 <template #reference>
     <!-- 评估指标 -->
-    <span class="uxButton" style="text-decoration: underline;">Evaluate</span>
+    <span class="uxButton" style="text-decoration: underline;">评估</span>
 </template>
                         <el-checkbox v-for="(d, i) in criterionList" :key="'criterionList_' + i" style="margin-top: 10px;" :value="d.value" v-model="criterionList[i].status">
                             <el-input v-model="criterionList[i].label" style="width: 100px;"></el-input>
@@ -321,12 +321,12 @@
                         </el-checkbox>
                         <div>
                             <!-- addMetric() -->
-                            <el-button style="margin-top: 10px;" @click="editMetricTag = !editMetricTag">Edit</el-button>
+                            <el-button style="margin-top: 10px;" @click="editMetricTag = !editMetricTag">修改</el-button>
                         </div>
                     </el-popover>
                     | 
                     <span class="uxButton" @click="compareTag = !compareTag" style="text-decoration: underline;">
-                        Compare
+                        对比
                     </span>
                 </span>
             </div>
@@ -334,7 +334,7 @@
                 <div v-for="(problem, problem_i) in startingPoint" :key="'startingPoint_' + problem_i" class="container" :style="{ 'border-color': problem.selectStatus == 1 ? 'rgba(255, 159, 49, 1)' : '#AAA' }">
                     <div class="align-class">
                         <span style="display: flex; align-items: center;">
-                            <span @click="selectProblem(problem, 2)" class="title uxButton">{{ 'Inspiration' + (problem_i + 1) }}</span> &nbsp;
+                            <span @click="selectProblem(problem, 2)" class="title uxButton">{{ '启发' + (problem_i + 1) }}</span> &nbsp;
                             <span @click="problem.authorTag = !problem.authorTag" class="align-class uxButton">
                                 <svg v-if="problem.authorStatus == 0" t="1722532863560" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7316" width="18" height="18"><path d="M517.12 998.4h-40.96c-15.36 0-25.6-15.36-25.6-25.6s15.36-25.6 25.6-25.6H522.24c15.36 0 25.6 10.24 25.6 25.6s-10.24 25.6-25.6 25.6h-5.12z m102.4-10.24c-10.24 0-20.48-10.24-25.6-20.48-5.12-15.36 5.12-25.6 20.48-30.72l46.08-15.36c15.36-5.12 25.6 0 30.72 15.36 5.12 15.36 0 25.6-15.36 30.72-15.36 5.12-35.84 10.24-51.2 15.36l-5.12 5.12z m-235.52-5.12h-5.12c-15.36-5.12-35.84-10.24-51.2-15.36-15.36-5.12-20.48-20.48-15.36-35.84 5.12-15.36 20.48-20.48 35.84-15.36l46.08 15.36c15.36 5.12 20.48 20.48 15.36 30.72-5.12 10.24-15.36 20.48-25.6 20.48z m363.52-51.2c-10.24 0-15.36-5.12-20.48-10.24-5.12-10.24-5.12-25.6 10.24-35.84 15.36-10.24 25.6-15.36 40.96-25.6 10.24-10.24 25.6-5.12 35.84 5.12s5.12 25.6-5.12 35.84l-46.08 30.72h-15.36zM256 921.6c-5.12 0-10.24 0-15.36-5.12-15.36-10.24-30.72-20.48-40.96-30.72-10.24-10.24-10.24-25.6-5.12-35.84 10.24-10.24 25.6-10.24 35.84-5.12 10.24 10.24 25.6 20.48 40.96 30.72 10.24 10.24 15.36 25.6 5.12 35.84-5.12 5.12-10.24 10.24-20.48 10.24z m604.16-81.92c-5.12 0-10.24 0-15.36-5.12-10.24-10.24-10.24-25.6 0-35.84 10.24-10.24 20.48-25.6 30.72-35.84 10.24-10.24 25.6-15.36 35.84-5.12 10.24 10.24 15.36 25.6 5.12 35.84-10.24 15.36-20.48 30.72-35.84 40.96-5.12 5.12-15.36 5.12-20.48 5.12z m-711.68-15.36c-5.12 0-15.36-5.12-20.48-10.24l-30.72-46.08c-5.12-10.24-5.12-25.6 10.24-35.84 10.24-5.12 25.6-5.12 35.84 10.24 10.24 15.36 15.36 25.6 25.6 40.96 10.24 10.24 5.12 25.6-5.12 35.84 0 5.12-5.12 5.12-15.36 5.12z m788.48-102.4h-10.24c-15.36-5.12-20.48-20.48-15.36-35.84l15.36-46.08c5.12-15.36 20.48-20.48 30.72-15.36 15.36 5.12 20.48 20.48 15.36 30.72-5.12 15.36-10.24 35.84-20.48 51.2 0 5.12-5.12 15.36-15.36 15.36z m-855.04-20.48c-10.24 0-20.48-5.12-25.6-15.36-5.12-15.36-10.24-35.84-15.36-51.2-5.12-15.36 5.12-25.6 20.48-30.72 15.36-5.12 25.6 5.12 30.72 20.48 0 10.24 5.12 25.6 10.24 40.96 5.12 15.36 0 25.6-15.36 30.72l-5.12 5.12zM972.8 583.68c-5.12 0-5.12 0 0 0-15.36 0-25.6-15.36-25.6-25.6V512c0-15.36 10.24-25.6 25.6-25.6s25.6 10.24 25.6 25.6v56.32c-5.12 5.12-15.36 15.36-25.6 15.36z m-921.6-25.6c-15.36 0-25.6-10.24-25.6-25.6v-25.6-30.72c0-15.36 15.36-25.6 25.6-25.6 15.36 0 25.6 15.36 25.6 25.6v46.08c0 25.6-10.24 35.84-25.6 35.84z m911.36-117.76c-10.24 0-20.48-10.24-25.6-20.48l-15.36-46.08c0-15.36 5.12-30.72 20.48-35.84 15.36-5.12 25.6 5.12 30.72 15.36 5.12 15.36 10.24 35.84 15.36 51.2 5.12 15.36-5.12 25.6-20.48 30.72 0 5.12-5.12 5.12-5.12 5.12zM66.56 419.84h-5.12c-15.36-5.12-20.48-20.48-20.48-35.84 5.12-15.36 10.24-35.84 15.36-51.2 5.12-15.36 20.48-20.48 30.72-15.36 15.36 5.12 20.48 20.48 15.36 30.72 0 20.48-5.12 35.84-10.24 51.2-5.12 10.24-15.36 20.48-25.6 20.48zM911.36 307.2c-10.24 0-15.36-5.12-20.48-10.24-10.24-15.36-15.36-25.6-25.6-40.96-10.24-10.24-5.12-25.6 5.12-35.84 10.24-10.24 25.6-5.12 35.84 5.12l30.72 46.08c5.12 10.24 5.12 25.6-10.24 35.84h-15.36zM122.88 286.72c-5.12 0-10.24 0-15.36-5.12-10.24-5.12-10.24-20.48-5.12-35.84 10.24-15.36 20.48-25.6 30.72-40.96 10.24-10.24 25.6-10.24 35.84-5.12 10.24 10.24 10.24 25.6 5.12 35.84-10.24 15.36-20.48 25.6-25.6 40.96-5.12 5.12-15.36 10.24-25.6 10.24zM819.2 194.56c-5.12 0-10.24 0-15.36-5.12-10.24-10.24-25.6-20.48-35.84-30.72-10.24-10.24-15.36-25.6-5.12-35.84 10.24-10.24 25.6-15.36 35.84-5.12 15.36 10.24 30.72 20.48 40.96 35.84 10.24 10.24 10.24 25.6 0 35.84-5.12 5.12-10.24 5.12-20.48 5.12zM220.16 179.2c-5.12 0-15.36 0-20.48-10.24-10.24-10.24-5.12-25.6 5.12-35.84 15.36-10.24 25.6-20.48 40.96-30.72 10.24-10.24 25.6-5.12 35.84 5.12 10.24 10.24 5.12 25.6-5.12 35.84-15.36 10.24-25.6 20.48-40.96 30.72-5.12 5.12-10.24 5.12-15.36 5.12z m481.28-61.44h-10.24l-46.08-15.36c-15.36-5.12-20.48-20.48-15.36-30.72 5.12-20.48 15.36-25.6 30.72-20.48 15.36 5.12 35.84 10.24 51.2 20.48 15.36 5.12 20.48 20.48 10.24 35.84 0 5.12-10.24 10.24-20.48 10.24z m-358.4-10.24c-10.24 0-20.48-5.12-25.6-15.36-5.12-15.36 0-25.6 15.36-30.72 15.36-5.12 35.84-10.24 51.2-15.36 15.36-5.12 25.6 5.12 30.72 20.48 5.12 15.36-5.12 25.6-20.48 30.72-10.24 0-25.6 5.12-40.96 10.24h-10.24z m220.16-25.6c-25.6-5.12-51.2-5.12-76.8 0-15.36-5.12-30.72-15.36-30.72-30.72s10.24-25.6 25.6-25.6h87.04c15.36 0 25.6 15.36 20.48 30.72 0 15.36-15.36 25.6-25.6 25.6z" fill="#4c4c4c" p-id="7317"></path></svg>
                             
@@ -421,7 +421,7 @@
                         </div>
                     </div>
                     <div class="info-content" :ref="'info_content' + problem_i">
-                        <div class="evaluation-button" @click="showRadar(problem)">Evaluation</div>
+                        <div class="evaluation-button" @click="showRadar(problem)">评估</div>
                         <div class="evaluation-radar" v-if="problem.showTag == 1">
                             <div class="square-svg" ref="radar">
                                 <svg width="100%" :height="radarWidth / zoomTag * .6">
@@ -439,7 +439,7 @@
                             <div>
                                 <div>
                                     <h3 style="display: flex;" class="uxButton" @click="showEvaluationReason(problem_i)">
-                                        Reason
+                                        评估原因
                                         <svg v-if="showReason[problem_i] == 1" t="1722531891004" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5170" width="30" height="30"><path d="M512 640l170.666667-213.333333H341.333333z" fill="#000000" p-id="5171"></path></svg>
                                         <svg v-else t="1722532024637" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5332" width="30" height="30"><path d="M618.666667 533.333333l-213.333334-170.666666v341.333333z" fill="#000000" p-id="5333"></path></svg>
                                     </h3>
@@ -464,7 +464,7 @@
             <div v-if="compareTag == true"  style="width: 100%; height: calc(42% - 30px);">
                 <div style="z-index: 100; position: absolute; top: 0px; left: 0px">
                     <el-checkbox v-for="(problem, problem_i) in startingPoint" :key="'startingPoint_radar_' + problem_i" v-model="startingPoint[problem_i].radarStatus">
-                        <span class="align-class"><div :style="{width: '10px', height: '10px', backgroundColor: radarColor[problem_i], borderRadius: '50%'}"></div> &nbsp; {{ "Inspiration" + (parseInt(problem.sid) + 1) }}</span>
+                        <span class="align-class"><div :style="{width: '10px', height: '10px', backgroundColor: radarColor[problem_i], borderRadius: '50%'}"></div> &nbsp; {{ "启发" + (parseInt(problem.sid) + 1) }}</span>
                     </el-checkbox>
                 </div>
                 <svg width="100%" height="100%">
@@ -485,11 +485,11 @@
     
             <div class="subtitle">
                 <span @click="showText">
-                    &nbsp;Solution
+                    &nbsp;解决方案
                 </span>
                 <span style="font-size: 15px; font-weight: normal;">
                     <span class="uxButton" style="text-decoration: underline;"  @click="addSolution()">
-                        Add
+                        新建
                     </span>
                     
                 </span>
@@ -501,7 +501,7 @@
             <span class="title">
                                 {{ '解决方案' + (problem_i + 1) }}
                             </span>
-            <span v-if="problem.editStatus == 1" @click="editSolution(problem)" class="evaluation-button" style="position: absolute; right: 80px;">Save</span>
+            <span v-if="problem.editStatus == 1" @click="editSolution(problem)" class="evaluation-button" style="position: absolute; right: 80px;">保存</span>
     
             <span style="display: flex;">
                                 <span @click="generateSolution(problem, problem_i)" class="uxButton">
@@ -583,16 +583,16 @@ export default {
             compareTag: false,
             radarColor: ['#D1A42E', '#780853', '#126E64', '#006699', '#451D6E', '#725B4A', '#8A1816', '#0D1320'],
             criterion: {
-                Criterion_1: "Complexity",
-                Criterion_2: "Time spent",
-                Criterion_3: "Money spent",
-                Criterion_4: "Consistency",
-                Criterion_5: "Rationality",
-                Criterion_6: "Feasibility",
-                Criterion_7: "Impact",
-                Criterion_8: "Inclusivity",
-                Criterion_9: "Limitations",
-                Criterion_10: "Aesthetic"
+                Criterion_1: "复杂性",
+                Criterion_2: "花费时间",
+                Criterion_3: "花费金钱",
+                Criterion_4: "一致性",
+                Criterion_5: "合理性",
+                Criterion_6: "可行性",
+                Criterion_7: "影响力",
+                Criterion_8: "包容性",
+                Criterion_9: "局限性",
+                Criterion_10: "美观性"
             },
             criterionList: criterionData,
             selectAttributeList: [],
@@ -724,7 +724,7 @@ export default {
                     "role": "user",
                     "content": [{
                         "type": "text",
-                        "text": "Problem: " + this.selectProblemData.Problem
+                        "text": "问题: " + this.selectProblemData.Problem
                     }, {
                         "type": "image_url",
                         "image_url": this.selectProblemData.ui
@@ -733,7 +733,7 @@ export default {
                     "role": "assistant",
                     "content": [{
                         "type": "text",
-                        "text": "Please ask a question"
+                        "text": "请提出问题"
                     }]
                 }],
                 "content": "",
