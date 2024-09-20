@@ -6,6 +6,8 @@
  */
 import { createRouter, createWebHashHistory, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
+import LionView from '../views/LionView.vue';
+import PicView from "../views/PicView.vue";
 
 const router = createRouter({
   // history: createWebHistory(import.meta.env.BASE_URL),
@@ -16,6 +18,16 @@ const router = createRouter({
       name: "home",
       component: HomeView,
     },
+    {
+      path: "/lion",
+      name: 'lion',
+      component: LionView
+    },
+    {
+        path: "/pic",
+        name: 'pic',
+        component: PicView
+    }
     // {
     //   path: "/baseline",
     //   name: "baseline",
